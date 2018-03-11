@@ -1,0 +1,77 @@
+# Band Map API Cluster
+# Docker Compose File
+
+# This file defines the set of Docker containers
+# that make up a Band Map API cluster.
+
+version: '3'
+
+# networks:
+#   frontend:
+#     # driver: bridge
+#   backend:
+
+# volumes:
+  # Creates a named volume to persist our data. When on a non-Linux OS, the volume's data will be in the Docker VM
+  # (e.g., MobyLinuxVM) in /var/lib/docker/volumes/
+  # postgresVolume:
+
+services:
+
+  db:
+    image: postgres:9.6-alpine
+    ports:
+      - 5432:5432
+    # Make Postgres log to a file.
+    # More on logging with Postgres: https://www.postgresql.org/docs/current/static/runtime-config-logging.html
+    # command: postgres -c logging_collector=on -c log_destination=stderr -c log_directory=/logs
+    # volumes:
+    #   - db-data:/var/lib/postgresql/data
+    # networks:
+    #   - backend
+    # deploy:
+    #   placement:
+    #     constraints: [node.role == manager]
+
+    environment:
+      POSTGRES_PASSWORD: a
+      PGDATA: /var/lib/postgresql/data/bandmapdata
+    volumes:
+      # For local dev environments:
+      # Use a persistent directory on the host machine for postgres data files.
+      # Map it to the same directory path in the container.
+      - /var/lib/postgresql/data/bandmapdata:/var/lib/postgresql/data/bandmapdata
+    # If on a non-Linux OS, make sure you share the drive used here. Go to Docker's settings -> Shared Drives
+  #   volumes:
+  #     # Persist the data between container invocations
+  #     - postgresVolume:/var/lib/postgresql/data
+  #     - ./logs:/logs
+  #   networks:
+  #     myApp-network:
+  #       # Our application can communicate with the database using this hostname
+  #       aliases:
+  #         - postgresForMyApp
+
+  api:
+    # For local dev environments:
+    # Build Band Map API from its context directory, cache as "bandmap-api".
+    # Not valid for swarms: https://docs.docker.com/compose/compose-file/#build
+    build: ./images/bandmap-api
+    image: bandmap-api:latest
+    ports:
+      # Expose node on localhost port 3000.
+      - 3000:3000
+
+  # redis:
+  #   image: redis:alpine
+  #   ports:
+  #     - "6379"
+  #   networks:
+  #     - frontend
+  #   deploy:
+  #     replicas: 2
+  #     update_config:
+  #       parallelism: 2
+  #       delay: 10s
+  #     restart_policy:
+  #       condition: on-failure

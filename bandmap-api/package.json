@@ -1,0 +1,25 @@
+{
+  "name": "bandmap-api-server",
+  "version": "1.0.0",
+  "description": "Welcome to the Seattle Band Map API!  This is a [RESTful web interface](https://en.wikipedia.org/wiki/Representational_state_transfer) for accessing info about Seattle bands and how they are connected.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "knex": "^0.13.0",
+    "moment": "^2.18.1",
+    "pg": "^7.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.5.0",
+    "swagger-tools": "0.10.1"
+  }
+}

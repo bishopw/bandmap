@@ -1,0 +1,341 @@
+# Swagger (OpenAPI) Specification of the Band Map API
+
+swagger: '2.0'
+
+info:
+  title: Band Map
+  version: {{apiVersion='1.0.0'}}
+  description: Welcome to the Seattle Band Map API!  This is a [RESTful web interface](https://en.wikipedia.org/wiki/Representational_state_transfer) for accessing info about Seattle bands and how they are connected.
+  license:
+    name: ISC
+    url: https://opensource.org/licenses/ISC
+  contact:
+    name: Bishop Wilkins
+    email: bishopw@gmail.com
+
+host: {{host=localhost:3000}}
+basePath: /api
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+
+securityDefinitions:
+  basicAuth:
+    type: basic
+    description: Most URLs are open to the public with no authentication necessary, but registered users can authenticate with [HTTP basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication).
+
+# Apply basic auth globally to all operations.
+security:
+  - basicAuth: []
+
+# OAuth example:
+# Note that for Access Code Flow, you must provide the Token URL.
+# securityDefinitions:
+#   accessCode:
+#     type: oauth2
+#     # This should be updated to the Token URL of your OAuth provider.
+#     tokenUrl: http://localhost:3000/oauth/token
+#     # This should be updated to the Authorization URL of your OAuth provider.
+#     authorizationUrl: http://localhost:3000/oauth/auth
+#     flow: accessCode
+#     scopes:
+#       write: allows modifying resources
+#       read: allows reading resources
+
+# See also: http://swagger.io/specification/#securityDefinitionsObject
+
+tags:
+  - name: API Root
+    description: General API info.
+  - name: Bands
+    description: Resources about bands.
+  - name: Connections
+    description: Resources about connections between bands.
+  - name: People
+    description: Resources about band members and related people.
+  - name: Roles
+    description: Resources about the roles people have in bands (like the instruments they play).
+  - name: Locations
+    description: Resources related to the geographic location of bands.
+  - name: Edit History
+    description: Resources for tracking edit history and annotations.
+  - name: Accounts and Sessions
+    description: Site administration resources about user accounts and sessions.
+
+{{paths}}
+
+parameters:
+
+  expandParam:
+    name: expand
+    in: query
+    type: array
+    collectionFormat: 'csv'
+    description: A comma-delimited list of fields (attributes) of the objects or nested sub-objects returned at this resource.  Dot notation (like field.subfield) can be used to address nested sub-object fields.  Objects specified by these fields will be expanded.
+    minItems: 0
+    maxItems: 1000
+    items:
+      type: string
+
+  fieldsParam:
+    name: fields
+    in: query
+    type: array
+    collectionFormat: 'csv'
+    description: A comma-delimited list of fields (attributes) of the objects or nested sub-objects returned at this resource.  Dot notation (like field.subfield) can be used to address nested sub-object fields.  Only the fields specified will be returned.
+    minItems: 0
+    maxItems: 1000
+    items:
+      type: string
+
+  noFieldsParam:
+    name: 'no-fields'
+    in: query
+    type: array
+    collectionFormat: 'csv'
+    description: A comma-delimited list of fields (attributes) of the objects or nested sub-objects returned at this resource.  Dot notation (like field.subfield) can be used to address nested sub-object fields.  The fields specified will not be returned.
+    minItems: 0
+    maxItems: 1000
+    items:
+      type: string
+
+  filterParam:
+    name: filter
+    in: query
+    type: string
+    description: "A filter expression for filtering returned objects.  Works as described in the [Microsoft API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering), and additionally allows a 'contains' or 'ct' operator for filtering on string field values."
+
+  sortParam:
+    name: sort
+    in: query
+    type: array
+    collectionFormat: 'csv'
+    description: "A comma-delimited list of fields to sort returned objects on, where the first specified field will be the primary sort, second field will be the secondary sort, and so on.  Use <field>:asc or <field>:desc to specify ascending or descending sorts, ascending is default."
+    minItems: 0
+    maxItems: 1000
+    items:
+      type: string
+
+  limitParam:
+    name: limit
+    in: query
+    type: integer
+    description: The maximum number of objects to return at once.
+    minimum: 0
+    maximum: 10000000
+
+  offsetParam:
+    name: offset
+    in: query
+    type: integer
+    description: Used to begin retrieving results from the middle of a collection, a zero-based offset from the start of the collection.
+    minimum: 0
+
+  prettyParam:
+    name: pretty
+    in: query
+    type: boolean
+    description: "If false, whitespace will not be included in JSON responses.  Default is true: JSON responses will be formatted with indentation and line breaks."
+    default: true
+
+  helpParam:
+    name: help
+    in: query
+    allowEmptyValue: true
+    type: boolean
+    description: Instead of the normal output, retrieve a human-readable, HTML formatted description of the resource.
+    default: true
+
+  docParam:
+    name: doc
+    in: query
+    allowEmptyValue: true
+    type: boolean
+    description: Instead of the normal output, retrieve a human-readable, HTML formatted description of the resource.
+    default: true
+
+  schemaParam:
+    name: schema
+    in: query
+    allowEmptyValue: true
+    type: boolean
+    description: Instead of the normal output, retrieve a machine-readable [JSON schema](http://json-schema.org/) describing the resource.
+    default: true
+
+  annotationsParam:
+    name: annotations
+    in: query
+    allowEmptyValue: true
+    type: boolean
+    description: Include any existing editor annotations on all returned objects and nested sub-objects (citations for facts or additional relevant info).
+    default: true
+
+  idsParam:
+    name: ids
+    in: query
+    type: array
+    collectionFormat: 'csv'
+    description: A comma-delimited list of IDs specifying the targets in this collection to operate on.
+    minItems: 0
+    maxItems: 10000000
+    items:
+      type: string
+
+  namesParam:
+    name: names
+    in: query
+    type: array
+    collectionFormat: 'csv'
+    description: A comma-delimited list of names specifying the targets in this collection to operate on.
+    minItems: 0
+    maxItems: 10000000
+    items:
+      type: string
+
+  filterInputParam:
+    name: filter
+    in: query
+    type: string
+    description: "A filter expression for filtering target objects.  Works as described in the [Microsoft API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering), and additionally allows a 'contains' or 'ct' operator for filtering on string field values.  The objects in this collection targeted by the filter will be operated on."
+
+  bandParam:
+    name: band
+    in: path
+    type: string
+    description: The ID or name of the target band.  If you are specifying the band by name, preserve any spaces between words in the band name in the URL - they will be processed normally.
+    required: true
+
+  personParam:
+    name: person
+    in: path
+    type: string
+    description: The ID or name of the target person.  If you are specifying the person by name, preserve any spaces between words in their name in the URL - they will be processed normally.
+    required: true
+
+  roleParam:
+    name: role
+    in: path
+    type: string
+    description: The ID or name of the target role.  If you are specifying the role by name, preserve any spaces between words in the name in the URL - they will be processed normally.
+    required: true
+
+  connectionParam:
+    name: connection
+    in: path
+    type: string
+    description: 'A specification of the target connection.  In the URL, a connection can be specified in either of two ways: canonical id (like "123-456"), or name id (like "band a-band b").  The ordering of bands in either way does not matter (that is, "band a-band b" will address the same connection as "band b-band a").  If you are specifying bands by name, preserve any spaces between words in the name in the URL - they will be processed normally.'
+    required: true
+
+  cityParam:
+    name: city
+    in: path
+    type: string
+    description: The ID or name of the target city.  If you are specifying the city by name, preserve any spaces between words in the name in the URL - they will be processed normally.
+    required: true
+
+  stateParam:
+    name: state
+    in: path
+    type: string
+    description: The ID or name of the target state/province/prefecture (state names are typically abbreviated, like "WA" for "Washington").  If you are specifying by name, preserve any spaces between words in the name in the URL - they will be processed normally.
+    required: true
+
+  countryParam:
+    name: country
+    in: path
+    type: string
+    description: The ID or name of the target country.  If you are specifying the country by name, preserve any spaces between words in the name in the URL - they will be processed normally.
+    required: true
+
+  regionParam:
+    name: region
+    in: path
+    type: string
+    description: The ID or name of the target region.  If you are specifying the region by name, preserve any spaces between words in the name in the URL - they will be processed normally.
+    required: true
+
+  accountParam:
+    name: account
+    in: path
+    type: string
+    description: The ID or username of the target account.
+    required: true
+
+  sessionParam:
+    name: session
+    in: path
+    type: string
+    description: The ID of the target session.
+    required: true
+
+  editParam:
+    name: edit
+    in: path
+    type: string
+    description: The ID of the target edit.
+    required: true
+
+{{responses}}
+
+# # Example responses usage:
+# responses:
+#   notFoundResponse:
+#     description: Entity not found.
+#     schema:
+#       $ref: '#/definitions/schema404'
+# paths:
+#   /some/path:
+#     get:
+#       responses:
+#         404:
+#           $ref: '#/responses/notFound'
+
+definitions:
+
+  {{topLevelDefinitions}}
+
+  FirstLink:
+    properties:
+      link:
+        type: string
+        description: A stable, absolute URL linking to the first segment in this collection for the given limit.
+        example: https://www.seattlebandmap.com/api/bands?limit=100
+
+  PrevLink:
+    properties:
+      link:
+        type: string
+        description: A stable, absolute URL linking to the previous segment in this collection for the given limit and offset.
+        example: https://www.seattlebandmap.com/api/bands?limit=100&offset=400
+
+  NextLink:
+    properties:
+      link:
+        type: string
+        description: A stable, absolute URL linking to the next segment in this collection for the given limit and offset.
+        example: https://www.seattlebandmap.com/api/bands?limit=100&offset=600
+
+  LastLink:
+    properties:
+      link:
+        type: string
+        description: A stable, absolute URL linking to the last segment in this collection for the given limit.
+        example: https://www.seattlebandmap.com/api/bands?limit=100&offset=900
+
+  Error:
+    properties:
+      error:
+        description: An object containing details about an error or errors that occurred processing the request.
+        properties:
+          code:
+            type: string
+            description: A short error code string describing the error that occurred.
+            enum:
+              - UnknownError
+              - MultipleErrors
+          message:
+            type: string
+            description: A more detailed message describing this error.

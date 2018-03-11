@@ -1,0 +1,6472 @@
+Ingesting input database tables.
+  Ingesting table: bands.
+  Ingesting table: pending_bands.
+  Ingesting table: connections.
+  Ingesting table: pending_connections.
+
+Organizing records into intermediate data model.
+  Organizing records from 'bands' table.
+    Found 3830 unique / 3830 total band records, normalized 20 names, deduplicated 0.
+    Found 4594 unique / 6338 total person records, normalized 0 names.
+    Found 99 unique / 2765 total city records.  Normalized 149 names.
+    Found 28 unique / 2726 total state records in 6 countries.  Normalized 58 names.
+    Found 4912 bands with no city.
+    Found 12 cities with no state.
+    Found 1 cities with multiple states.
+    Found 966 websites.
+  Organizing records from 'pending_bands' table.
+    Found 90 unique / 93 total band records, normalized 2 names, deduplicated 3.
+    Found 246 unique / 349 total person records, normalized 0 names.
+    Found 13 unique / 185 total city records.  Normalized 12 names.
+    Found 3 unique / 182 total state records in 6 countries.  Normalized 0 names.
+    Found 2 bands with no city.
+    Found 1 cities with no state.
+    Found 1 cities with multiple states.
+    Found 71 websites.
+  Organizing records from 'connections' table.
+    Found 5384 unique / 5437 total connection records.  Discarded 52 with bad band ids, 1 duplicates.
+
+Found:
+  Bands: 3923
+  People: 4840
+  Connections: 5437
+  Cities: 112
+  States: 31
+  Countries: 6
+  Websites: 1037
+
+Details:
+Bands:
+  Read: 3923
+  Unique: 3920
+  Normalized Names Count: 22
+  Normalized Names:
+  - "'Countra Band Country Band ' => 'Countra Band Country Band'"
+  - "'Fall of Electricity ' => 'Fall of Electricity'"
+  - "'Spencer Moody ' => 'Spencer Moody'"
+  - "'Type ' => 'Type'"
+  - "'GodSpeed ' => 'GodSpeed'"
+  - "'Bob Wayne & The Outlaw Carnies ' => 'Bob Wayne & The Outlaw Carnies'"
+  - "'Westin Halvorson ' => 'Westin Halvorson'"
+  - "'The Simians ' => 'The Simians'"
+  - "'Corn Dogs ' => 'Corn Dogs'"
+  - "'Blue Ribbon Boys \t' => 'Blue Ribbon Boys'"
+  - "'The Snot Rockettes ' => 'The Snot Rockettes'"
+  - "'I Like Danger? ' => 'I Like Danger?'"
+  - "'Aileen Paron ' => 'Aileen Paron'"
+  - "'Zony Mash ' => 'Zony Mash'"
+  - "'The Accident Experiment ' => 'The Accident Experiment'"
+  - "'Baltic Cousins ' => 'Baltic Cousins'"
+  - "'Napalm Beach ' => 'Napalm Beach'"
+  - "'Triple X Audio\t' => 'Triple X Audio'"
+  - "'Honcho Poncho ' => 'Honcho Poncho'"
+  - "'Pretty Broken Things ' => 'Pretty Broken Things'"
+  - "'The Spider Ferns ' => 'The Spider Ferns'"
+  - "'xsuns.bandcamp.com ' => 'xsuns.bandcamp.com'"
+  Deduplicated Count: 3
+  Deduplicated:
+    Evangeline: 1
+    Sweet Jesus: 1
+    Smokey Brights: 1
+  No Members Count: 2304
+  No Members:
+  - ''
+  - '& Yet'
+  - '1234'
+  - '141'
+  - 1500 Club
+  - 16Volt
+  - '1776'
+  - 1st Black Prez
+  - 2-Minute Tantrum
+  - '2233'
+  - 2Pac
+  - 3 Inches of Blood
+  - 3 Kevins
+  - 3 Track Mind
+  - 3kelvins
+  - 4 Everity
+  - 6 mile pilot
+  - 64k
+  - '669'
+  - 764 Hero
+  - A Frames
+  - A Grave with No Name
+  - A Gun That Shoots Knives
+  - A Hawk and a Hacksaw
+  - A Midnight Choir
+  - A Million Years Ago!
+  - A Sandcastle Still
+  - A Sic End
+  - A Story of Rats
+  - A-Holes
+  - A. Parks
+  - AA
+  - AC / DC
+  - AFCGT
+  - Aaron J. Shay
+  - Abandon Your Tutu
+  - Abe Vigoda
+  - Abeyance
+  - Abident
+  - Absolute Monarchs
+  - Acetylene
+  - Action Jackson
+  - Action Patrol
+  - Action Suits
+  - Added Value
+  - Addition
+  - Adraboo
+  - Agatha
+  - Agent 86
+  - AgesandAges
+  - Aileen Paron
+  - Airport
+  - Akashic Records
+  - Akrish
+  - Alaska in Winter
+  - Alaskas
+  - Alectrophobia
+  - Alice Cooper
+  - Alice Evans
+  - Alien Crime Syndicate
+  - All Creatures of Good Heart
+  - All Eyes West
+  - All Time High
+  - Allecia Clemons
+  - Alligator Pears
+  - Alma Villagas Band
+  - Almighty Dread
+  - Alphabetics
+  - Altamont
+  - Alternate 85
+  - Amateur Lovers
+  - Ambidextrous
+  - Ambulance
+  - Ambulance for Angels
+  - American Eyes
+  - American Girls
+  - Amos Miller
+  - Amy Grant
+  - An Invitation to Love
+  - Anatomy of a Ghost
+  - Anaxagorous
+  - Anberlin
+  - Anchor & Braille
+  - Ancille
+  - Andrew Nelson
+  - Andriod Hero
+  - Androids of Mu
+  - Angelo Spencer
+  - Angles of Light
+  - Ani DiFranco
+  - Animals at Night
+  - Anna Coogan
+  - Anna-Lynne Williams
+  - Anti-Flag
+  - Antlers
+  - Antony and the Johnsons
+  - Ants Invasion
+  - Apedog
+  - Apes of Wrath
+  - Aphiskkyu-Bot
+  - Apparatus
+  - Appleseed Apart
+  - Aquino
+  - Aretha Franklin
+  - Argo
+  - Arkade
+  - Arla Snell
+  - Armitage Shanks
+  - Arms Akimbo
+  - Army
+  - Arrington De Dionyso
+  - Arthur
+  - Arthur & Yu
+  - As We Speak
+  - Asher Vast
+  - Ashley Erikson
+  - Asleep At The Wheel
+  - Aspirin Feast
+  - Assisted Living
+  - Asva
+  - At the Spine,
+  - Atomic 61
+  - Auditory Sculpture
+  - Autumn Sonata
+  - Avatar
+  - Avian Survivor
+  - Avolition
+  - Avulsion
+  - Avulsive
+  - Awesome Color
+  - Awesome Possum
+  - Axes of Evil
+  - Azrael
+  - B
+  - B-Awake
+  - B-Self
+  - B. Brown
+  - Baby Guns
+  - Backstabbers
+  - Backwards Masks
+  - Bad Radio
+  - Bad Tats
+  - Badass 24 Hr Drum Solo
+  - Badwater Fire Company
+  - Bakongo!
+  - Balance of the World
+  - Bali Girls
+  - Baltic Cousins
+  - Banco de Gaia
+  - Bandits
+  - Bandolier
+  - Banjo or Freakout
+  - Banned from the Mall
+  - Barfly
+  - Basemint
+  - Basic Astronomy
+  - Bat Country
+  - Bats of Belfry
+  - Bean One
+  - Beat Connection
+  - Beautiful Mothers
+  - Beautiful Soup
+  - Bedroom Produksionz
+  - Beecraft
+  - Beehive Vaults
+  - Beep Family Orchestra
+  - Beestings
+  - Before Cars
+  - Beirut
+  - Beltholes
+  - Bend Sinister
+  - Benjamin Bear
+  - Benny
+  - Bens Jazz Kit
+  - Best Kissers in the World
+  - Betelmire
+  - Betsy Olson
+  - Better Day
+  - Betty Ford Falcons
+  - Beware Doll
+  - Beyond Reality
+  - Beyond the Fringe
+  - Bhumi
+  - Bible Stud
+  - Big Boys
+  - Big Brown Music
+  - Big Business
+  - Big Grizzly
+  - Big High
+  - Big Hollow
+  - Big Sister
+  - Big Splash Champion
+  - Bikini Kill
+  - Bill Frisell
+  - Billy Childish & Musicians Of The British Empire
+  - Billy Patron
+  - Bing Crosby
+  - Bird Of Passage
+  - Birdwatchers United!
+  - Bishop I
+  - Black Belt
+  - Black Breath
+  - Black Eyes and Neckties
+  - Black Flag
+  - Black Gravit
+  - Black Heart Procession
+  - Black Horse
+  - Black Houses
+  - Black Line
+  - Black Mountain
+  - Black Nite Crash
+  - Black Noise Cannon
+  - Black Power Arrangers
+  - Black Sabbath
+  - Black Stax
+  - Blaise Pascal
+  - Blak
+  - Bleeder
+  - Blind Horse
+  - Blondie
+  - Blood
+  - Blood Orange Paradise
+  - Blood Sweep
+  - Blood Wing
+  - Bloodloss
+  - Blouse
+  - Blue Pig
+  - Blue Ribbon Boys
+  - Blur
+  - Board of Education
+  - Boaz
+  - Bob Dylan
+  - Bob Marley
+  - Bob Wayne & The Outlaw Carnies
+  - Bodine
+  - Bomberman Awesome
+  - Bone Orchard
+  - Bone Poets Orchestra
+  - Bonfire madigan
+  - Bono
+  - Book of Black Earth
+  - Boom Boom G
+  - Boom City
+  - Boom Tali Posse
+  - Boomzzilla
+  - Bottlehead
+  - Bow and Arrow
+  - Boxcar Rebellion
+  - Boy Toast
+  - Brain Dead
+  - Brainhole
+  - Brainstorm
+  - Brash Royal
+  - Brave New World
+  - Brawny Banks
+  - Break Off
+  - Breaker Breaker
+  - Brendan Daniels and Everybody Gets Laid
+  - Brendan Daniels and the Chics
+  - Brian Eno
+  - Brian May
+  - Brian Vogan and His Good Buddies
+  - Bright Girls
+  - Britannica of Belevedere
+  - Broken Nobles
+  - Broken Statue
+  - Broken Suitcase
+  - Broomsticks
+  - Bruce Illest
+  - Brunchfist
+  - Bud Powell
+  - Buddan Loves Jesus
+  - Budo
+  - Buffalo Springfield
+  - Buffalo Tramp & V.V. Vioux
+  - Building a rocket
+  - Built to Spill
+  - Bulldog Front
+  - Bundland
+  - Bundle of Hiss
+  - Burn Witch Burn
+  - Burn it Down
+  - Burning Witch
+  - Burns
+  - Butt House
+  - Buttafuko
+  - Butthole Surfers
+  - Buttrock Suites
+  - Byrdie
+  - C-Note
+  - CIOP
+  - CXQ5
+  - Cab Calloway
+  - Cactus Love
+  - Cali Giraffes
+  - Calico Cartel
+  - Caligula Cartel
+  - Calvin Don't Jump
+  - Calvin Johnson
+  - Camas In Our Pants
+  - Camerosmith
+  - Can I Be She Ra
+  - Can't See
+  - Cancer Rising
+  - Candidt
+  - Candy Snatchers
+  - Canon Canyon
+  - Capping Day
+  - Captain Fathom
+  - Captain Leroy & the Zydeco Locals
+  - Cariss
+  - Carmenzito
+  - Carrie Biell
+  - Carroded
+  - Case Studies
+  - Cast Iron Fairies
+  - Caste of the Akwada
+  - Cataldo
+  - Catatonic Youth
+  - Caught Red Handed
+  - Cave Singers
+  - Cedar
+  - Central Intelligence
+  - Central Services
+  - Chad and Tad
+  - Chain and the Gang
+  - Champagne Champagne
+  - Champion
+  - Channel
+  - Chaostic Magic
+  - Charlie Drown
+  - Chaz and the Mungie
+  - Chelsea Speed Party
+  - Chemlab
+  - Chicharones
+  - Chidren's Hospital
+  - Childbirth
+  - Chocolate Chuck
+  - Chris & Carla
+  - Chris Eckman
+  - Chris Walla
+  - Christ on a Crutch
+  - Christdriver
+  - Christina Antipa
+  - Christmas Card
+  - Christopher Francis and Son
+  - Chromatones
+  - Chumbawamba
+  - Chyeah chyeah
+  - Cibo Matto
+  - Cicadas
+  - Cilantro
+  - Citris Mod
+  - City Center
+  - Clean Break
+  - Clinton Feron
+  - Clipse
+  - Clockwork
+  - Cloudbustr
+  - Clown Alley
+  - Clucks
+  - Coachwhips
+  - Coal Mine Fires
+  - Cobra High
+  - Cocorosie
+  - Cod Launcher
+  - Cold Cave
+  - Cold Sweat
+  - Coldplay
+  - Coley Cole
+  - Colin Isler Band
+  - Colin J. Nelson
+  - Comely Fause
+  - Common Heros
+  - Common Market
+  - Computer Impossible
+  - Confusion Park
+  - Consume
+  - Control Keys
+  - Cool Rays
+  - Corey Brewer
+  - Coriander
+  - Corin Tucker Band
+  - Correo Aer
+  - Cosmic Pantherland Band
+  - Coulter
+  - Count Bassie
+  - Countermeasure
+  - Countra Band Country Band
+  - Cowardice
+  - Cowboy Coffee
+  - Cowlick
+  - Cows
+  - Craig Salt Peters
+  - Crawdaddies
+  - Cream
+  - Crictor
+  - Criminal Damage
+  - Criss Crass
+  - Crooked Tree
+  - Crosby Stills Nash and Young
+  - Crosssbone River
+  - Crown Row
+  - Crystal Beth
+  - Crystal Radio
+  - Crystal Skulls
+  - Crytical Dividenz
+  - Cupid Car Club
+  - Curious Mystery
+  - Custom
+  - Cut***Lose
+  - D. Black
+  - DC & The Washingtons
+  - DJ Blessone
+  - DJ Top Spin
+  - DNTL
+  - DOA
+  - DOD
+  - DOD GRUNGE
+  - Daily Values
+  - Dalmatians
+  - Dame
+  - Dance Party Internationale
+  - Danger Gens
+  - Danzig
+  - Daphne Loves Derby
+  - Dark Matter Noise
+  - Dark Meat and Lazer Vomit Family Band
+  - Dark Places
+  - Dartk Thrown
+  - Das Dhoom
+  - Das Llamas
+  - Das Schwa
+  - Dave Matthews Band
+  - Dave Rawlinson Band
+  - David Bavas Experience
+  - David Bavas and The Down Comforter
+  - David Bazan
+  - David Bowie
+  - David Byrne
+  - Daylight Basement
+  - DeLorean
+  - DeVries
+  - Dead Kennedys
+  - Dead Low Tide
+  - Dead Poetic
+  - Dearboy
+  - Death For Profit
+  - Death Spiral
+  - Death Valley Murder Squad
+  - Decemberists
+  - Decrepit
+  - Deep End
+  - Deerhoof
+  - Deerhunter
+  - Degenerats
+  - Dekay
+  - Delta Haymax
+  - Delusions Bone Celler
+  - Deluxe Gentlemen
+  - Delvecko
+  - Demon Hunter,
+  - Dennis
+  - Dennison Witmer
+  - Dept. Of Energy
+  - Der Trasch
+  - Desolation Wilderness
+  - Destro
+  - Devil's Dykes
+  - Devo
+  - Devotion
+  - Dharma Bums
+  - Diablotones
+  - Dicky Moe
+  - Digital Underground
+  - Dignan Porch
+  - Dikes of Holland
+  - Dillo Jamz
+  - Dimmak
+  - Dinosaur and the Missing Links
+  - Dio
+  - Dirtmusic
+  - Dirty Jesus and the Fun Monks
+  - Dirty Mac
+  - Dirty Projectors
+  - Disjointed Isotopes
+  - Display
+  - Disraeli Gears
+  - Dissident Militia
+  - Dizzy Gillespie
+  - Dog Shredder
+  - Dolphin
+  - Don Peyote
+  - Don't Talk to the Cops
+  - Doomhawk
+  - Doomsday 1999
+  - Dopke
+  - Doppleganger
+  - Double Fudge
+  - Double Vision
+  - Doug Yule
+  - Down North
+  - Dox
+  - Dr. Dre
+  - Dr. Fleek and the Army of Experimental Ch
+  - Dr. Kwan Ph.D.
+  - Dreadful Children
+  - Drown
+  - Drowning in Lethe
+  - Drunk Grannies
+  - Du Hexen Hase
+  - Dub Lounge International
+  - Dub Narcotic Soundsystem
+  - Duck N Cover
+  - Dudley Taft Band
+  - Duet To-It
+  - Dull Knife
+  - Dunes
+  - Dutch Dub
+  - Dyke van Dick
+  - Dyme Def
+  - Dynamite 8
+  - Dynette Set
+  - Dyno Jamz
+  - Earls family bombers
+  - Ears
+  - Earthstar
+  - Eastern Star
+  - Easy Big Fella
+  - Ecaj Jace
+  - Echo Locate
+  - Ed Wang
+  - Eddie Van Halen
+  - Eight Track Mind
+  - Eighty4fly
+  - El Vez
+  - Elect Becker
+  - Electric Eye
+  - Electric Light Orchestra
+  - Elephant 6 Collective
+  - Elevated Elements
+  - Eleven
+  - Eleventhour
+  - Elf Power
+  - Eli Moore
+  - Elise Glassman
+  - Embers Vacancy
+  - Emerald City Jazz Ensemble
+  - Emeralds
+  - Empty Cage Quartet
+  - Enemy Kite
+  - Enfor
+  - Enforcer
+  - Engine 54
+  - Engines of Inertia
+  - Ensign
+  - Envision
+  - Erode
+  - Eshas
+  - Estocar
+  - Eternal 13
+  - Eternal fair
+  - Ethan Freckleton
+  - Eureka Farm
+  - Evan and Virginia Easthope
+  - Evangeline
+  - Evening Plains
+  - Everlasting Blues Band
+  - Excuse 17
+  - Explode into Colors
+  - Eyelids
+  - F-Holes
+  - FIIA
+  - Fabulous Party Boys
+  - Face First
+  - Face of Radio
+  - Factory Girls
+  - Faded Markers
+  - Fair
+  - Fakey Vampires
+  - Fall of 1920
+  - Fall of Electricity
+  - Fall on Fall
+  - Fallouts
+  - Fatal Lucciauno
+  - Father John Misty
+  - Fearce Villan
+  - Fecal Matter
+  - Femme Uke
+  - Fenster
+  - Feral Chilren
+  - Fever Break
+  - Fifth Angel
+  - Figurine
+  - Filastine
+  - Film School
+  - Filth Mattress
+  - Filthy
+  - Final Spins
+  - Final Warning
+  - Fireants
+  - Firechild
+  - Fistful of Britney
+  - Fitz Of Depression
+  - Flight of the Conchords
+  - Flood
+  - Fog People
+  - Former Ghosts
+  - Fort Union
+  - Fortune Dwellers
+  - Fox and The Law
+  - Fragile Jack
+  - Frail
+  - Framework
+  - Frank Sinatra
+  - Freddie and the Screamers
+  - Freebass
+  - Fresh and Onlys
+  - Fringe Shift
+  - From the North
+  - Front Line Assembly
+  - Frontline
+  - Fruit Bats
+  - Full
+  - Full Toilet
+  - Function of Hornets
+  - Funky2death
+  - Funnel
+  - Furious Styles
+  - Future City Fear
+  - Fuzzy Cloaks
+  - GMK
+  - GRR
+  - GadZooks
+  - Gaia Consort
+  - Gang Cult
+  - Gangsta Nutt
+  - Gape Attack
+  - Gardener
+  - Gary Neuman
+  - Gash
+  - Gatsby
+  - Gazelle
+  - Geist and the Sacred Ensemble
+  - Generation X
+  - Genesis
+  - Genesis P-Orridge
+  - Gentle Friendly
+  - Geologic
+  - George Harrison
+  - Georgetown All-Stars
+  - Georgteown Orbits
+  - Gerald Collier
+  - Get Down Syndrome
+  - Get the Most
+  - Ghetto Children
+  - Ghetto Flash
+  - Ghislain Poirier
+  - Ghost Dad
+  - Ghost Ship
+  - Gina Young
+  - Girth
+  - Glacier Saint
+  - Glamour Pets
+  - Glassnotes
+  - Glassy Globe
+  - Glucose
+  - Go It Alone
+  - Go Like Hell
+  - Go Slowpoke
+  - Goblin Market
+  - God Monkey
+  - GodSpeed
+  - Godheadsilo
+  - Godmachine
+  - Gods Favorite Beefcake
+  - Gold Leaves
+  - Golden Pig Electric Blues Band
+  - Golden Retriever
+  - Goners
+  - Good looks the Playboy
+  - Gorls
+  - Graham Travis
+  - Graig Markel
+  - Grave Babies
+  - Gravitas Quartet
+  - Great Spiders
+  - Green Apple Quickstep
+  - Grey Gardens
+  - Grieves
+  - Grieving the Days to Come
+  - Grievous
+  - Grimus
+  - Group Sex
+  - Grownup Trouble
+  - Grynch
+  - Guardian Alien
+  - Guided By Dan
+  - Guilty Hearts
+  - Gumby Riot
+  - Gunn and the Damage Done
+  - Guru
+  - H is for Hellgate
+  - H-Bomb
+  - H-Hour
+  - HAD
+  - HANG
+  - Hai Karate
+  - Haiku-Chi
+  - Haircuts that Hurt
+  - Half Lights
+  - Halo of Flies
+  - Halo with Horns
+  - Hamburger Pimp
+  - Hangmen
+  - Happy Stars
+  - Hardison
+  - Hardly Boys
+  - Harkonen
+  - Harold Budd
+  - Hartwood
+  - Harvey Milk
+  - Haunted Lunch
+  - Haywood Turkoglu
+  - Head
+  - Heartless Bastards
+  - Heatsync
+  - Heavy Hearts
+  - Hecka Air
+  - Heiress
+  - HellCharger
+  - Helladope
+  - Hellbound for glory
+  - Helmet
+  - Henkensiefken
+  - Herb and the Spices
+  - Here and Now
+  - Hetch Hetchy
+  - Hey Marseilles
+  - Hi Life Soundsystem
+  - HiWatt
+  - Hiboy
+  - Hidari Mae
+  - High Beams
+  - High Tower
+  - High on Fire
+  - Himsa
+  - His Name is Alive
+  - Hit Explosion
+  - Hog Molly
+  - Hollow Points
+  - Hollywood 77
+  - Holopaw
+  - Holy Ghost People
+  - Holy Ghost Revival
+  - Homo Eradicus
+  - Honcho Poncho
+  - Honeymoon Killers
+  - Hoof
+  - Hoquiam
+  - Hornet Leg
+  - Hot Lunch
+  - Hot Machine
+  - Hot Rollers
+  - Hot Rush
+  - Hotels
+  - House Engine
+  - House of Brothers
+  - Hovercraft
+  - How Now Brown Cow
+  - Howlin Houndog and the Infamous Loosers
+  - Huge Rock
+  - Huge Spacebird
+  - Huma
+  - Human Hair
+  - Humble Cu
+  - Hundred Meter Trees
+  - Hunting Club
+  - Husbands Love Your Wives
+  - Hush Harbor
+  - Hustle and Drone
+  - Hutch & Kathy
+  - Hyena
+  - Hysterics
+  - I Like Danger?
+  - I Love You Avalanch
+  - I.K.
+  - I9
+  - Iame
+  - Iamthethorn
+  - Ian McFeron Band
+  - Ian and the Barnettes
+  - Ibrahima Camara Band
+  - Identity Crisis
+  - Idle Race
+  - Idle Times
+  - Idlewild
+  - Ill Intent
+  - Illy Wonka
+  - Imperial Standard
+  - Imperials Jazz Big Band
+  - In Cahoots
+  - In Praise of Folly
+  - Inamorata
+  - Indian Pudding and Pipe
+  - Industrial Revelation
+  - Inf3rno
+  - Infinite Topspin
+  - Inhumane
+  - Inspector Luv and the Ride Me Babies
+  - Instand Guru
+  - Invading Melody
+  - Iron Beef
+  - Iron Kim Style
+  - Iron Lung
+  - Iron and Wine
+  - Isaac Scott
+  - Isabella Dugraf
+  - Ish
+  - Iska Dhaaf
+  - Izzy
+  - J Tillman
+  - J. Hiram Boggs and Satisfaction
+  - J. Pinder
+  - JFK
+  - Jack
+  - Jack Waste
+  - Jackrabbit
+  - Jaded 52
+  - Jadestik
+  - Jaguar Love
+  - Jah Division
+  - Jake Marsh Trio
+  - Jake One
+  - James Apollo
+  - James Whiton
+  - James van Leuven
+  - Jarv Dee
+  - Jason White
+  - Jay Barz
+  - Jazz Unlimited
+  - Jeff Greinke
+  - Jeff Lynne
+  - Jello Biafra
+  - Jen Wood
+  - Jens Lekman
+  - Jerm
+  - Jerry Lee Lewis
+  - Jesse Sykes
+  - Jessica Lurie Ensemble
+  - Jesus Chrysler
+  - Jesus Headtrip
+  - Jet Black Crayon
+  - Jett City
+  - Jex Thoth
+  - Jherek Bischoff
+  - Jiffy
+  - Jill Cunningham Band
+  - Jimm and The Boxes
+  - Jimmy Buffett
+  - Jimmy Flame and the Sexxy Boys
+  - Joanna Newsom
+  - Joe Atlas
+  - Johanna Kunin
+  - John Atkins
+  - John Mcintyre
+  - John Spaulding
+  - John Spencer and the Booze Explosion
+  - John Zorn
+  - Johnny Cash
+  - Johnny Socko
+  - Jon Mcinry
+  - Jonathan Kimball Band
+  - Jordan O' Jordan
+  - Jose Bold
+  - Jose Fang
+  - Josh Rawlings Trio
+  - Joshua Morrison
+  - Jough Dawn Baker
+  - Joy Division
+  - Judy Garland
+  - Juga Hill
+  - Julep
+  - Julia Massey and The Five Finger Discount
+  - Julie C
+  - Jumbalassy
+  - June Madrona
+  - Junk Bones
+  - Juno
+  - Jupe Jupe
+  - Jupiter
+  - JusMoni
+  - Just Just
+  - Just Like Vinyl
+  - Justin Ripley
+  - Justin Roeser & The EN Council
+  - KLED
+  - Karl Blau
+  - Karp
+  - Kate Tucker and the Sons of Sweden
+  - Katharine Hepburne's Voice (KHV)
+  - Katie Kate
+  - Kaymak Musik
+  - Kayo Dot
+  - Kaz
+  - Kelly Castle Scott
+  - Kelly Stolts
+  - Kenny G
+  - Kevin Preston
+  - Khingz
+  - Kid Silver
+  - Killer Ghost
+  - Kimya Dawson
+  - Kinetics
+  - King Dude
+  - King Krab
+  - King Nilla
+  - King Otto
+  - King of Hawaii
+  - Kingpin Hayes
+  - Kings English
+  - Kingsmen
+  - Kiss Her For The Kid
+  - Kiss it Goodbye
+  - Kissing Potion
+  - Kittitas
+  - Kitty Kitty
+  - Klondike 5
+  - Klyntel
+  - Kmria
+  - Knockout
+  - Know Your Saints
+  - Knox Family
+  - Knucklewalker
+  - Kogumaza
+  - Kris Kristofferson
+  - Krusters Kromonoid
+  - Kultur Shock
+  - Kuma
+  - Kurt Bloch
+  - Kutfather
+  - Kyuss
+  - LAKE
+  - LAND
+  - La La and the Waves
+  - La Luz
+  - Labrodore
+  - Lac of Respect
+  - Lace Cadence
+  - Laceration
+  - Lacey Brown
+  - Lady Gaga
+  - Lago Volunteers
+  - Lamborghiniz
+  - Land Line
+  - Land What Land
+  - Lands Farther East
+  - Language Arts
+  - Lard
+  - Larkin Grimm
+  - Larry Barrett
+  - Larue
+  - Last Great Liar
+  - Last Man Standing
+  - Last Slice of Butter
+  - Last Waltz
+  - Laudanum
+  - Laundry
+  - Laura Veirs
+  - Laurie Katherine Carlsson
+  - Lazy Susan
+  - Le Loup
+  - Le Sang Sang
+  - Le Systeme Solaire
+  - Le Tigre
+  - Leather Spunge
+  - Led to sea
+  - Left Hand Smoke
+  - Legion Within
+  - Leif Pacemaker
+  - Lemonade
+  - Lemonheads
+  - Lemons and Stallions
+  - Leper Print
+  - Leroy Bell
+  - Lethe
+  - Leuko
+  - Library Science
+  - Life
+  - Life After Life
+  - Life Like Feel
+  - Life Ring
+  - Lightning Dust
+  - Limerence
+  - Lines Into Phoenix
+  - Liquid Generation
+  - Liquorbox
+  - Lisa Dank
+  - Little Angry
+  - Little Claw
+  - Little Hand of the City
+  - Little Party and the Bad Business
+  - Little Richard
+  - Llamas
+  - Loaded
+  - Loaded Question
+  - Loaded, Pleasure Elite
+  - Loaf
+  - Loch Lomond
+  - Lois
+  - Lojique
+  - Long Hing Legs
+  - Look Look Dancing Boys
+  - Lord Vintage
+  - Lords of Light
+  - Los Hornets
+  - Los Lobos
+  - Los Orchids
+  - Losen
+  - Lost Dogma
+  - Lou Reed
+  - Lousy Robot
+  - Love Tan
+  - Lovesick Empire
+  - Lovvers
+  - Low Hums
+  - Low Land High
+  - Low and High
+  - Lozen
+  - Luna Park
+  - Lunch Buddy Program
+  - Lure of the animal
+  - Lustmord
+  - Luxochamp
+  - Luxury A.K
+  - Lync
+  - M-set
+  - M. Evans
+  - M. Women
+  - MC5
+  - MHDT
+  - MJ Bishop Band
+  - Mabel McGee and Pennsylvania Slim
+  - Mach turtle
+  - Machine Corp
+  - Macklemore
+  - Madpoet
+  - Major Major
+  - Mako
+  - Mal Saint
+  - Mamiffer
+  - Man Down Medic
+  - Man Sized Heartache
+  - Man tee Man
+  - Manazma Sheen
+  - Mancini Projekt
+  - Maniak Be
+  - Map of France
+  - Marc Olson
+  - Marc Seals
+  - March 15th
+  - Marielle
+  - Marilyn Scissor Hands
+  - Mark Lanagan
+  - Mark Pickerel and his Praying Hands
+  - Marmalade
+  - Maroon Colony
+  - Mars Accelerator
+  - Marvin Gaye
+  - Mary Lambert
+  - Mash Hall
+  - Massy Ferguson
+  - Master of the Unitard
+  - Masters + Johnson
+  - Math the Band
+  - Matt Dillon
+  - Mauser
+  - Max Axle
+  - Maxwell Perry
+  - Maya Soleil
+  - Mayor of the World
+  - Mayyors
+  - McKinnley
+  - Mean Deep
+  - Mean Tangerine
+  - Meat Beat Manifesto
+  - Meat Minder
+  - Meddaphysical
+  - Medicine Hat
+  - Meekin Pop
+  - Mega Bog
+  - Megadeath
+  - Megapuss
+  - Memphis Radio Kings
+  - Men of Porn
+  - Menomena
+  - Mercury Pusher
+  - Message Machine
+  - Metal Chocolates
+  - Metallica
+  - Metamorphosis
+  - Metempsychosis
+  - Metric
+  - Mic Phenom
+  - Micah Hulscher and Keys to the Country
+  - Michael Jackson
+  - Micheal Gira
+  - Midnight Shakes
+  - Midnight Thunder Express
+  - Mika Miko
+  - Mikaela's Fiend
+  - Mike Dumovich
+  - Mike Patton
+  - Mikey Nice
+  - Miles Davis
+  - Millions of Bugs
+  - Mindless Thugs
+  - Mindshaker
+  - Mines
+  - Minor Threat
+  - Mint Icicles
+  - Mirah
+  - Misadventues of two
+  - Misanthropy
+  - Misery Love Company
+  - Misfits
+  - Miss Solar System
+  - Mississipi Infi
+  - Mista Chatman
+  - Mistress and the Misters
+  - Mobile Slaughter Unit
+  - Mobius Jones
+  - Model Rockets
+  - Moe Provencher
+  - Molly Rose
+  - Mona
+  - Monkey Son of a Donkey
+  - Monkey Wrench
+  - Monktail Creative Music Concern
+  - Monroe's Fur
+  - Monster
+  - Monster Magnet
+  - Monster Truck Driver
+  - Monstrawtikuss Frankenstienikuss
+  - Moogle Charm
+  - Moon Rats
+  - Moppers
+  - Moral Crux
+  - Moral Cruz
+  - Morgan Dusatko and the Morgan Dusatkos
+  - Morrissey
+  - Motel 5
+  - Motorbikes
+  - Motorik
+  - Motorist
+  - Mount Analog
+  - Moustache Ride
+  - Moving Parts
+  - Mr. Hill
+  - Mr. Lif
+  - Mt Eerie
+  - Muffs
+  - Mugwump
+  - Mum
+  - Murder Dice
+  - Murder of Rosa Luxemburg
+  - Murdock
+  - Mutiny Mutiny
+  - My Favorite Girl
+  - My Parade
+  - Mynah birds
+  - Mystery Ship
+  - NME
+  - NW Shamanistic
+  - Na
+  - Nada Surf
+  - Naked Bacon
+  - Nancy Sinatra
+  - Naomi Punk
+  - Narcotic
+  - Natalie Portman's Shaved Head / Brite Futures
+  - Nathan Wade & the Dark Pioneers
+  - Nation of Ulysses
+  - Natural Order
+  - Navigator vs Navigator
+  - Neema
+  - Neezie Pleaze
+  - Neil Young
+  - Neo
+  - Nervous Cop
+  - Neutral Milk Hotel
+  - Neutralboy
+  - Never Ending Sorrow
+  - Never Looking Back
+  - New American Shame
+  - New Death Show
+  - New Luck Charm
+  - New Order
+  - New Seattle Brass Ensemble
+  - New Town Animals
+  - Nice Smile
+  - Nicole Haleen & The Projects
+  - Night Kings
+  - Night and Days
+  - Nightclubber Lang
+  - Nikki Corvette
+  - Nimoy
+  - Nine Inch Nails
+  - Nine Iron Spitfire
+  - Nirvanasaur JR
+  - Nite Owls
+  - Nitespell
+  - No Excuses
+  - No Lord Shall Live
+  - No Quarter
+  - Noah Georgeson
+  - Noise-a-tron
+  - Nojo on the Rojo
+  - Non-Stop Bhangra
+  - Norman Baker
+  - Not From Space
+  - Not Sorry
+  - November WItch
+  - Nu Klezmer Army
+  - Nuclear BBQ
+  - Nuclear Igloo
+  - 'Null'
+  - Nurse Ratchett
+  - Nyqwil
+  - Ockham's Razor
+  - Octagon Squad
+  - Of Saints and Sinners
+  - Offtrak
+  - Oingo Boingo
+  - Okey Dokey Donkey
+  - Oko Yono
+  - Old Rawler
+  - Old Time Relijun
+  - Olde Ghost
+  - Oldominion
+  - Olivia Newton-John
+  - Olivia Tremor Control
+  - On
+  - One Hit
+  - One More MIle
+  - One at Dusk
+  - One for Kicks
+  - Ononos
+  - Onry Ozzborne
+  - Onyx of Olympia
+  - Open Choir Fire
+  - Oracles Creed
+  - Oragami Ghosts
+  - Orange 42
+  - Orbiter
+  - Oregon Painting Society
+  - Origami Ghosts
+  - Original Fruit
+  - Os Coyotes
+  - Osaka Explosion
+  - Otep
+  - Otherwise
+  - Otis Frye
+  - Overlord
+  - Owcharuk 5
+  - Owen Hart
+  - Owl City
+  - Ozzy Osmond
+  - P Smoov
+  - P Washington
+  - PRKR
+  - Pablo Trucker,
+  - Pace Bend
+  - Pain Cocktail
+  - Paisley Park
+  - Palasades
+  - Pale Soul
+  - Palisades
+  - Palit
+  - Pan Pan
+  - Pantera
+  - Paperwhale
+  - Parini
+  - Parket Hare
+  - Pas Mal
+  - Pat Butcher
+  - Patient Zero
+  - Paul Allen Band
+  - Paul Janover Band
+  - Paul McCartney
+  - Pearly gate music
+  - Pedro the Lion
+  - Peeping Tom
+  - Peeved
+  - Pegasus
+  - Pegee13
+  - Pell Mell
+  - Pelusa
+  - Penny Romance
+  - People We Hate
+  - Peppermint Majesty
+  - Perpetual Ritual
+  - Pet Dander
+  - Pet Products
+  - Pet Shop Boys
+  - Pets or Meat
+  - Pharmacy
+  - Phat Mob
+  - Phat Sidy Smokehouse
+  - Phokus
+  - Picoso
+  - Pigpen
+  - Pill Wonder
+  - Pillar Point
+  - Pillow Army
+  - Pinch
+  - Pink Floyd
+  - Pins Go In
+  - Pinwheel
+  - Pistol For a Paycheck
+  - Piston Ready
+  - Plan b
+  - Plastic Letters
+  - Plastic Ono Band
+  - Platinum Spandex
+  - Platiquin
+  - Pleasure Elite
+  - Pleasurecraft
+  - Pocket Panda
+  - Poetry
+  - Poison 13
+  - Poison Ring
+  - Polka Dot Dot Dot
+  - Pomeranz
+  - Pompeii
+  - Pontius Pilate and the Nail Drivers
+  - Poontet
+  - Poop Attack
+  - Poppa Wheelie
+  - Popular Music
+  - Porcelain
+  - Pork Blister
+  - Porter Harp
+  - Post Harbor
+  - Post modern heros
+  - Prarie Bastards
+  - Premise Beach
+  - Primal Scream
+  - Primus
+  - Pris
+  - Private Beach
+  - Prize Pets
+  - Project 86
+  - Project K
+  - Project Lionheart
+  - Project W
+  - Proper Ornaments
+  - Pseudo
+  - Pseudo Punks
+  - Psoriasis
+  - Psychic Emperor
+  - Psychic TV
+  - Public Image Ltd
+  - Publish The Quest
+  - Punch
+  - Purty Mouth
+  - Pussy Chop Banana
+  - Pwrfl Power
+  - Pwrfl Pwr
+  - Quaranteens
+  - Quasi
+  - Queen
+  - Queen Anne Gentlemen
+  - Queensryche
+  - Quicksand
+  - Quincy Jones
+  - Quinn W Shagbark
+  - R. Stevie Moore
+  - R.U.R
+  - RBand
+  - RC5
+  - RTW
+  - Ra Scion
+  - Rabid Dogs
+  - Rabid Poos
+  - Rachel Harrington
+  - Rad Touch
+  - Radio Clash
+  - Radio Sweetheart
+  - Raft of Dead Monkeys
+  - Raggedy Anns
+  - Rahzel
+  - Raid
+  - Rain City Shwillers
+  - Rainbow Fang
+  - Rainbow Sugar
+  - Raised By Wolves
+  - Ralf Yountz
+  - Ranch Romance
+  - Rancid
+  - Rasputina
+  - Rat Cat Hogan
+  - Rat Fancy
+  - Ray Charles
+  - Razzle Dazzle Gang
+  - Red Rocket
+  - Red Sea Sharks
+  - Red Sonya
+  - Red Squirrels
+  - Red Stars Theory
+  - Redskin
+  - Redwood Plan
+  - Reef
+  - Reef Encounter
+  - Reflections
+  - Reji Lefluer
+  - Rematron
+  - Reptilian Civilian
+  - Reptilicus Maximus
+  - Requin
+  - Reservoir Cats
+  - Resistor
+  - Resistor Vs Levator
+  - Revellion
+  - Revolting Cocks
+  - Revolution Void
+  - Reyshard
+  - Rhino Humpers
+  - Ribbons
+  - Richard Swift
+  - Rick James
+  - Ricky Pharoe
+  - Righteous Trash
+  - Rik Rude
+  - Rikki Tikki Tavi
+  - Rio en Medio
+  - Ripped to Shreds
+  - Rising Son
+  - River Giant
+  - Riverbend
+  - Roareth
+  - Robert Deeble
+  - Robert Rial and the Bakelite 78
+  - Robin Pechnold
+  - Rock'phella
+  - Rocket Surgery
+  - Rocks
+  - Rockstar
+  - Rocky Votolato
+  - Rodent Plauge
+  - Rogue Wave
+  - Role One
+  - Roller Dome
+  - Ronnie Porter
+  - Rooftops
+  - Rookies
+  - Roomates
+  - Roper
+  - Rorschach Test
+  - Rorsharch
+  - Rosary
+  - Rose Blossom Punch
+  - Rosie Thomas
+  - Rosyvelt
+  - Rotten Apples
+  - Rotundas
+  - Roundhead
+  - Rox
+  - Roxy Music
+  - Roy Loney & the Longshots
+  - Roy Orbison
+  - Rude Al Skankovic
+  - Run for it Marty
+  - Russian Circles
+  - Ryann
+  - S
+  - S-N-O
+  - S.D.C
+  - SAFAL
+  - SC3
+  - SMP
+  - SSS
+  - STALACTITE
+  - STRT SPRX
+  - Sabzi
+  - Sadie Hawkins Rejects
+  - Sail on, Sailor
+  - Saints of Slumber
+  - Sally Maes
+  - Sammy Davis Jr
+  - Samothrace
+  - Samson S
+  - Sanctuary
+  - Sandy Boys
+  - Sanford Arms
+  - Sarkastic
+  - Satisfact
+  - Satisfaction
+  - Saturday Looks Good to Me
+  - Saudaukar
+  - Savant
+  - Saxon Shore
+  - Say Hi
+  - Scarecrows
+  - Scene Creamers
+  - Scotty Lind and the Moondogs
+  - Scotty P and the Ozone
+  - Scream Club
+  - Screams Of Angels
+  - Seahouse
+  - Sean
+  - Seance Twins
+  - Search/Rescue
+  - Sears Catalog
+  - Season of Death
+  - Seattle Rock Orchestra
+  - Second Coming
+  - Second Story Regret
+  - Secret Cheifs
+  - Secret Highways
+  - Secret Plan
+  - Sector 7 G
+  - See Me River
+  - Self Tightld
+  - Selfie
+  - Sense of Soulution
+  - Sera Cahoone
+  - Set Your Goals
+  - Seven Head Division
+  - Seven Inch Round
+  - Seven Ten Split
+  - Sex Panther
+  - Sex Pistols
+  - Sex Vid
+  - Sgt. Major
+  - Shady Muff
+  - Shambala
+  - Shana Cleveland
+  - Sharks Keep Moving
+  - Shawna Locey Band
+  - She Is
+  - She-Level
+  - Shed
+  - Shenandoah Davis
+  - Shining Ones
+  - Shit Gets Smashed
+  - Shitlist
+  - Short Hair
+  - Shotgun
+  - Shotgun Justice
+  - Shotty
+  - Shriekback
+  - Shrinebuilder
+  - Shyanne
+  - Siberian
+  - Sic Alps
+  - Sick Man of Europe
+  - Sickamore
+  - Sidewinder
+  - Sightseer
+  - Sil2k
+  - Silent Lambs Project
+  - Silly Killers
+  - Silver Daggers
+  - Silver Server
+  - Single Serving Jack
+  - Sinister Six
+  - Sinking Ships
+  - Sinsemilla
+  - Sioux City Pete & the Beggars
+  - Siouxie and the Banshees
+  - Sir Coyler & His Asthmatic Band
+  - Sir Mix-A-Lot
+  - Siren's Echo
+  - Sirius
+  - Sistahailstorm
+  - Six Select
+  - Sjenka
+  - Skablins
+  - Skinny Whiskers
+  - Skribbles
+  - Skuntdunnanna aka Mafia
+  - Skyward
+  - Slam Suzzane
+  - Slats
+  - Slaughterhaus Rose
+  - Slaughterhouse 5
+  - Sleater Kinney
+  - Sledgeback
+  - Sleep (Hip Hop)
+  - Sleep (Metal)
+  - Slidin Spades
+  - Slimpickins
+  - Slippers USA
+  - Slow Skate
+  - Slowdriver Down
+  - Slugo
+  - Small Faces
+  - Smashing Pumpkins
+  - Smile Project
+  - Smoke
+  - Smokejumper
+  - Snacks
+  - Snafu
+  - Snoop Dogg
+  - Snot Rockettes
+  - Snow Bud and the Flower People
+  - Snow Cuts Glass
+  - So Said They
+  - Society Nurse
+  - Sofa Kings
+  - Soft Cell
+  - Soft Kill
+  - Sojourner
+  - Solace in Black
+  - Solar Master
+  - Solger
+  - Solomon Grundy
+  - Some Velvet Sidewalk
+  - Somerset
+  - Son Things
+  - Son Vow
+  - Son of Rose
+  - Sonny Bonoho
+  - Sonny and the Sunsets
+  - Sons of Ivan
+  - Sons of Warren Oats
+  - Source of Labor
+  - Sourmash
+  - South Side
+  - Souvenirs
+  - Space Ballerinas
+  - Spaceman
+  - Spacesuit
+  - Spaid
+  - Sparkle Girl
+  - Speaker Speaker
+  - Specs
+  - Specs One
+  - Spectretone International
+  - Speedy
+  - Spell
+  - Spencer Moody
+  - Spider
+  - Spirit Treader
+  - Spittting Teeth
+  - Spiv
+  - Splatter House
+  - Splendor
+  - Splinter Party
+  - Spluii Numa
+  - Sponge
+  - Spooks
+  - Spring Break
+  - Square Waves
+  - Squawk Mountain Update
+  - Squirt and Combover
+  - St. James Infirmary
+  - Stabbings
+  - Stackpole
+  - Star Lake Drownings
+  - Starkiller
+  - Starr Harris
+  - State of Confusion
+  - Static Engine
+  - Statics
+  - Stay Hi Bros
+  - Steaming Wolf Penis
+  - Stebmo
+  - Steel Pole Bath Tub
+  - Steeples
+  - Stefanie Lee & The Northern Lights
+  - Stephan Malkmus and the Jicks
+  - Stereo Kings
+  - Stereo Sons
+  - Steve Earle
+  - Steve Moore
+  - Steve Vai
+  - Stevie Wonder
+  - Stiletto Kill
+  - Still Falling
+  - Stillborn
+  - Stoics
+  - Stomach Pump
+  - Stone Temple Pilots
+  - Storybook Crooks
+  - Strange Boys
+  - Strange Season
+  - Strap Straps
+  - Striking Back
+  - Stuck
+  - Sub-Motive
+  - Subaru Brats
+  - Subatomic Sound System
+  - Submerged in the storm
+  - 'Subminute: Radio'
+  - Substandard
+  - Subvert
+  - Sue Quigley Band
+  - Suffering and the Hideous Thieves
+  - Sufjan Stevens
+  - Sugar Skulls
+  - Sugarat
+  - Suicide Bomb
+  - Suitcase
+  - Sultanas
+  - Summer Camp
+  - Summerset Frisbee
+  - Sun City Girls
+  - Sun O)))
+  - Sundance
+  - Sunday Night
+  - Sunday Night Blackouts
+  - Sunsites
+  - Super Heavy
+  - Super Sonic Soul Pimps
+  - SuperGroup
+  - Superkali
+  - Supernauty
+  - Surrealestate
+  - Survey Cez
+  - Swallow
+  - Swans
+  - Swarming Hordes
+  - Sweet Chariot
+  - Sweven
+  - Swinglow
+  - Sycophant
+  - Syndel
+  - Syntone
+  - THEESatisfaction
+  - TKO
+  - Tahkoma
+  - Take Cover
+  - Talbot Tagora
+  - Talisman
+  - Talking Heads
+  - Tall Birds
+  - Task Force Productions
+  - Tattle Tale
+  - Taurus Pedals
+  - Tax and Leisure Corporation
+  - Tay Sean
+  - Tazmanian Devils
+  - Team November
+  - Team Strike Force
+  - Tecumseh
+  - Teen Angels
+  - Teen Cthulu
+  - Teens in Heat
+  - Telekinesis
+  - Telepathic Liberation Army
+  - Temple Vibe
+  - Ten O Seven
+  - Ten Yard Fight
+  - Tenacious D
+  - Tennessee Valley Authority
+  - Teo Crider
+  - Terri Tarantula
+  - Terror Dactyls
+  - Terrordactyls
+  - Texas Chainsaw Orchestra
+  - Texas Funeral
+  - Th Rolling Stones (SEA)
+  - The 1 Uppers
+  - The 667s
+  - The Accident Experiment
+  - The Adding Machine
+  - The Akron Family
+  - The Allies
+  - The Arcadians
+  - The Arid Sea
+  - The Astro-cats
+  - The Awesome Miami
+  - The Back Bur
+  - The Back Burners
+  - The Bambi Molesters
+  - The Bangs
+  - The Baseball Project
+  - The Beakers
+  - The Bears
+  - The Beatles
+  - The Bible
+  - The Billy Tipton Memorial Saxophone Quartet
+  - The Biography of Ferns
+  - The Bismark
+  - The Black Crabs
+  - The Black Fairies
+  - The Blessed Light
+  - The Blinding Light
+  - The Blow
+  - The Blown Eagles
+  - The Botherations
+  - The Bottle Rockets
+  - The Bourbonites
+  - The Bronx
+  - The Buffets
+  - The Building Press
+  - The Byrds
+  - The Call
+  - The Cardboard Cutouts
+  - The Cars
+  - The Carter Family
+  - The Cat From Hue
+  - The Catheters
+  - The Charm Faucets
+  - The Charming Snakes
+  - The Cinematics
+  - The Clash
+  - The Cleavers
+  - The Coconut Coolouts
+  - The Colorplates
+  - The Condiments
+  - The Conversation Heart
+  - The Cootees
+  - The Country Teasers
+  - The Crabs
+  - The Crills
+  - The Cripples
+  - The Crooked Smile
+  - The Crucialites
+  - The Crust Brothers
+  - The Culling
+  - The Cure
+  - The Damned
+  - The Decemberists
+  - The Decendents
+  - The Dehuminizers
+  - The Del Lagunas
+  - The Delusians
+  - The Derelicts
+  - The Derivitives
+  - The Desert Sessions
+  - The Dignataries
+  - The Dipers
+  - The Diving Bell
+  - The Divorce
+  - The Downstrokes
+  - The Dusty 45s
+  - The Dwarves
+  - The Eagles
+  - The Exploding High Fives
+  - The Fags
+  - The Fall of Troy
+  - The Familiars
+  - The Feelings Hijackers
+  - The Fellini Outtakes
+  - The Fells
+  - The Fisters
+  - The Flight Academy
+  - The Fluid
+  - The Flying Burrito Brothers
+  - The Flying Dutchmen
+  - The Forcepts
+  - The Forgotten Cheekbone Orchestra
+  - The Fuzz
+  - The Gar Hooker Project
+  - The Garden Gnome Chomskys
+  - The Geese
+  - The Genitals
+  - The Getter Flash
+  - The Gimmicks
+  - The Giraffes
+  - The Girls
+  - The Gloryholes
+  - The Golden Ticket
+  - The Good Touch
+  - The Gorillaz
+  - The Gorls
+  - The Gossip
+  - The Grai'ain
+  - The Graze
+  - The Green
+  - The Green Ghosts
+  - The Grind
+  - The Groceries
+  - The Groove Surfers
+  - The Heavy Hearts
+  - The Heights
+  - The Helm
+  - The High Divide
+  - The Highwaymen
+  - The Hillbettys
+  - The Hit
+  - The Hollies
+  - The Human Echo
+  - The Illicit Jug Cartel
+  - The Instants
+  - The Insurgence
+  - The Intelligence
+  - The Ironclads
+  - The Ivory Coast
+  - The Jangles
+  - The John Wu Project
+  - The Kegels
+  - The Kill Me Pills
+  - The Kings English
+  - The Kleeners
+  - The Knast
+  - The Larch
+  - The Lathe Symphonic
+  - The Lemons
+  - The Life There Is
+  - The Lights
+  - The Little Penguins
+  - The Living
+  - The Look
+  - The Lost Episode
+  - The Love Lights
+  - The Love Louder
+  - The Loveless and the Goodnight Trail
+  - The Low Beats
+  - The Loyal Opposition
+  - The Make Up
+  - The Makers
+  - The Mark Sparkles
+  - The Maroons
+  - The Masques
+  - The Meltdowns
+  - The Minutemen
+  - The Misfits
+  - The Missionary Position
+  - The Moldy Peaches
+  - The Moondoggies
+  - The Moonspinners
+  - The Moore
+  - The Mothership
+  - The Move
+  - The Navins
+  - The New Pornographers
+  - The Nighcaps
+  - The No Pile
+  - The Octabites
+  - The Odd Nasty
+  - The Offspring
+  - The Opiate Mass
+  - The Oregon Donor
+  - The Oregon Woods ?
+  - The Pathetic Wannabees
+  - The Paul Lynde Fanclub
+  - The Pens
+  - The Pezniks
+  - The Physics
+  - The Pi
+  - The Pica Beats
+  - The Pinehurst Kids
+  - The Plastards
+  - The Pogues
+  - The Pomonas
+  - The Ponderosa
+  - The Postal Service
+  - The Preons
+  - The Primate 5
+  - The Psychedelic Furs
+  - The Quit
+  - The Raging Hard Ones
+  - The Rain Kings
+  - The Ramrods
+  - The Rapture
+  - The Rebelz
+  - The Redwood Plan
+  - The Religious Girls
+  - The Resets
+  - The Rhinestones
+  - The Ride
+  - The Riffbrokers
+  - The Road Dawgs
+  - The Rockfords
+  - The Rolling Stones
+  - The Ronz
+  - The Ruby Doe
+  - The Russians
+  - The Satin Dolls
+  - The Saturday Knights
+  - The Screwmatics
+  - The Sea Navy
+  - The Shmoes
+  - The Sidwinders
+  - The Simians
+  - The Slits
+  - The Small Change
+  - The Smiths
+  - The Snakebites
+  - The Snot Rockettes
+  - The Social Studies
+  - The Somethings
+  - The Sorts
+  - The Spectres
+  - The Spit-Licks
+  - The Spits
+  - The Spittin' Cobras
+  - The Spyders
+  - The Squirrels
+  - The Steal
+  - The Stone Roses
+  - The Stooges
+  - The Strange
+  - The Sun-Ups
+  - The Sunday Drunks
+  - The Swains
+  - The Tap Handles
+  - The Teamsters
+  - The Tip Tons
+  - The Transmissionary Six
+  - The Trashies
+  - The Traveling Wilburys
+  - The Trids
+  - The Triple Sixes
+  - The Troops
+  - The Trucks
+  - The True Bugs
+  - The Turpentines
+  - The Tycoons
+  - The Umbrellas
+  - The Underlings
+  - The Unibroz
+  - The Upskirts
+  - The Vaccines
+  - The Vandals
+  - The Vells
+  - The Velvet Undergound
+  - The Wailers
+  - The Waiting
+  - The Weavils
+  - The Webelos
+  - The Whip
+  - The Who
+  - The Whore Moans
+  - The Wide Band
+  - The Yell Kings
+  - The Yellow Dwarf Theory
+  - Thee Emergency
+  - Thee Oh Sees
+  - Theoretics
+  - These Arms are Snakes
+  - They Live
+  - Thig Nat
+  - Thin Lizzy
+  - Thinkfeed
+  - This Diminishing West
+  - This is My Gun
+  - Thought Bandit
+  - Three Blind Mice
+  - Three Til Midnight
+  - Throats
+  - Throbbing Gristle
+  - Thuglife Baldwin
+  - Thunder Buffalo
+  - Tijuana Carwash
+  - Tilson
+  - Tim Seely
+  - Tim Turner Band
+  - Time Claw
+  - Time To Fly
+  - Time in Malta
+  - Tin Woodsman
+  - Ting Bu Dong
+  - Tingstad and Rumbel
+  - Tiny Hat Orchestra
+  - Tiny Vipers
+  - Tit Pig
+  - Toad Hell
+  - Toast
+  - Tokyo Drifter
+  - Tom Petty and the Heartbreakers
+  - Toni Hill
+  - Tonjia Atomic
+  - Tonjia Nasty and the Grip
+  - Tony
+  - Top Heavy Crush
+  - Tore Down
+  - Tot Finder
+  - Touch Me Satan
+  - Toy Boats
+  - Tragedy
+  - Traiinwreck
+  - Transient Songs
+  - Transmissionary Six
+  - Trash Fire
+  - Travis Shredd and the Good Ole Homeboys
+  - Treasures
+  - Tremor
+  - Tri State Killing Spree
+  - Trial
+  - Tribe After Tribe
+  - Triple X Audio
+  - Troy Van Leeuwen
+  - Tru-Id
+  - Truth
+  - Truthache
+  - Tuba Luba
+  - Tuff Cookies!
+  - Tullycraft
+  - Tulsi
+  - Tumbledown Arthur
+  - Twig Palace
+  - Twillight Singers
+  - Twin G
+  - Ty Segall
+  - Type
+  - Typical Ace
+  - Tyvek
+  - U2
+  - Ubik.
+  - Ugly Casanova
+  - Uglyhead
+  - Uncle Angst
+  - Uncle Nobody
+  - Uncommon Knowledge
+  - Union Stewards
+  - Union of Opposites
+  - Universal Studios Florida
+  - Universe People
+  - Unlearn
+  - Unwound
+  - Urban Jellyfish
+  - Used Cars
+  - Utah Anvil
+  - Vacillators
+  - Val Papadins
+  - Valentine Killers
+  - Valu-Pak
+  - Van Morrison
+  - Vandemonium
+  - Vanderhoof
+  - Vaporland
+  - Vassily
+  - Vast Capital
+  - Vats of Blood
+  - Vein Train
+  - Vells
+  - Velour 100
+  - Velvet Revolver
+  - Velvet Underground
+  - Vendetta Red
+  - Venemous Concept
+  - Venus Bleeding
+  - Venus Envy
+  - Vera the Ghost
+  - Veronica Falls
+  - Vicci Martinez Band
+  - Vicki Vale
+  - Videogamez
+  - Vile Vile Creatures
+  - Vince Mira
+  - Vintage Sleep
+  - Viper Problem
+  - Virgin
+  - Virgin of the Birds
+  - Vista Vista
+  - Vital Idol
+  - Vital Signs
+  - Vitamin C
+  - Vitamin D
+  - Viva La Villains
+  - Vomiting Unicorns
+  - Vunt Foom
+  - WACO
+  - WD4D
+  - Wade Amongst the Dead
+  - Wages of Sin
+  - Walkabouts
+  - Wallpaper
+  - Walls
+  - Wanda
+  - War Cry
+  - Water Island
+  - Water Kill the Sun
+  - Waves
+  - Wavves
+  - Way Beyond
+  - Waylon Jennings
+  - We Are Golden
+  - Weary
+  - Webelos
+  - Weekend
+  - Weezer
+  - Wehrwolve
+  - Weird war
+  - Welcome
+  - Wellwater Co
+  - Wesafari
+  - Western Hymn
+  - Western State Hurricanes
+  - Westin Halvorson
+  - What is gongress
+  - Whipped
+  - White
+  - White Slaves
+  - White Zombie
+  - White rainbow
+  - Whorange
+  - Wilco
+  - Wild Flag
+  - Wild Horses
+  - Wild in the Streets
+  - Wildildlife
+  - Willie Nelson
+  - Willie Will
+  - Willow
+  - Wimblefoon
+  - Wings
+  - Winston "Flames" J
+  - Winston Wolff
+  - Wit Woo
+  - Witchburn
+  - With Honest Eyes
+  - Withering Stares
+  - Wizards of War
+  - Wizdom
+  - Wolves of Greece
+  - Wooden Wand
+  - Word Aminal
+  - World history
+  - Wrestling Team
+  - Wylde Ratttz
+  - X-tra Virgin
+  - Xander
+  - Xiu Xiu
+  - Xperience
+  - YCAD
+  - Yam
+  - Yellow Swans
+  - Yikes
+  - Yokai No Uta
+  - Yossarian
+  - Young Adult
+  - Young Blaze
+  - Young Sportsmen
+  - Youth Rescue Mission
+  - Yue
+  - Yuk
+  - Yummy
+  - Yuni in Taxco
+  - Z
+  - Zdefeckt
+  - Zebulon Dak
+  - Zera Marvel
+  - Zero Down
+  - Zipdads
+  - Zipgun
+  - Zombie IV
+  - Zombie vs. Shark
+  - altaRego
+  - autOaudiO
+  - billy shook
+  - bopo boys
+  - brandi carlile
+  - caligula connection
+  - carribean corpse
+  - coyotes
+  - d.o.do grange
+  - dash-a
+  - eleanor murray
+  - evn
+  - ghost hoodie
+  - gin betty
+  - heather graham is hot
+  - hjemmelavede
+  - hobby hobby
+  - hunting hat horses
+  - i, cordyceps
+  - ix
+  - jesus chords
+  - joebass.com
+  - lazer zeppelin
+  - leatherdaddy
+  - livingston seagull
+  - malakait dan singa
+  - maps on fire
+  - martha! mother
+  - marvelous good fortune
+  - never looking back hc
+  - okmonics
+  - part dog
+  - peace and silence
+  - portugal the man
+  - rallim nomad
+  - ramdilo
+  - red martian
+  - skrill meadow
+  - slut vomit
+  - stone crow
+  - sundance kids
+  - surrealized
+  - terry lee hale
+  - the Mistakes
+  - the Physicists
+  - the Royal Neanderthal Orchestra
+  - the Scheme
+  - the Sweet Nothings
+  - the Testors
+  - the Tuggboats
+  - the foghorns
+  - the hula bees
+  - the moms
+  - the outrigga projection
+  - the pin ups
+  - this blinding light
+  - thomas hunter and white china gold
+  - transPacific
+  - vigilante santos
+  - wreckless wricky
+  - zehad
+  Average Members Per Band: 1.7
+  Only Counting Bands With Members: 4.13
+  No City Count: 2457
+  No City:
+  - '141'
+  - 1st Black Prez
+  - 4 Everity
+  - 6 mile pilot
+  - 64 Spiders
+  - 764 Hero
+  - A Frames
+  - A Gun Called Tension
+  - A Hawk and a Hacksaw
+  - A Million Years Ago!
+  - A Sandcastle Still
+  - A Story of Rats
+  - A. Parks
+  - Abe Vigoda
+  - Absolute Monarchs
+  - Added Value
+  - Addition
+  - Agatha
+  - Akrish
+  - Alaska in Winter
+  - Alaskas
+  - Alcohol Funnycar
+  - Alice in Chains
+  - All Creatures of Good Heart
+  - All Time Quarterback
+  - Alphabetics
+  - Amos Miller
+  - An Invitation to Love
+  - Anaxagorous
+  - Angelo Spencer
+  - Angles of Light
+  - Animals at Night
+  - Antony and the Johnsons
+  - Appleseed Apart
+  - Aquino
+  - Arrington De Dionyso
+  - Arthur
+  - Arthur & Yu
+  - Artifical Limbs
+  - Ashley Erikson
+  - Assisted Living
+  - Asun
+  - Audioslave
+  - Avatar
+  - Awesome Color
+  - Awesome Possum
+  - Axes of Evil
+  - Azrael
+  - B
+  - B-Awake
+  - B-Self
+  - B. Brown
+  - Backstabbers
+  - Badass 24 Hr Drum Solo
+  - Bandits
+  - Barfly
+  - Bats of Belfry
+  - Bean One
+  - Beast Please be Still
+  - Beck
+  - Beep Family Orchestra
+  - Beestings
+  - Beirut
+  - Bend Sinister
+  - Benjamin Bear
+  - Beyond Reality
+  - Beyond the Fringe
+  - Big Boys
+  - Big Brown Music
+  - Big Business
+  - Bikini Kill
+  - Billy Patron
+  - Bird Language
+  - Bishop I
+  - Black Belt
+  - Black Breath
+  - Black Eyes and Neckties
+  - Black Flag
+  - Black Heart Procession
+  - Black Power Arrangers
+  - Black Stax
+  - Blak
+  - Blood Brothers
+  - Blood Cells
+  - Blood Wing
+  - Bloodloss
+  - Blue Scholars
+  - Bonfire madigan
+  - Book of Black Earth
+  - Boom Bap Project
+  - Bow and Arrow
+  - Braid Storm
+  - Brainstorm
+  - Brawny Banks
+  - Break Off
+  - Brendan Daniels and Everybody Gets Laid
+  - Brendan Daniels and the Chics
+  - Brent Amaker and the Rodeo
+  - Britannica of Belevedere
+  - Broadcast Oblivion
+  - Broken Knives
+  - Bruce Illest
+  - Budo
+  - Buffalo Springfield
+  - Buffalo Tramp & V.V. Vioux
+  - Built to Spill
+  - Bundland
+  - Burns
+  - Butt House
+  - Byrdie
+  - C-Note
+  - Craig Salt Peters
+  - Calvin Don't Jump
+  - Can I Be She Ra
+  - Can't See
+  - Cancer Rising
+  - Candidt
+  - Candy Snatchers
+  - Canon Canyon
+  - The Capillaries
+  - Captain Fathom
+  - Cariss
+  - Carroded
+  - Castle Bandits
+  - Cat Band
+  - Cat Butt
+  - Cataldo
+  - Catatonic Youth
+  - Cave Singers
+  - Cedar
+  - Central Intelligence
+  - Chain and the Gang
+  - Champagne Champagne
+  - Champion
+  - Chaostic Magic
+  - Chaz and the Mungie
+  - Chicharones
+  - Chidren's Hospital
+  - Christ on a Crutch
+  - Chocolate Chuck
+  - Christina Antipa
+  - Chromatics
+  - Cicadas
+  - City Center
+  - Climax Golden Twins
+  - Clinton Feron
+  - Clockwork
+  - CMYK
+  - Coachwhips
+  - Cobra High
+  - Coco Coca
+  - Cocorosie
+  - Cold Lake
+  - Cold Sweat
+  - Coley Cole
+  - Comely Fause
+  - Common Market
+  - Confusion Park
+  - Cool Rays
+  - Corespondents
+  - Corey Brewer
+  - Cosmic Pantherland Band
+  - Countra Band Country Band
+  - Criminal Damage
+  - Crosby Stills Nash and Young
+  - Crystal Skulls
+  - Crytical Dividenz
+  - Curious Mystery
+  - Cut Loose
+  - D-Sane
+  - D. Black
+  - d.o.do grange
+  - Dalmatians
+  - Dame
+  - Damien Jurado
+  - Danzig
+  - Dark Meat and Lazer Vomit Family Band
+  - Dark Places
+  - Dark Time Sunshine
+  - Dartk Thrown
+  - Das Llamas
+  - David Bavas Experience
+  - David Bazan
+  - Dead Kennedys
+  - Dead Low Tide
+  - Dead Science
+  - Death Valley Murder Squad
+  - Deerhoof
+  - Degenerate Art Ensemble
+  - Delta Haymax
+  - Deluxe Gentlemen
+  - Dennis
+  - Desolation Wilderness
+  - Destro
+  - Devenda Banhart
+  - Devo
+  - Diablotones
+  - Dillo Jamz
+  - Dimmak
+  - Dinosaur and the Missing Links
+  - Dirty Projectors
+  - Dissident Militia
+  - DJ Blessone
+  - DJ Top Spin
+  - DNTL
+  - DOA
+  - Dog Shredder
+  - Dolphin
+  - Doomhawk
+  - Doomsday 1999
+  - Dopke
+  - Dorkweed
+  - Double Fudge
+  - Double Vision
+  - Drown
+  - Du Hexen Hase
+  - Dub Narcotic Soundsystem
+  - Duck N Cover
+  - Dull Knife
+  - Dunes
+  - Dutch Dub
+  - Dyme Def
+  - Ears
+  - Earth
+  - Easy Big Fella
+  - Eel Eater
+  - Eighty4fly
+  - Electric Blanket
+  - Electric Eye
+  - Elephant 6 Collective
+  - Elevated Elements
+  - Elf Power
+  - Eli Moore
+  - Emeralds
+  - Engine 54
+  - Eternal 13
+  - Eureka Farm
+  - Explode into Colors
+  - Factory Girls
+  - Faith No More
+  - Fall of Electricity
+  - Fall on Fall
+  - Fantomas
+  - Fatal Lucciauno
+  - Fearce Villan
+  - Femme Uke
+  - Flake Music
+  - Figurine
+  - Filthy
+  - Final Spins
+  - Fireants
+  - Firechild
+  - Fleet Foxes
+  - Flexions
+  - Foo Fighters
+  - Framework
+  - Fresh and Onlys
+  - Frontline
+  - Fruit Bats
+  - Furious Styles
+  - Future City Fear
+  - Gabriel Teodros
+  - Gangsta Nutt
+  - Gape Attack
+  - Gas Huffer
+  - Gash
+  - Gatsby
+  - Gazelle
+  - Genesis P-Orridge
+  - Geologic
+  - Georgteown Orbits
+  - Get the Most
+  - Ghetto Children
+  - Girl Trouble
+  - Glacier Saint
+  - Glamour Pets
+  - GMK
+  - Go Like Hell
+  - Go Slowpoke
+  - God Monkey
+  - Godheadsilo
+  - Golden Pig Electric Blues Band
+  - Goners
+  - Good looks the Playboy
+  - Gorls
+  - Grave Babies
+  - Grayskul
+  - Grey Gardens
+  - Grieves
+  - Larkin Grimm
+  - GRR
+  - Grynch
+  - Guardian Alien
+  - H-Bomb
+  - Hair Friend
+  - Half Lights
+  - Halo Benders
+  - Hardison
+  - Harvey Danger
+  - Harvey Milk
+  - Haunted Lunch
+  - Head
+  - Head Like a Kite
+  - Heart
+  - Heartless Bastards
+  - Heavy Hearts
+  - Hecka Air
+  - Heiress
+  - Helladope
+  - Hello, Broken Aarow
+  - Hemingway
+  - Hey Marseilles
+  - Hi Life Soundsystem
+  - Hiboy
+  - Hidari Mae
+  - High Beams
+  - High on Fire
+  - Himsa
+  - Hint Hint
+  - His Name is Alive
+  - Hit Explosion
+  - Hog Molly
+  - Hole
+  - Hollow Points
+  - Holy Ghost Revival
+  - Homo Eradicus
+  - Honey for the Bears
+  - Honeymoon Killers
+  - Hoquiam
+  - Hot Rollers
+  - Huma
+  - Hundred Meter Trees
+  - Hunting Club
+  - Hush Harbor
+  - Hyena
+  - i, cordyceps
+  - I Love You Avalanch
+  - I.K.
+  - Iame
+  - Iamthethorn
+  - Ian and the Barnettes
+  - Idle Times
+  - Illy Wonka
+  - In Praise of Folly
+  - Infernal Noise Brigade
+  - Infinite Topspin
+  - Iron Lung
+  - Isabella Dugraf
+  - Ish
+  - J Tillman
+  - J. Pinder
+  - Jack
+  - Jack Waste
+  - Jaguar Love
+  - Jah Division
+  - Jake One
+  - Jarv Dee
+  - Jason White
+  - Jay Barz
+  - Jello Biafra
+  - Jen Wood
+  - Jerm
+  - Jesse Sykes
+  - Jex Thoth
+  - JFK
+  - Joanna Newsom
+  - John Atkins
+  - John Mcintyre
+  - John Spaulding
+  - Jon Mcinry
+  - Jordan O' Jordan
+  - Joy Division
+  - Joy Wants Eternity
+  - Juga Hill
+  - Julie C
+  - June Madrona
+  - Juno
+  - Just Like Vinyl
+  - Karl Blau
+  - Karp
+  - Katharine Hepburne's Voice (KHV)
+  - Katie Kate
+  - Kaz
+  - Kelly Stolts
+  - Kenny G
+  - Khingz
+  - Kill Sadie
+  - Kimya Dawson
+  - King Dude
+  - King Otto
+  - Kings English
+  - Kinski
+  - Knox Family
+  - Knucklewalker
+  - Krusters Kromonoid
+  - Kurt Bloch
+  - Kutfather
+  - Labrodore
+  - Lac of Respect
+  - Lace Cadence
+  - Lago Volunteers
+  - LAKE
+  - Lamborghiniz
+  - Land What Land
+  - Lands Farther East
+  - Language Arts
+  - Lard
+  - Larue
+  - Last Slice of Butter
+  - Last Waltz
+  - Laura Veirs
+  - Le Sang Sang
+  - Le Systeme Solaire
+  - Le Tigre
+  - Leather Spunge
+  - Led to sea
+  - Leif Pacemaker
+  - Lemonheads
+  - Leper Print
+  - Lethe
+  - Light Heavyweight
+  - Little Claw
+  - Little Party and the Bad Business
+  - Little Wings
+  - Llamas
+  - Lord Vintage
+  - Lords of Light
+  - Losen
+  - Love Tan
+  - Lozen
+  - Lync
+  - M. Evans
+  - M. Women
+  - Major Major
+  - Mako
+  - Mal Saint
+  - Maldives
+  - Man Down Medic
+  - Man tee Man
+  - Maniak Be
+  - Marc Olson
+  - Mark Pickerel and his Praying Hands
+  - Maroon Colony
+  - Mash Hall
+  - Masters + Johnson
+  - Math the Band
+  - Mayyors
+  - MC5
+  - Megapuss
+  - Metal Chocolates
+  - Mic Phenom
+  - Micah Hulscher and Keys to the Country
+  - Micheal Gira
+  - Midnight Thunder Express
+  - Mikaela's Fiend
+  - Mike Patton
+  - Mikey Nice
+  - Mint Icicles
+  - Minus the Bear
+  - Mirah
+  - Misadventues of two
+  - Misfits
+  - Mississipi Infi
+  - Monkey Wrench
+  - Monroe's Fur
+  - Moon Rats
+  - Morrissey
+  - Motorbikes
+  - Mount Analog
+  - Mr Bungle
+  - Mr. Hill
+  - Mt Eerie
+  - Murder City Devils
+  - Murder Dice
+  - Murdock
+  - Mynah birds
+  - Narcotic
+  - Natalie Portman's Shaved Head / Brite Futures
+  - Nation of Ulysses
+  - Neema
+  - Neezie Pleaze
+  - Neil Young
+  - Neo
+  - Nervous Cop
+  - Neutral Milk Hotel
+  - Never Ending Sorrow
+  - New Death Show
+  - New Order
+  - Nice Smile
+  - Night and Days
+  - Night Kings
+  - Nightclubber Lang
+  - Nine Iron Spitfire
+  - Nirvanasaur JR
+  - Nite Owls
+  - No Lord Shall Live
+  - Noah Georgeson
+  - Nuclear BBQ
+  - Nyqwil
+  - Ockham's Razor
+  - okmonics
+  - Oko Yono
+  - Old Rawler
+  - Old Time Relijun
+  - Oldominion
+  - Olivia Tremor Control
+  - On
+  - One for Kicks
+  - Ononos
+  - Onry Ozzborne
+  - Onyx of Olympia
+  - Open Choir Fire
+  - Oracles Creed
+  - Oragami Ghosts
+  - Os Coyotes
+  - P Washington
+  - Pain Cocktail
+  - Paisley Park
+  - Palasades
+  - Pale Soul
+  - Palisades
+  - Pan Pan
+  - Pantera
+  - Paperwhale
+  - Parket Hare
+  - Past Lives
+  - Pearl Jam
+  - Pearly gate music
+  - Pedro the Lion
+  - Peeping Tom
+  - Pegee13
+  - Peppermint Majesty
+  - Pets or Meat
+  - Pharmacy
+  - Phat Mob
+  - Pica Beats
+  - Pill Wonder
+  - Plan b
+  - Playing Enemy
+  - Poetry
+  - Poison 13
+  - Poison Ring
+  - Polka Dot Dot Dot
+  - Pompeii
+  - Pork Blister
+  - Porter Harp
+  - The Postal Service
+  - Premise Beach
+  - Private Beach
+  - Prohibituary
+  - Pseudo Punks
+  - Psychic Emperor
+  - Psychic TV
+  - Pwrfl Pwr
+  - Queensryche
+  - R. Stevie Moore
+  - Ra Scion
+  - Rabid Poos
+  - Rad Touch
+  - Raft of Dead Monkeys
+  - Raggedy Anns
+  - Rahzel
+  - Rainbow Fang
+  - Ralf Yountz
+  - Rat Cat Hogan
+  - Rat Fancy
+  - Ray Charles
+  - Razzle Dazzle Gang
+  - Red Sea Sharks
+  - Redskin
+  - Revolutionary Hydra
+  - Richard Swift
+  - Rick James
+  - Rik Rude
+  - Ricky Pharoe
+  - Rio en Medio
+  - Ripped to Shreds
+  - Rising Son
+  - Robin Pechnold
+  - Rock'phella
+  - Rocky Votolato
+  - Rodent Plauge
+  - Roller Dome
+  - Ronnie Porter
+  - Rooftops
+  - Rookies
+  - Roomates
+  - Rorsharch
+  - Rosyvelt
+  - Rotten Apples
+  - Rotundas
+  - Rox
+  - Rude Al Skankovic
+  - S
+  - S-N-O
+  - S.D.C
+  - Sabzi
+  - Sage
+  - Sally Maes
+  - Samothrace
+  - Samson S
+  - Sarkastic
+  - Satisfact
+  - Saturday Looks Good to Me
+  - Saxon Shore
+  - Scared of Chaka
+  - Scene Creamers
+  - Scraps
+  - Seahouse
+  - Sean
+  - Sears Catalog
+  - Secret Colors
+  - Secret Plan
+  - See Me River
+  - Self Tightld
+  - Selfie
+  - Seven Ten Split
+  - Sex Vid
+  - Sgt. Major
+  - Shackles
+  - Shady Muff
+  - Shambala
+  - Shana Cleveland
+  - Sharks Keep Moving
+  - Shed
+  - Shenadoah Davis
+  - Shoplifting
+  - Shotgun
+  - Siberian
+  - Sic Alps
+  - Silent Lambs Project
+  - Sinsemilla
+  - Siren's Echo
+  - Sistahailstorm
+  - Skalami
+  - Skinny Whiskers
+  - Skribbles
+  - Skuntdunnanna aka Mafia
+  - Slats
+  - Slaughterhaus Rose
+  - Sleater Kinney
+  - Sleep (Hip Hop)
+  - Sleep (Metal)
+  - Sleepy Workers
+  - Slippers USA
+  - Smoke
+  - Smoking Bill
+  - Snacks
+  - Snafu
+  - Snow Cuts Glass
+  - Society Nurse
+  - Sofa Kings
+  - Soft Cell
+  - Solar Master
+  - Solger
+  - Some by Sea
+  - Son of Rose
+  - Son Things
+  - Son Vow
+  - Sonny and the Sunsets
+  - Sonny Bonoho
+  - Sorry
+  - Source of Labor
+  - Space Ballerinas
+  - Spaceman
+  - Spaid
+  - Sparkle Girl
+  - Speaker Speaker
+  - Specs
+  - Specs One
+  - Spectretone International
+  - Speedy
+  - Spencer Moody
+  - Spider
+  - Spittting Teeth
+  - Splatter House
+  - Spooks
+  - Spring Break
+  - Square Waves
+  - Squirt and Combover
+  - State of Confusion
+  - Statics
+  - Stay Hi Bros
+  - Steaming Wolf Penis
+  - Stebmo
+  - Steel Pole Bath Tub
+  - Steve Moore
+  - Stiletto
+  - Stoics
+  - Strap Straps
+  - Suffering and the Hideous Thieves
+  - Sufjan Stevens
+  - Sultanas
+  - Summer Camp
+  - Sun City Girls
+  - sundance kids
+  - Sunday Night
+  - Sunday Night Blackouts
+  - Sweet 75
+  - Swimmers
+  - Syndel
+  - Talbot Tagora
+  - Tall Birds
+  - Tattle Tale
+  - Tay Sean
+  - Team Strike Force
+  - Teen Cthulu
+  - Telekinesis
+  - Terror Dactyls
+  - The Accused
+  - The Akron Family
+  - The Awesome Miami
+  - The Bears
+  - The Bible
+  - The Blessed Light
+  - The Blow
+  - The Botherations
+  - The Byrds
+  - The Cat From Hue
+  - The Catheters
+  - The Charming Snakes
+  - The Coconut Coolouts
+  - The Cripples
+  - The Decemberists
+  - The Delusians
+  - The Dipers
+  - The Divorce
+  - The Downstrokes
+  - The Dusty 45s
+  - The Dwarves
+  - The Fall of Troy
+  - The Feelings
+  - The Fells
+  - The Fire Theft
+  - The Flying Dutchmen
+  - The Geese
+  - The Girls
+  - The Gits
+  - The Gorls
+  - The Gossip
+  - The Grai'ain
+  - The Graze
+  - The Heavy Hearts
+  - The Hollies
+  - The Instants
+  - The Intelligence
+  - The Kill Me Pills
+  - The Kings English
+  - The Knast
+  - The Lights
+  - The Living
+  - The Long Ranger
+  - The Love Lights
+  - The Make Up
+  - The Moldy Peaches
+  - the moms
+  - The New Original Sonic Sound
+  - The New Pornographers
+  - The Oregon Woods ?
+  - The Physics
+  - The Pulses
+  - The Raging Hard Ones
+  - The Religious Girls
+  - The Ronz
+  - The Saturday Knights
+  - The Seizures
+  - The Smiths
+  - The Spits
+  - The Spittin' Cobras
+  - The Stereo Future
+  - The Trashies
+  - The Trucks
+  - The Turpentines
+  - The Umbrellas
+  - The Unnatural Helpers
+  - The Vells
+  - The Velvet Undergound
+  - The Webelos
+  - The Whip
+  - The Whore Moans
+  - Thee Oh Sees
+  - THEESatisfaction
+  - Them Crooked Vultures
+  - These Arms are Snakes
+  - Thig Nat
+  - Throbbing Gristle
+  - Throw Me the Statue
+  - Tilson
+  - Time Claw
+  - Tiny Light
+  - Tiny Vipers
+  - Toni Hill
+  - Tony
+  - Tragedy
+  - Treasures
+  - Tremor
+  - Trial
+  - Triumph of Lethargy Skinned Alive to Death
+  - Tru-Id
+  - Truth
+  - Tulsi
+  - Twin G
+  - Ty Segall
+  - Type
+  - Tyvek
+  - U.S.S. horsewhip
+  - U2
+  - Ugly Casanova
+  - Undertow
+  - Union of Opposites
+  - Universal Studios Florida
+  - Unlearn
+  - Valentine Killers
+  - Vandemonium
+  - Vellella Vellella
+  - Vells
+  - Vendetta Red
+  - Viper Problem
+  - Vitamin C
+  - Vitamin D
+  - Voyager One
+  - Walls
+  - War Cry
+  - Water Island
+  - Water Kill the Sun
+  - Wavves
+  - Waxwing
+  - Weary
+  - Weekend
+  - Weird war
+  - Welcome
+  - Western State Hurricanes
+  - What is gongress
+  - White rainbow
+  - Widower
+  - Wild in the Streets
+  - Wildildlife
+  - Willie Will
+  - Wimblefoon
+  - Winston Wolff
+  - Wizards of War
+  - Wizdom
+  - Wooden Wand
+  - Word Aminal
+  - World history
+  - Wrestling Team
+  - Xperience
+  - Yellow Swans
+  - Yes Oh Yes
+  - Yikes
+  - Yokai No Uta
+  - Young Blaze
+  - Young Fresh Fellows
+  - Yuk
+  - Zebulon Dak
+  - Ziskis
+  - Zombie IV
+  - STRT SPRX
+  - Fallouts
+  - Andriod Hero
+  - this blinding light
+  - red martian
+  - hypatia lake
+  - Starr Harris
+  - Der Trasch
+  - The Snakebites
+  - Moppers
+  - The Black Crabs
+  - Tokyo Drifter
+  - Texas Funeral
+  - The Gimmicks
+  - Jesu
+  - Black Noise Cannon
+  - Action Suits
+  - Kiss it Goodbye
+  - Shining Ones
+  - Nothing Left
+  - Wehrwolve
+  - Bali Girls
+  - GodSpeed
+  - Delusions Bone Celler
+  - Daily Values
+  - Mugwump
+  - Coriander
+  - The Somethings
+  - Way Beyond
+  - The Groceries
+  - The Meltdowns
+  - Happy Stars
+  - Horace Pickett
+  - The Back Bur
+  - Imperial Standard
+  - Tim & The Time Machines
+  - Blunt Mechanic
+  - Mines
+  - Justin Roeser & The EN Council
+  - The Tempers
+  - Broken Nobles
+  - Betelmire
+  - Moogle Charm
+  - Cold Cave
+  - Puberty
+  - H is for Hellgate
+  - Former Ghosts
+  - HellCharger
+  - Sanford Arms
+  - Lure of the animal
+  - The Cinematics
+  - Jough Dawn Baker
+  - Navigator vs Navigator
+  - The Rockfords
+  - Loaf
+  - Xiu Xiu
+  - hallways
+  - Pleasurecraft
+  - Wallpaper
+  - Stabbings
+  - billy shook
+  - slut vomit
+  - Sioux City Pete & the Beggars
+  - The First Times
+  - Subvert
+  - Boomzzilla
+  - Hello from Waveland
+  - Basemint
+  - Alectrophobia
+  - Carrie Akre
+  - Caligula Cartel
+  - Pas Mal
+  - FIIA
+  - Ethan Freckleton
+  - Isaac Scott
+  - Christdriver
+  - NighTraiN
+  - Teo Crider
+  - Orbiter
+  - Valu-Pak
+  - The Charm Faucets
+  - Lojique
+  - Bens Jazz Kit
+  - Mega Bog
+  - Black Gravit
+  - The Redwood Plan
+  - Blouse
+  - Nicole Haleen & The Projects
+  - altaRego
+  - the Tuggboats
+  - Telepathic Liberation Army
+  - Seattle Rock Orchestra
+  - Mr. Lif
+  - Ivans Hose
+  - Jens Lekman
+  - Second Story Regret
+  - No Excuses
+  - Pigeonhed
+  - The Thrown Ups
+  - Heatsync
+  - The Monday Mornings
+  - Armitage Shanks
+  - R.U.R
+  - Green Apple Quickstep
+  - Nuclear Igloo
+  - Action Jackson
+  - Ambulance for Angels
+  - Adraboo
+  - Tax and Leisure Corporation
+  - The Lost Episode
+  - Twillight Singers
+  - Bone Dagger
+  - carribean corpse
+  - Lois
+  - The Crabs
+  - Sex Panther
+  - Luxury A.K
+  - Bedroom Produksionz
+  - Snot Rockettes
+  - The Conversation Heart
+  - Thunder Buffalo
+  - Man Sized Heartache
+  - Matt Dillon
+  - Camerosmith
+  - The Vaccines
+  - RC5
+  - Bob Wayne & The Outlaw Carnies
+  - Webelos
+  - Duet To-It
+  - Tonjia Atomic
+  - Tonjia Nasty and the Grip
+  - Short Hair
+  - Silver Daggers
+  - Strange Boys
+  - Three Til Midnight
+  - The Spyders
+  - The Kegels
+  - Benny
+  - Clean Break
+  - The Satin Dolls
+  - rallim nomad
+  - Pwrfl Power
+  - Na
+  - Mobius Jones
+  - Everlasting Blues Band
+  - Ribbons
+  - Golden Retriever
+  - Oregon Painting Society
+  - Tit Pig
+  - Display
+  - The Pica Beats
+  - WAMU
+  - Shook Ones
+  - Go It Alone
+  - Typical Ace
+  - The Fuzz
+  - Death For Profit
+  - Ancille
+  - Gina Young
+  - black cat orchestra
+  - David Byrne
+  - Feedback
+  - Wellwater Co
+  - The Fartz
+  - The Fags
+  - Meddaphysical
+  - Velvet Revolver
+  - Loch Lomond
+  - AgesandAges
+  - Bill Horist
+  - Mean Deep
+  - Das Dhoom
+  - Subatomic Sound System
+  - Non-Stop Bhangra
+  - Mista Chatman
+  - Psychopop
+  - Glassy Globe
+  - Mike Dumovich
+  - Bat Country
+  - Moral Cruz
+  - The Gloryholes
+  - Caught Red Handed
+  - The Flux Capacitors
+  - Breaker Breaker
+  - Black Nite Crash
+  - The Biography of Ferns
+  - The High Divide
+  - Rain City Shwillers
+  - The Ironclads
+  - Neutralboy
+  - Gods Favorite Beefcake
+  - Zdefeckt
+  - The Primate 5
+  - The Adding Machine
+  - Sledgeback
+  - Dreadful Children
+  - A-Holes
+  - Thuglife Baldwin
+  - Medicine Hat
+  - Luxochamp
+  - The Buffets
+  - The New Ghosts Of Oldtown
+  - Billy Childish & Musicians Of The British Empire
+  - Kuma
+  - A Midnight Choir
+  - Vince Mira
+  - The Spectres
+  - Robert Rial and the Bakelite 78
+  - Low Hums
+  - Z
+  - Okey Dokey Donkey
+  - Laurie Katherine Carlsson
+  - Doppleganger
+  - Luna Park
+  - Big High
+  - Publish The Quest
+  - Project Lionheart
+  - The Cardboard Cutouts
+  - Abeyance
+  - Lines Into Phoenix
+  - Shotty
+  - The Heights
+  - Fox and The Law
+  - Psoriasis
+  - The Quit
+  - The Contraband Countryband
+  - Elba
+  - Sugar Skulls
+  - Brian Vogan and His Good Buddies
+  - Fever Break
+  - Dub Lounge International
+  - Winston "Flames" J
+  - Norman Baker
+  - Sundance
+  - Boom Tali Posse
+  - Model Rockets
+  - Captain Leroy & the Zydeco Locals
+  - Ian McFeron Band
+  - Picoso
+  - Josh Rawlings Trio
+  - Marc Seals
+  - Industrial Revelation
+  - New Seattle Brass Ensemble
+  - Reservoir Cats
+  - Correo Aer
+  - Yam
+  - Supernauty
+  - Resistor
+  - Pussy Chop Banana
+  - Pegasus
+  - Swallow
+  - Temple Vibe
+  - Jherek Bischoff
+  - Larry Barrett
+  - Heather Duby
+  - Metric
+  - Clipse
+  - JusMoni
+  - Radio Sweetheart
+  - The Moondoggies
+  - The Familiars
+  - '1234'
+  - Tiny Hat Orchestra
+  - Hai Karate
+  - Los Hornets
+  - Sweet Chariot
+  - Tot Finder
+  - Mancini Projekt
+  - Waves
+  - Resistor Vs Levator
+  - Lark Vs. Owl
+  - The Blinding Light
+  - Echo Locate
+  - Mars Accelerator
+  - The Allies
+  - Tingstad and Rumbel
+  - A Gun That Shoots Knives
+  - Legion Within
+  - Traiinwreck
+  - Slender Means
+  - 'Subminute: Radio'
+  - The Telepaths
+  - Dept. Of Energy
+  - Young Sportsmen
+  - The Congratulators
+  - The Pezniks
+  - Avolition
+  - South Side
+  - Beautiful Mothers
+  - Haircuts that Hurt
+  - Six Select
+  - The Resets
+  - Lunch Buddy Program
+  - KLED
+  - Slow Skate
+  - The Pathetic Wannabees
+  - Reyshard
+  - Post Harbor
+  - Colin Isler Band
+  - Chimestone
+  - 10 Minutes Down
+  - Texas Chainsaw Orchestra
+  - The Genitals
+  - Natural Order
+  - Cactus Love
+  - Quicksand
+  - Not From Space
+  - Gardener
+  - The Bangs
+  - Leuko
+  - Kittitas
+  - Eleventhour
+  - Riverbend
+  - The Tap Handles
+  - Otherwise
+  - Jake Marsh Trio
+  - Ozzy Osmond
+  - The Anna Kemnitz Experience
+  - Kevin Preston
+  - Westin Halvorson
+  - Hello Karma
+  - The Morning After
+  - The Moore
+  - Wit Woo
+  - Raid
+  - Elect Becker
+  - Punch
+  - Splendor
+  - The Waiting
+  - Stereo Kings
+  - Jumbalassy
+  - Ants Invasion
+  - The Preons
+  - The 1 Uppers
+  - El Vez
+  - Vital Idol
+  - Almighty Dread
+  - Frail
+  - Osaka Explosion
+  - Jaded 52
+  - Western Hymn
+  - The Swains
+  - New Town Animals
+  - Sera Cahoone
+  - Piston Ready
+  - STALACTITE
+  - Dicky Moe
+  - Stiletto Kill
+  - Motorik
+  - Broken Statue
+  - The Simians
+  - Chris Eckman
+  - The Bambi Molesters
+  - Chris & Carla
+  - Dirtmusic
+  - The Strange
+  - Terri Tarantula
+  - The Transmissionary Six
+  - Airresponsibles
+  - SuperGroup
+  - Banned from the Mall
+  - Quinn W Shagbark
+  - heather graham is hot
+  - Hot Lunch
+  - Nathan Wade & the Dark Pioneers
+  - The Bourbonites
+  - Crystal Radio
+  - Kinetics
+  - Zero Down
+  - The Squirrels
+  - Hartwood
+  - Nitespell
+  - Slugo
+  - Reflections
+  - Rocks
+  - Blind Horse
+  - Guided By Dan
+  - Hetch Hetchy
+  - Sue Quigley Band
+  - Poop Attack
+  - River Giant
+  - Library Science
+  - '669'
+  - Solomon Grundy
+  - Kitty Kitty
+  - All Time High
+  - Vaporland
+  - The Kleeners
+  - Jose Bold
+  - With Honest Eyes
+  - From the North
+  - Ten Yard Fight
+  - Ensign
+  - Balance of the World
+  - Olde Ghost
+  - Ten O Seven
+  - The Hit
+  - Face First
+  - The Arid Sea
+  - Time in Malta
+  - St. James Infirmary
+  - The Culling
+  - Plaster
+  - Mona
+  - Tumbledown Arthur
+  - Cod Launcher
+  - Big Dirt
+  - Starkiller
+  - The Garden Gnome Chomskys
+  - Venus Envy
+  - Boom Boom G
+  - 3 Track Mind
+  - Toast
+  - Vicci Martinez Band
+  - Ranch Romance
+  - Asleep At The Wheel
+  - Ani DiFranco
+  - Nightmare Syndicate
+  - Plot to Blow Up the Eiffel Tower
+  - Micron 7
+  - Super Sonic Soul Pimps
+  - Cornucopia
+  - Mayor of the World
+  - Glucose
+  - PRKR
+  - The Getter Flash
+  - Le Loup
+  - SAFAL
+  - Motorist
+  - The Troops
+  - Function of Hornets
+  - Peeved
+  - Skablins
+  - Seven Inch Round
+  - Big Grizzly
+  - Witchburn
+  - Fistful of Britney
+  - The Triple Sixes
+  - Nubbin
+  - Lemonade
+  - Cibo Matto
+  - Bomberman Awesome
+  - Monster Truck Driver
+  - The Fluid
+  - Spell
+  - Bundle of Hiss
+  - Quaranteens
+  - Superkali
+  - Jonathan Kimball Band
+  - Smile Project
+  - James Whiton
+  - Black Houses
+  - 3 Inches of Blood
+  - The Last Great Liar
+  - micro mini
+  - The Lemons
+  - Alien Crime Syndicate
+  - Toad Hell
+  - Dekay
+  - Big Satan, Inc.
+  - Bodine
+  - Kingsmen
+  - Shyanne
+  - Herb and the Spices
+  - Freddie and the Screamers
+  - Los Orchids
+  - Army
+  - Teen Angels
+  - Atomic 61
+  - Rhino Humpers
+  - Best Kissers in the World
+  - Fall of 1920
+  - Airport
+  - James Apollo
+  - H-Hour
+  - Willard
+  - Overlord
+  - Shadow
+  - The Trids
+  - Bible Stud
+  - Stomach Pump
+  - Yummy
+  - The Oregon Donor
+  - Evan and Virginia Easthope
+  - Pistol For a Paycheck
+  - Xylophones
+  - Phat Sidy Smokehouse
+  - WACO
+  - Das Schwa
+  - Motel 5
+  - New American Shame
+  - Loaded
+  - The Bismark
+  - Tijuana Carwash
+  - Dark Matter Noise
+  - Ecaj Jace
+  - Blue Ribbon Boys
+  - Daylight Basement
+  - F-Holes
+  - Slidin Spades
+  - Filastine
+  - Mutiny Mutiny
+  - peace and silence
+  - Post modern heros
+  - The Snot Rockettes
+  - Three Blind Mice
+  - The Derelicts
+  - Mach turtle
+  - Earls family bombers
+  - Hellbound for glory
+  - The Missionary Position
+  - Betty Ford Falcons
+  - Holy Ghost People
+  - The Furies
+  - Jupe Jupe
+  - ruston mire
+  - Julia Massey and The Five Finger Discount
+  - Soft Kill
+  - Redwood Plan
+  - Secret Shoppers
+  - Slowdriver Down
+  - The Supersuckers
+  - Gerald Collier
+  - Evangeline
+  - Low and High
+  - ramdilo
+  - 1500 Club
+  - Vista Vista
+  - Bandolier
+  - Sons of Ivan
+  - The Dignataries
+  - The Ramrods
+  - The Condiments
+  - Jiffy
+  - Capping Day
+  - Excuse 17
+  - Joe Atlas
+  - The Loveless and the Goodnight Trail
+  - John Spencer and the Booze Explosion
+  - Dodi
+  - Swell
+  - November WItch
+  - The Dwindles
+  - The Sidwinders
+  - Sick Man of Europe
+  - The Paul Lynde Fanclub
+  - Sidewinder
+  - Silly Killers
+  - Pet Products
+  - Jill Cunningham Band
+  - Disjointed Isotopes
+  - The Nighcaps
+  - Kelly Castle Scott
+  - Limerence
+  - Otis Frye
+  - Elise Glassman
+  - '2233'
+  - the outrigga projection
+  - Haywood Turkoglu
+  - Iron Beef
+  - Nimoy
+  - The Yell Kings
+  - Moustache Ride
+  - Sugarat
+  - Chris and Tad
+  - The Tycoons
+  - The Iconics
+  - Manazma Sheen
+  - Dave Rawlinson Band
+  - The Good Touch
+  - The Crucialites
+  - Better Day
+  - The Green
+  - Red Rocket
+  - Splinter Party
+  - Sourmash
+  - I Like Danger?
+  - Xander
+  - Corin Tucker Band
+  - HiWatt
+  - The Rain Kings
+  - Black Swedes
+  - Menomena
+  - The Crills
+  - The Loyal Opposition
+  - 64k
+  - Front Line Assembly
+  - Chemlab
+  - 16Volt
+  - LAND
+  - Iron Kim Style
+  - Stackpole
+  - Savant
+  - Earthstar
+  - Identity Crisis
+  - Ting Bu Dong
+  - Big Sister
+  - X-tra Virgin
+  - Dr. Fleek and the Army of Experimental Ch
+  - Black Line
+  - Avulsive
+  - Avulsion
+  - Appleseed
+  - Rikki Tikki Tavi
+  - Tribe After Tribe
+  - Tennessee Valley Authority
+  - At the Spine,
+  - Janitor Joe
+  - Reef Encounter
+  - SUNN O)))
+  - Miss Mamie Lavona and her White Boy Band
+  - Akashic Records
+  - Fenster
+  - North Twin
+  - the Sweet Nothings
+  - Countermeasure
+  - Life After Life
+  - Morgan Dusatko and the Morgan Dusatkos
+  - Platinum Spandex
+  - Otep
+  - Travis Shredd and the Good Ole Homeboys
+  - Tuba Luba
+  - Pocket Panda
+  - Yossarian
+  - White Slaves
+  - Ghost Dad
+  - Haiku-Chi
+  - Misery Love Company
+  - Role One
+  - Funky2death
+  - Ministry
+  - Pigface
+  - fridayclub
+  - Roxbury Pound
+  - Enemy Camp
+  - Elk & Boar
+  - Kaymak Musik
+  - Down North
+  - The Treeclimbers
+  - Whiskeytown
+  - Dyno Jamz
+  - Apple Maggot Quarantine Area
+  - The Colorplates
+  - The Queen Annes
+  - Arms Akimbo
+  - Boy Toast
+  - The Larch
+  - Goblin Market
+  - SMP
+  - HANG
+  - Altamont
+  - The Odd Nasty
+  - Radio Clash
+  - The Golden Ticket
+  - Show Pony
+  - Beehive Vaults
+  - The Rapture
+  - Dox
+  - Syntone
+  - '1776'
+  - Brainhole
+  - The Teamsters
+  - Master of the Unitard
+  - Liquid Generation
+  - Rosie Thomas
+  - Velour 100
+  - Mechanical Dolls
+  - The Arcadians
+  - The Crust Brothers
+  - Joel RL Phelps and the Downer Trio
+  - Not Sorry
+  - Marielle
+  - Millions of Bugs
+  - Minirex
+  - Invading Melody
+  - Loaded Question
+  - Alice Evans
+  - The Astro-cats
+  - Uncle Nobody
+  - Broken Suitcase
+  - Ghetto Flash
+  - The No Pile
+  - La La and the Waves
+  - Optimus Rhyme
+  - Lemons and Stallions
+  - Videogamez
+  - Mistress and the Misters
+  - Jose Fang
+  - The Derivitives
+  - Penny Romance
+  - Patient Zero
+  - The Gar Hooker Project
+  - Pace Bend
+  - Tahkoma
+  - Junk Bones
+  - Cowlick
+  - Pet Dander
+  - hjemmelavede
+  - Little Angry
+  - evn
+  - Twig Palace
+  - Humble Cu
+  - hunting hat horses
+  - The Forgotten Cheekbone Orchestra
+  - Metamorphosis
+  - Eastern Star
+  - Vein Train
+  - The Grind
+  - Agent 86
+  - The Beakers
+  - This is My Gun
+  - She-Level
+  - Massy Ferguson
+  - Halo of Flies
+  - Argo
+  - Uncle Angst
+  - Solace in Black
+  - Buttafuko
+  - Bleeder
+  - Misanthropy
+  - Mindshaker
+  - The Human Echo
+  - TKO
+  - Jimm and The Boxes
+  - The Spit-Licks
+  - Sjenka
+  - Coal Mine Fires
+  - Strange Season
+  - Vital Signs
+  - No Quarter
+  - Sirius
+  - Jupiter
+  - The Underlings
+  - The Black Fairies
+  - King Krab
+  - The Screwmatics
+  - The 667s
+  - Zombie vs. Shark
+  - Betsy Olson
+  - Fakey Vampires
+  - Mercury Pusher
+  - the pin ups
+  - the hula bees
+  - gin betty
+  - Ubik.
+  - Don Peyote
+  - The Mark Sparkles
+  - Vicki Vale
+  - Aphiskkyu-Bot
+  - Requin
+  - Roareth
+  - Red Sonya
+  - Knockout
+  - Common Heros
+  - Run for it Marty
+  - Pris
+  - Kingpin Hayes
+  - Big Splash Champion
+  - Nojo on the Rojo
+  - The Sun-Ups
+  - The Pi
+  - Acetylene
+  - Surrealestate
+  - Jadestik
+  - Jet Black Crayon
+  - Pablo Trucker,
+  - Porcelain
+  - The Life There Is
+  - Land Line
+  - Roper
+  - Aileen Paron
+  - Daphne Loves Derby
+  - Sub-Motive
+  - Delvecko
+  - As We Speak
+  - Klondike 5
+  - The Wide Band
+  - Brash Royal
+  - The Little Penguins
+  - Coulter
+  - DeVries
+  - Shit Gets Smashed
+  - Touch Me Satan
+  - Sadie Hawkins Rejects
+  - People We Hate
+  - Enfor
+  - Eshas
+  - Grievous
+  - Enforcer
+  - Reptilicus Maximus
+  - Group Sex
+  - The Ponderosa
+  - Sail on, Sailor
+  - Shotgun Justice
+  - Building a rocket
+  - Project 86
+  - Seven Head Division
+  - Madpoet
+  - Thinkfeed
+  - Reef
+  - Raised By Wolves
+  - Howlin Houndog and the Infamous Loosers
+  - Stefanie Lee & The Northern Lights
+  - Grownup Trouble
+  - CXQ5
+  - Buddan Loves Jesus
+  - Arla Snell
+  - McKinnley
+  - David Bavas and The Down Comforter
+  - Willow
+  - Mabel McGee and Pennsylvania Slim
+  - One Hit
+  - Central Services
+  - Board of Education
+  - Buckets of Rain
+  - Scotty Lind and the Moondogs
+  - Left Hand Smoke
+  - Tim Turner Band
+  - Memphis Radio Kings
+  - Dudley Taft Band
+  - Maggot Brains
+  - Devilhead
+  - Julep
+  - White
+  - Lousy Robot
+  - Whorange
+  - Godmachine
+  - White Zombie
+  - Crystal Beth
+  - Owcharuk 5
+  - Monktail Creative Music Concern
+  - Kultur Shock
+  - skrill meadow
+  - lazer zeppelin
+  - part dog
+  - hobby hobby
+  - eleanor murray
+  - dash-a
+  - Nada Surf
+  - Owl City
+  - Helmet
+  - Thee Emergency
+  - Leroy Bell
+  - transPacific
+  - Vassily
+  - The Fellini Outtakes
+  - Mauser
+  - Inamorata
+  - Embers Vacancy
+  - American Girls
+  - Doug Yule
+  - J. Hiram Boggs and Satisfaction
+  - the foghorns
+  - Carrie Biell
+  - The Opiate Mass
+  - Righteous Trash
+  - Pigpen
+  - Gravitas Quartet
+  - Harold Budd
+  - Bill Frisell
+  - The John Wu Project
+  - Autumn Sonata
+  - Fair
+  - Rose Blossom Punch
+  - Meekin Pop
+  - Sunsites
+  - Demon Hunter,
+  - Dead Poetic
+  - This Diminishing West
+  - The Yellow Dwarf Theory
+  - Toy Boats
+  - Empty Cage Quartet
+  - The Illicit Jug Cartel
+  - Hutch & Kathy
+  - The Accident Experiment
+  - Sycophant
+  - Sponge
+  - Blue Pig
+  - Fabulous Party Boys
+  - Fortune Dwellers
+  - Burning Witch
+  - Goatsnake
+  - Loaded, Pleasure Elite
+  - Khanate
+  - Apes of Wrath
+  - Girth
+  - SC3
+  - Kayo Dot
+  - Black Horse
+  - Monster Magnet
+  - The Desert Sessions
+  - Johnny Socko
+  - Single Serving Jack
+  - Backwards Masks
+  - Skyward
+  - Tecumseh
+  - Mobile Slaughter Unit
+  - Secret Cheifs
+  - Channel
+  - Task Force Productions
+  - Vintage Sleep
+  - Sir Mix-A-Lot
+  - Ghost Ship
+  - MHDT
+  - Imperials Jazz Big Band
+  - Control Keys
+  - Inf3rno
+  - Scotty P and the Ozone
+  - Colin J. Nelson
+  - Know Your Saints
+  - Wade Amongst the Dead
+  - Tim Seely
+  - Maxwell Perry
+  - Rasputina
+  - Mum
+  - The Bottle Rockets
+  - Static Engine
+  - Stereo Sons
+  - Failure
+  - Troy Van Leeuwen
+  - Bottlehead
+  - Phokus
+  - Bone Orchard
+  - A Perfect Circle
+  - Tool
+  - Nine Inch Nails
+  - The Vandals
+  - Weezer
+  - The Offspring
+  - The True Bugs
+  - Tomahawk
+  - Cows
+  - Rematron
+  - Beltholes
+  - Vomiting Unicorns
+  - Sweven
+  - The Helm
+  - Rosary
+  - The Green Ghosts
+  - Ed Wang
+  - Pseudo
+  - Fragile Jack
+  - Vast Capital
+  - Bird Of Passage
+  - Basic Astronomy
+  - Kiss Her For The Kid
+  - Full
+  - Minor Threat
+  - Secret Highways
+  - The Not Its
+  - Action Patrol
+  - Burn Witch Burn
+  - Miss Solar System
+  - Banco de Gaia
+  - Auditory Sculpture
+  - Meat Beat Manifesto
+  - Ghislain Poirier
+  - The Billy Tipton Memorial Saxophone Quartet
+  - Jessica Lurie Ensemble
+  - Film School
+  - Wesafari
+  - Troubleshooting
+  - Beware Doll
+  - Anti-Flag
+  - The Dexter Street Stompers
+  - Arkade
+  - The Cootees
+  - Sinking Ships
+  - Set Your Goals
+  - Season of Death
+  - Alternate 85
+  - Saudaukar
+  - Prarie Bastards
+  - Jesus Chrysler
+  - The Diving Bell
+  - Citris Mod
+  - Billy Tipton Memorial Saxophone Quartet
+  - John Zorn
+  - Still Falling
+  - I9
+  - The Love Louder
+  - Henkensiefken
+  - autOaudiO
+  - HAD
+  - Zera Marvel
+  - Greyskul
+  - Jackrabbit
+  - Moe Provencher
+  - Jett City
+  - The Octabites
+  - My Favorite Girl
+  - Pelusa
+  - Kate Tucker and the Sons of Sweden
+  - Beautiful Soup
+  - Evening Plains
+  - Eternal fair
+  - The Cast Iron Maidens
+  - Boaz
+  - Union Stewards
+  - Grimus
+  - The Cleavers
+  - Brave New World
+  - Indian Pudding and Pipe
+  - Tazmanian Devils
+  - Van Morrison
+  - The Wailers
+  - The Pinehurst Kids
+  - Suitcase
+  - Bulldog Front
+  - The Blown Eagles
+  - The Look
+  - Mindless Thugs
+  - She Is
+  - Sil2k
+  - Eight Track Mind
+  - Ambidextrous
+  - Dynamite 8
+  - The Steal
+  - Brunchfist
+  - Vera the Ghost
+  - Take Cover
+  - Camas In Our Pants
+  - Sense of Soulution
+  - Map of France
+  - Queen Anne Gentlemen
+  - CIOP
+  - Georgetown All-Stars
+  - Anna-Lynne Williams
+  - NoRey
+  - King of Hawaii
+  - Faded Markers
+  - Mystery Ship
+  - We Are Golden
+  - Wages of Sin
+  - Idlewild
+  - Viva La Villains
+  - Chumbawamba
+  - Chad and Tad
+  - Danger Gens
+  - Harkonen
+  - Chyeah chyeah
+  - The Giraffes
+  - Withering Stares
+  - Mamiffer
+  - Time To Fly
+  - portugal the man
+  - brandi carlile
+  - thomas hunter and white china gold
+  - Say Hi
+  - Baltic Cousins
+  - The Russians
+  - People Eating People
+  - Mon Frer
+  - Stone Temple Pilots
+  - Wilco
+  - Los Lobos
+  - House Engine
+  - One More MIle
+  - Dharma Bums
+  - Glassnotes
+  - DeLorean
+  - Amy Grant
+  - Kmria
+  - The Low Beats
+  - The Baseball Project
+  - Dynette Set
+  - Graig Markel
+  - King Nilla
+  - SSS
+  - Jeff Greinke
+  - The Unibroz
+  - Shriekback
+  - The Del Lagunas
+  - joebass.com
+  - Rorschach Test
+  - Hovercraft
+  - Eleven
+  - Bad Radio
+  - Clown Alley
+  - Fecal Matter
+  - Lustmord
+  - Men of Porn
+  - Shrinebuilder
+  - Venemous Concept
+  - Revolting Cocks
+  - Blaise Pascal
+  - Bone Cellar
+  - Amateur Lovers
+  - jesus chords
+  - M-set
+  - Screams Of Angels
+  - Fifth Angel
+  - Husbands Love Your Wives
+  - Spluii Numa
+  - Wylde Ratttz
+  - Reptilian Civilian
+  - Engine Kid
+  - Triple X Audio
+  - In Cahoots
+  - The Navins
+  - 3 Kevins
+  - Original Fruit
+  - Star Lake Drownings
+  - Brain Dead
+  - 'Null'
+  - Cowardice
+  - Abident
+  - Never Looking Back
+  - Swinglow
+  - Beecraft
+  - Chelsea Speed Party
+  - Cilantro
+  - Lisa Dank
+  - caligula connection
+  - Consume
+  - Inhumane
+  - Decrepit
+  - Deathraid
+  - Stillborn
+  - Final Warning
+  - 2-Minute Tantrum
+  - Gumby Riot
+  - Pontius Pilate and the Nail Drivers
+  - The Pomonas
+  - Justin Ripley
+  - Just Just
+  - Thunderbird Motel
+  - Plastic Letters
+  - Tuff Cookies!
+  - The Bronx
+  - Degenerats
+  - Hollywood 77
+  - Rabid Dogs
+  - the Testors
+  - Nikki Corvette
+  - Guilty Hearts
+  - Midnight Shakes
+  - Shattered Machine
+  - RBand
+  - Calico Cartel
+  - Clucks
+  - Moving Parts
+  - Liquorbox
+  - American Eyes
+  - Manooghi Hi
+  - Buttrock Suites
+  - Vacillators
+  - Survey Cez
+  - Nurse Ratchett
+  - Crawdaddies
+  - Wanda
+  - bopo boys
+  - Shitlist
+  - Cowboy Coffee
+  - Used Cars
+  - NME
+  - Aspirin Feast
+  - Laceration
+  - Disraeli Gears
+  - Alligator Pears
+  - Pleasure Elite
+  - malakait dan singa
+  - Hangmen
+  - Steve Earle
+  - Rancid
+  - Last Man Standing
+  - Big Hollow
+  - Uglyhead
+  - Monstrawtikuss Frankenstienikuss
+  - Machine Corp
+  - Ascend
+  - Sun O)))
+  - Substandard
+  - Saints of Slumber
+  - Avian Survivor
+  - Metempsychosis
+  - Butthole Surfers
+  - the Royal Neanderthal Orchestra
+  - Eyes Adrift
+  - Primus
+  - Snow Bud and the Flower People
+  - Red Squirrels
+  - Anberlin
+  - AA
+  - fossils
+  - Jazz Unlimited
+  - Instand Guru
+  - Sandy Boys
+  - Storybook Crooks
+  - Dr. Kwan Ph.D.
+  - GadZooks
+  - Rockstar
+  - Octagon Squad
+  - Rocket Surgery
+  - Funnel
+  - Halo with Horns
+  - Apparatus
+  - Spiv
+  - Dyke van Dick
+  - Tullycraft
+  - Action Buddy
+  - Truthache
+  - Youth Rescue Mission
+  - The Fisters
+  - Unwound
+  - Long Hing Legs
+  - Fitz Of Depression
+  - Top Heavy Crush
+  - Flood
+  - The Tip Tons
+  - The Rhinestones
+  - Bakongo!
+  - RTW
+  - Shawna Locey Band
+  - Hamburger Pimp
+  - Engines of Inertia
+  - Maya Soleil
+  - The Rebelz
+  - Alma Villagas Band
+  - Ibrahima Camara Band
+  - Klyntel
+  - Reji Lefluer
+  - Emerald City Jazz Ensemble
+  - Talisman
+  - Tri State Killing Spree
+  - Project K
+  - terry lee hale
+  - Gold Leaves
+  - Orange 42
+  - The Country Teasers
+  - The Moonspinners
+  - Teens in Heat
+  - Smashing Pumpkins
+  - Bob Marley
+  - Super Heavy
+  - The Rolling Stones
+  - Dirty Mac
+  - Little Richard
+  - Cream
+  - The Beatles
+  - Wings
+  - Small Faces
+  - Plastic Ono Band
+  - The Who
+  - Pet Shop Boys
+  - The Slits
+  - Siouxie and the Banshees
+  - The Cure
+  - Sex Pistols
+  - Public Image Ltd
+  - The Clash
+  - Generation X
+  - The Gorillaz
+  - Blur
+  - The Pogues
+  - Deep End
+  - Pink Floyd
+  - Freebass
+  - The Stone Roses
+  - Primal Scream
+  - Paul Allen Band
+  - Wild Horses
+  - Thin Lizzy
+  - Dio
+  - AC / DC
+  - The Decendents
+  - The Misfits
+  - The Minutemen
+  - The Stooges
+  - David Bowie
+  - Blondie
+  - Lou Reed
+  - Velvet Underground
+  - Genesis
+  - Metallica
+  - Brian Eno
+  - Coldplay
+  - Roxy Music
+  - Talking Heads
+  - Motorhead
+  - The Damned
+  - Black Sabbath
+  - Alice Cooper
+  - Oingo Boingo
+  - Gary Neuman
+  - The Cars
+  - Drunk Grannies
+  - Bellies
+  - Jelas
+  - Pat Butcher
+  - Vile Vile Creatures
+  - the Mistakes
+  - the Physicists
+  - A Grave with No Name
+  - Yue
+  - Androids of Mu
+  - Here and Now
+  - Cast Iron Fairies
+  - Abandon Your Tutu
+  - Devil's Dykes
+  - Bright Girls
+  - Gentle Friendly
+  - Banjo or Freakout
+  - Human Hair
+  - Lovvers
+  - Throats
+  - Dignan Porch
+  - Prize Pets
+  - Murder of Rosa Luxemburg
+  - Scarecrows
+  - House of Brothers
+  - The Psychedelic Furs
+  - The Pens
+  - Look Look Dancing Boys
+  - Veronica Falls
+  - Proper Ornaments
+  - Kogumaza
+  - Wolves of Greece
+  - Sweet Lou
+  - Andrew Nelson
+  - Case Studies
+  - Stuck
+  - Kid Silver
+  - Boom City
+  - Pell Mell
+  - New Luck Charm
+  - Steeples
+  - Suicide Bomb
+  - Mark Lanagan
+  - Huge Spacebird
+  - The Hillbettys
+  - The Maroons
+  - Criss Crass
+  - Anchor & Braille
+  - Search/Rescue
+  - Burn it Down
+  - Anatomy of a Ghost
+  - The Call
+  - maps on fire
+  - vigilante santos
+  - ghost hoodie
+  - Geist and the Sacred Ensemble
+  - Holopaw
+  - Last Great Liar
+  - Blood
+  - Pillow Army
+  - Russian Circles
+  - Estocar
+  - Subaru Brats
+  - Thought Bandit
+  - Hot Rush
+  - DOD GRUNGE
+  - Marilyn Scissor Hands
+  - Lacey Brown
+  - Robert Deeble
+  - Graham Travis
+  - Team November
+  - Universe People
+  - Yuni in Taxco
+  - 2Pac
+  - Snoop Dogg
+  - Digital Underground
+  - Dr. Dre
+  - Johnny Cash
+  - The Carter Family
+  - Roy Orbison
+  - Jerry Lee Lewis
+  - Eddie Van Halen
+  - Michael Jackson
+  - Steve Vai
+  - Brian May
+  - Queen
+  - Lady Gaga
+  - Jimmy Buffett
+  - The Eagles
+  - The Flying Burrito Brothers
+  - Willie Nelson
+  - The Highwaymen
+  - Kris Kristofferson
+  - Waylon Jennings
+  - Dizzy Gillespie
+  - Cab Calloway
+  - Bud Powell
+  - Miles Davis
+  - Paul McCartney
+  - Frank Sinatra
+  - Bing Crosby
+  - Nancy Sinatra
+  - Judy Garland
+  - Count Bassie
+  - Sammy Davis Jr
+  - Aretha Franklin
+  - Bono
+  - Stevie Wonder
+  - Marvin Gaye
+  - My Parade
+  - Cloudbustr
+  - Blood Sweep
+  - Cut***Lose
+  - Faster Tiger
+  - Full Toilet
+  - Perpetual Ritual
+  - The Traveling Wilburys
+  - Jeff Lynne
+  - Bob Dylan
+  - George Harrison
+  - Tom Petty and the Heartbreakers
+  - Electric Light Orchestra
+  - Idle Race
+  - The Move
+  - Olivia Newton-John
+  - Feral Chilren
+  - Guru
+  - Muffs
+  - Rogue Wave
+  - Venus Bleeding
+  - Th Rolling Stones (SEA)
+  - Broomsticks
+  - Hysterics
+  - Dikes of Holland
+  - Palit
+  - Fuzzy Cloaks
+  - Wild Flag
+  - Val Papadins
+  - DOD
+  - The Forcepts
+  - Fort Union
+  - Sons of Warren Oats
+  - Baby Guns
+  - Iron and Wine
+  - Dennison Witmer
+  - Megadeath
+  - Limp Richerds
+  - Utah Anvil
+  - Summerset Frisbee
+  - Roundhead
+  - One at Dusk
+  - 3kelvins
+  - Transient Songs
+  - Zipgun
+  - The Social Studies
+  - Antlers
+  - YCAD
+  - Don't Talk to the Cops
+  - They Live
+  - The Exploding High Fives
+  - The Building Press
+  - Lazy Susan
+  - Computer Impossible
+  - Monster
+  - Dirty Jesus and the Fun Monks
+  - Platiquin
+  - Dance Party Internationale
+  - Scream Club
+  - The Makers
+  - Rainbow Sugar
+  - James van Leuven
+  - ''
+  - Cupid Car Club
+  - The Sunday Drunks
+  - Carmenzito
+  - March 15th
+  - Drowning in Lethe
+  - Vats of Blood
+  - Grieving the Days to Come
+  - Face of Radio
+  - Caste of the Akwada
+  - The Back Burners
+  - Theoretics
+  - Vunt Foom
+  - Message Machine
+  - Satisfaction
+  - Purty Mouth
+  - The Shmoes
+  - The Jangles
+  - MJ Bishop Band
+  - Souvenirs
+  - Hoof
+  - Seance Twins
+  - So Said They
+  - Father John Misty
+  - Pinch
+  - Nu Klezmer Army
+  - surrealized
+  - Marmalade
+  - Lovesick Empire
+  - Nam Ghost
+  - Sanctuary
+  - Monkey Son of a Donkey
+  - Get Down Syndrome
+  - Gaia Consort
+  - Apedog
+  - The Flight Academy
+  - Hot Machine
+  - Naked Bacon
+  - Poontet
+  - Revolution Void
+  - Silver Server
+  - Aaron J. Shay
+  - Badwater Fire Company
+  - The Crooked Smile
+  - How Now Brown Cow
+  - Origami Ghosts
+  - Roy Loney & the Longshots
+  - The Feelings Hijackers
+  - The Silver Surfer
+  - The West Section Line
+  - Slam Suzzane
+  - Crosssbone River
+  - The Dehuminizers
+  - Enemy Kite
+  - Laundry
+  - Chromatones
+  - Deerhunter
+  - Squawk Mountain Update
+  - Quasi
+  - Stephan Malkmus and the Jicks
+  - Vanderhoof
+  - Christmas Card
+  - Fog People
+  - Transmissionary Six
+  - Bad Tats
+  - Trash Fire
+  - Ryann
+  - All Eyes West
+  - Pinwheel
+  - Mary Lambert
+  - Submerged in the storm
+  - stone crow
+  - Lost Dogma
+  - Parini
+  - Urban Jellyfish
+  - Paul Janover Band
+  - The Ride
+  - A Sic End
+  - Offtrak
+  - Striking Back
+  - Sector 7 G
+  - The Plastards
+  - The Upskirts
+  - La Luz
+  - Popular Music
+  - Some Velvet Sidewalk
+  - Spirit Treader
+  - Tin Woodsman
+  - RNDM
+  - Huge Rock
+  - Childbirth
+  - Poppa Wheelie
+  - The Riffbrokers
+  - Pomeranz
+  - Low Land High
+  - Sir Coyler & His Asthmatic Band
+  - Cali Giraffes
+  - Sightseer
+  - The Mothership
+  - Sickamore
+  - Mean Tangerine
+  - DC & The Washingtons
+  - the Scheme
+  - marvelous good fortune
+  - livingston seagull
+  - leatherdaddy
+  - Crown Row
+  - Fringe Shift
+  - Gunn and the Damage Done
+  - wreckless wricky
+  - Tore Down
+  - Max Axle
+  - The Road Dawgs
+  - Second Coming
+  - Pillar Point
+  - Skitso
+  - Jake and the Snakes
+  - Moral Crux
+  - Tenacious D
+  - Flight of the Conchords
+  - Walkabouts
+  - Black Mountain
+  - Lightning Dust
+  - Custom
+  - Jesus Headtrip
+  - Eyelids
+  - Decemberists
+  - Pins Go In
+  - Zipdads
+  - Life
+  - Great Spiders
+  - Gang Cult
+  - HARPS
+  - Bill Rhynes
+  - The Groove Surfers
+  - Boxcar Rebellion
+  - Kyuss
+  - NW Shamanistic
+  - Iska Dhaaf
+  - Taurus Pedals
+  - Laudanum
+  - Jimmy Flame and the Sexxy Boys
+  - Ramadillo
+  Multiple Cities Count: 17
+  Multiple Cities:
+    Paxil Rose:
+    - Seattle, WA, USA
+    - Bellingham, WA, USA
+    R.E.M.:
+    - Seattle, WA, USA
+    - Portland, OR, USA
+    River Rats:
+    - Kent, WA, USA
+    - Renton, WA, USA
+    The Globes:
+    - Seattle, WA, USA
+    - Spokane, WA, USA
+    Evander Brolyfield:
+    - Seattle, WA, USA
+    - Portland, OR, USA
+    Young Pioneers:
+    - Olympia, WA, USA
+    - Seattle, WA, USA
+    The Bran Flakes:
+    - Seattle, WA, USA
+    - Montreal, QC, Canada
+    The Jet CIty Fix:
+    - Tacoma, WA, USA
+    - Seattle, WA, USA
+    The Turn Offs:
+    - Seattle, WA, USA
+    - Tri-cities, WA, USA
+    Dragline:
+    - Bellingham, WA, USA
+    - Seattle, WA, USA
+    Shoes for December:
+    - Olympia, WA, USA
+    - Seattle, WA, USA
+    The Cribs:
+    - Wakefield, WA, USA
+    - Portland, OR, USA
+    YA HO WHA 33:
+    - Mount Shasta, CA, USA
+    - Seattle, WA, USA
+    The Fabulous Downey Brothers:
+    - Olympia, WA, USA
+    - Seattle, WA, USA
+    The Whole Bolivian Army:
+    - Seattle, WA, USA
+    - Tacoma, WA, USA
+    No Moving Parts (NMVGPTS):
+    - Seattle, WA, USA
+    - Bremerton, WA, USA
+    - Tacoma, WA, USA
+    Narrows:
+    - Seattle, WA, USA
+    - London, England, UK
+People:
+  Total Read: 6687
+  Unique: 4840
+  Average Bands Per Person: 1.38
+  How Many Bands Are People In:
+    0 Bands: 0 People
+    1 Bands: 3766 People
+    2 Bands: 666 People
+    3 Bands: 236 People
+    4 Bands: 90 People
+    5 Bands: 37 People
+    6 Bands: 16 People
+    7 Bands: 16 People
+    8 Bands: 6 People
+    9 Bands: 1 People
+    10 Bands: 3 People
+    11 Bands: 2 People
+    12 Bands: 1 People
+  In Multiple Bands Count: 1074
+  In Multiple Bands:
+    Chad Channing: 12
+    Matt Cameron: 11
+    Justin Hallstrom: 11
+    Devin Welch: 10
+    Dan Peters: 10
+    Chris Icasiano: 10
+    Tom Price: 9
+    Andrea Zollo: 8
+    Garrett Kelly: 8
+    John Laux: 8
+    Jeff Ament: 8
+    Shane Peck: 8
+    Tom Dyer: 8
+    Dann Gallucci: 7
+    Spencer Moody: 7
+    Keith Whiteman: 7
+    Matt Nyce: 7
+    Karl Blau: 7
+    Scott Vanderpool: 7
+    Steve Turner: 7
+    Jason Finn: 7
+    Aaron Otheim: 7
+    Mark Arm: 7
+    Faustine Hudson: 7
+    Barrett Martin: 7
+    Scott Sutherland: 7
+    Jeremy Michell: 7
+    Helen Halloran: 7
+    Evan Woodle: 7
+    Derek Fudesco: 6
+    Dave Ramm: 6
+    Hannah Blilie: 6
+    James Burns: 6
+    Rusty Willoughby: 6
+    Stone Gossard: 6
+    Luke Bergman: 6
+    Kristian Garrard: 6
+    Demian Johnston: 6
+    Levi Fuller: 6
+    Ben Shepherd: 6
+    Mark Schlipper: 6
+    Chris Ballew: 6
+    Barry Semple: 6
+    Milton Garrison: 6
+    Bryan Smith: 6
+    Morgan Henderson: 5
+    Gabriel Teodros: 5
+    Ben London: 5
+    Calvin Johnson: 5
+    Nick Martinez: 5
+    Andrew Greager: 5
+    Zach Burba: 5
+    Johnny Whitney: 5
+    Dave Hernandez: 5
+    Aaron Huffman: 5
+    Charlie Ryan: 5
+    Clyde Petersen: 5
+    Cristina Bautista: 5
+    Olie Eshleman: 5
+    Skerik: 5
+    Dave Abramson: 5
+    Kimberly Morrison: 5
+    Kurt Bloch: 5
+    Andrew Swanson: 5
+    Scott McCaughey: 5
+    Bill Rieflin: 5
+    Brian Graham: 5
+    Derek Shepherd: 5
+    Doran Bastin: 5
+    Mat Mathews: 5
+    Shawn Smith: 5
+    Troy Ayala: 5
+    Tiffany Linnes: 5
+    Chad Benson: 5
+    Greg Anderson: 5
+    Al Dams: 5
+    David Balatero: 5
+    Carlos Salazar: 5
+    Maxwell Royce: 5
+    John Herman: 5
+    Ryan Carroll: 5
+    Sean Lanksbury: 5
+    Aaron Hoff: 4
+    Andy Sells: 4
+    Sterling Callier: 4
+    Tomo Nakayama: 4
+    Joel Harmon: 4
+    Robin Peringer: 4
+    Mark Gajadhar: 4
+    Drew Church: 4
+    Rachel Ratner: 4
+    Eric Corson: 4
+    John Vallier: 4
+    Taylor Wingett: 4
+    Jim Scheall: 4
+    Sam Mickens: 4
+    Shane Tutmarc: 4
+    Mike Patton: 4
+    Richard Stuverud: 4
+    Tyler Swan: 4
+    Dave Grohl: 4
+    Nate Mendel: 4
+    William Goldsmith: 4
+    Trent Moorman: 4
+    Chris Rasmussen: 4
+    Kirk Huffman: 4
+    Ryan Van Wieringen: 4
+    Chris Zasche: 4
+    Leif Larson: 4
+    Bruce Fairweather: 4
+    Casey Alexander: 4
+    Curtis James: 4
+    Mike McCready: 4
+    Corey Knafelz: 4
+    Regan Hagar: 4
+    Krist Novoselic: 4
+    Gwen Stubbs: 4
+    Michael Abeyta: 4
+    Liam Downey: 4
+    Robert M. Wolfe: 4
+    Mike Mongrain: 4
+    Mallette Maloney: 4
+    John Ramberg: 4
+    Samuel Yoder: 4
+    David Golightly: 4
+    Rob Fletcher: 4
+    Mark Holcomb: 4
+    Ryan Murphy: 4
+    Ryan FitzSimmons: 4
+    Eric Wennberg: 4
+    Brian Papenfuss: 4
+    Ty Bailie: 4
+    Dusty Hayes: 4
+    Eric Junge: 4
+    Jason Parker: 4
+    Rob Witmer: 4
+    Paul Beaudry: 4
+    Steve Mack: 4
+    Rob Dent: 4
+    Jack Endino: 4
+    Daniel House: 4
+    Tim Paul: 4
+    Lena Simon: 4
+    Chris Borgia: 4
+    Johnny Sangster: 4
+    Josh Rawlings: 4
+    Patrick Napper: 4
+    John Clough: 4
+    Anna Kemnitz: 4
+    Brian Castillo: 4
+    Norman Scott: 4
+    Rob Skinner: 4
+    Reggie Watts: 4
+    Evan Easthope: 4
+    John Hollis: 4
+    Jonathan Kilian: 4
+    Mike Crum: 4
+    John Carey: 4
+    Justin Howard: 4
+    Greg Stumph: 4
+    Kevin Wood: 4
+    Alex Harlow: 4
+    Don Lee: 4
+    Luke Larson: 4
+    David Totten: 4
+    Kai Strandskov: 4
+    Jordan Rain: 4
+    Steve Norman: 4
+    Marcus Pina: 4
+    John Hurd: 4
+    Chad Baker: 4
+    Micah Hembree: 4
+    Matt Stegner: 3
+    Nat Damm: 3
+    Suntonio Bandanaz: 3
+    Chris Cornell: 3
+    Mat Brooke: 3
+    Rob Anderson: 3
+    Gerald Hanson: 3
+    Jon Manning: 3
+    Elijah Damm: 3
+    Jordan Blilie: 3
+    Ryann Donnelly: 3
+    Christiaan Morris: 3
+    Ryan Weadon: 3
+    Dave Verellen: 3
+    Jessica James: 3
+    Coady Willis: 3
+    Calvin Lee Reeder: 3
+    Ryan Thompson: 3
+    T.V. Coahran: 3
+    Amy Tisdale: 3
+    Nathan Krause: 3
+    Adam Miller: 3
+    Ted Chen: 3
+    Sylvia Chen: 3
+    Seth Thomas: 3
+    Danny Wahlfeldt: 3
+    Corey Brewer: 3
+    Valerie Brogden: 3
+    Ben Verellen: 3
+    Pol Rosenthal: 3
+    Scott Boggan: 3
+    Ron Nine: 3
+    Don McGreevy: 3
+    Dale Crover: 3
+    Duff McKagan: 3
+    Casey Wescott: 3
+    Pat Smear: 3
+    Jordan Morris: 3
+    Kellen Rack: 3
+    Rudy Gajadhar: 3
+    Kyle O'Quin: 3
+    Arran McInnis: 3
+    Andrew McInnis: 3
+    Curtis Hall: 3
+    Ron Lewis: 3
+    Kevin Large: 3
+    Bob Roberts: 3
+    Steve Fisk: 3
+    Sean Nelson: 3
+    Brandon: 3
+    Shane Mehling: 3
+    Keenan Dowers: 3
+    Cevin Millstead: 3
+    Dave: 3
+    Justin Deary: 3
+    Adam: 3
+    Chris Martin: 3
+    Josh Williams: 3
+    Kelly Minnis: 3
+    Mike Musburger: 3
+    Max Nordlie: 3
+    Andrew Sullivan: 3
+    Mark Lanegan: 3
+    Seth Warren: 3
+    Tim Gadbois: 3
+    Jesse Bonn: 3
+    Mattey Hunter: 3
+    Erin Tate: 3
+    Karlis Gailitis: 3
+    Jason Everman: 3
+    Lisa Smith: 3
+    Jackson Long: 3
+    Eddie Vedder: 3
+    Jim Hunnicutt: 3
+    Peter Buck: 3
+    Mark Pickerel: 3
+    Jordan Lock: 3
+    Blair Field: 3
+    Ben Dietzen: 3
+    Adam Kozie: 3
+    Hiro Yamamoto: 3
+    Aaron Starkey: 3
+    Mason Lowe: 3
+    Jeremy Enigk: 3
+    Kurt Danielson: 3
+    Gary Thorstensen: 3
+    Steve Wied: 3
+    Josh Kramer: 3
+    Mike Jaworski: 3
+    Geoff Cade: 3
+    Steve Moriarty: 3
+    Tobi Vail: 3
+    Andrew Chapman: 3
+    Eric Howk: 3
+    Craig Flory: 3
+    Darius Minwalla: 3
+    John Bigley: 3
+    Rachel Flotard: 3
+    Ben Hooker: 3
+    John Hollis Fleischman: 3
+    Andy Lum: 3
+    Scot Porter: 3
+    Mike Sparks: 3
+    Jim Sangster: 3
+    Jason Locking: 3
+    Sean Horst: 3
+    Chris Pitzen: 3
+    Nate Darden: 3
+    Allen Murray: 3
+    Khingz: 3
+    Navid Eliot: 3
+    The Torn ACLs: 3
+    Corey Bowl: 3
+    Ian LeSage: 3
+    James: 3
+    Grant Burton: 3
+    Holly Houser: 3
+    James Reeves: 3
+    Brian McClelland: 3
+    Travis Brenden: 3
+    Bryce Shoemaker: 3
+    Matt Badger: 3
+    Tracy Hagen: 3
+    Carrie Akre: 3
+    Eric Akre: 3
+    Danny Newcomb: 3
+    Jeremy Lightfoot: 3
+    Roddy Chops: 3
+    Jamie Hellgate: 3
+    Irene Barber: 3
+    Andy King: 3
+    Meredith McGuire: 3
+    Johnnie Heinz: 3
+    Jherek Bischoff: 3
+    Gerald Hansen: 3
+    Michael Modene: 3
+    Andrew Joslyn: 3
+    Ben McMillan: 3
+    Tom Niemeyer: 3
+    John McBain: 3
+    John Waterman: 3
+    Brian Wood: 3
+    Matty Gervais: 3
+    Jared Mills: 3
+    Ben Findley: 3
+    Christen Shaw: 3
+    Bill Bullock: 3
+    Larry Brady: 3
+    Nora Riemenschneider: 3
+    Ryan Devlin: 3
+    Josh DeVaney: 3
+    Ben Thompson: 3
+    Jared Nelson: 3
+    Dave Webb: 3
+    Barb Hunter: 3
+    Bo Gilliland: 3
+    Steve Bergstrom: 3
+    Erica Butler: 3
+    Lesli Wood: 3
+    Richard Davidson: 3
+    Joseph Lee: 3
+    Paul Michaels: 3
+    Chris Cline: 3
+    Mike Renes: 3
+    Lizzy Daymont: 3
+    Pete Johnston: 3
+    Westin Halvorson: 3
+    Jody Reyes: 3
+    Daniel Harper: 3
+    Rene Garcia: 3
+    Otis P. Otis: 3
+    Marsh Gooch: 3
+    Orjan Lovoll: 3
+    Otis Fodder: 3
+    John Ackermann: 3
+    Daniel Spils: 3
+    Thaddeus Turner: 3
+    Brian Naubert: 3
+    Bill Patton: 3
+    Jason Merculief: 3
+    Craig Mueller: 3
+    Emily Pothast: 3
+    Timm Mason: 3
+    Emily Westman: 3
+    Eric Padget: 3
+    Troy Van Leeuwen: 3
+    Rick Troy: 3
+    stayC Meyer: 3
+    Kevin Warner: 3
+    Scott Summers: 3
+    Bill Herzog: 3
+    Johnny Straube: 3
+    Jeff Kelly: 3
+    TJ Grant: 3
+    Ian Bell: 3
+    Matt Benham: 3
+    Noah Star Weaver: 3
+    Jon e. Rock: 3
+    Peter Sali: 3
+    Jason Holstrom: 3
+    Reese Tanimura: 3
+    Laurel Snow: 3
+    Aaron A. Semer: 3
+    Chris Pierson: 3
+    Aaron Apple: 3
+    James Gascoigne: 3
+    Loren Evans: 3
+    Shane White: 3
+    Tim Hallmark: 3
+    Ralph Ferrin: 3
+    Rob Hanlon: 3
+    Ryan Batie: 3
+    Jason Adrian: 3
+    James Gardner: 3
+    Eric Bruckbauer: 3
+    Jake Weller: 3
+    Ryan Koreski: 3
+    Steve Anderson: 3
+    Eric Block: 3
+    Aimee Zoe Tubbs: 3
+    Moe Provencher: 3
+    Brandon Jones: 3
+    Paul Ray: 3
+    Einar Ask: 3
+    Chris Quinn: 3
+    Noah Wilson: 3
+    Rob Broussard: 3
+    Jeff Gall: 3
+    Stanley Crescendo: 3
+    Nathan Widener: 3
+    Ross Marshall: 3
+    Stuart Linkert: 3
+    Ron Guardipee: 3
+    Mattie Remix: 3
+    Mike Todd: 3
+    Gregor Visconty: 3
+    James Burdyshaw: 2
+    Dorando Hodous: 2
+    Benjamin Thomas-Kennedy: 2
+    Aaron Walters: 2
+    Jon Weisnewski: 2
+    Buzz Crocker: 2
+    Layne Staley: 2
+    Mike Inez: 2
+    Sean Kinney: 2
+    Ben Gibbard: 2
+    Rajnii Eddins: 2
+    Jerm: 2
+    Kyle: 2
+    Alina To: 2
+    Asun: 2
+    Tom Morello: 2
+    Tim Commerford: 2
+    Brad Wilk: 2
+    Eric: 2
+    Sunshine: 2
+    Ben Bridwell: 2
+    Tim Meinig: 2
+    Chris Early: 2
+    Joseph Sheedy: 2
+    Amber Kai Morgan: 2
+    Jonah Byrne: 2
+    Emory Liu: 2
+    Bret Lunsford: 2
+    Andrew Balmer: 2
+    Troy Nelson: 2
+    Cody Hurd: 2
+    Sandy Wilson: 2
+    Alan Foote: 2
+    Dave E. Martin: 2
+    Cody Votolato: 2
+    Geologic: 2
+    Chris Brown: 2
+    Garrett Moore: 2
+    Brent Amaker: 2
+    Sugar McGuinn: 2
+    Ben Strehle: 2
+    Tad Doyle: 2
+    Jeff Mitchell: 2
+    Ryan Roullard: 2
+    Peter Klett: 2
+    Scott Mercado: 2
+    Sera Cahoone: 2
+    David Duet: 2
+    Danny Bland: 2
+    Jed Maheu: 2
+    Tom Ojendyk: 2
+    Andres Gutierrez: 2
+    Shawn Durand: 2
+    Charles Leo Gebhardt IV: 2
+    Brian Standeford: 2
+    Nat Sahlstrom: 2
+    Michelle Nolan: 2
+    Johnny Goss: 2
+    Meghan Kessinger: 2
+    Joel Cuplin: 2
+    Doug Arney: 2
+    Todd Arney: 2
+    Mike Dillon: 2
+    Brad Houser: 2
+    Christopher Brown: 2
+    Brad Stemke: 2
+    Barry Uhl: 2
+    Jherek Bischof: 2
+    Doc - Vocals: 2
+    Josh Kohl: 2
+    Haruko Nishimura: 2
+    David Keppel: 2
+    Matt Marti: 2
+    Dave Voss: 2
+    Ulrika Larsson: 2
+    Simon Henneman: 2
+    Ian: 2
+    Lori Goldston: 2
+    Kelly Canary: 2
+    Joe Preston: 2
+    John Schuller: 2
+    Steve Moore: 2
+    Courtney Love: 2
+    Dave Holmes: 2
+    Shannon McConnell: 2
+    Buzz Osborne: 2
+    Trevor Dunn: 2
+    Kim Warnick: 2
+    Nate Johnson: 2
+    Danny Zakos: 2
+    Felicia Loud: 2
+    James Mercer: 2
+    Skyler Skjelset: 2
+    Christian Wargo: 2
+    Bill Campbell: 2
+    Dave Fox: 2
+    Adam Swan: 2
+    Ryan Trudell: 2
+    Malaki Stahl: 2
+    P Smoov: 2
+    Terry Radjaw: 2
+    Don Blackstone: 2
+    Spencer: 2
+    Rich Canut: 2
+    Jeramy Koepping: 2
+    Onry Ozzborn: 2
+    JFK: 2
+    Spencer Heller: 2
+    Anisa Romero: 2
+    John Roderick: 2
+    Mike Squires: 2
+    Ann Wilson: 2
+    Nancy Wilson: 2
+    Zach Hill: 2
+    Ben Funkhouser: 2
+    Peter Quirk: 2
+    Leona Marrs: 2
+    Jesse Steinchen: 2
+    Erin Birgy: 2
+    Jordan Michelman: 2
+    Filastine: 2
+    Owen Kehoe: 2
+    Tom Bridgman: 2
+    Rocky Votolato: 2
+    J Clark: 2
+    Jon Wooster: 2
+    James Nixon: 2
+    Josh Dawson: 2
+    Andrew Hartley: 2
+    Kyle Field: 2
+    Phil Elvrum: 2
+    Jona Bechtolt: 2
+    "Marcus Pi\xC3\xB1a": 2
+    David Banzer: 2
+    John Baker Saunders: 2
+    Jason Dodson: 2
+    Adam Bily: 2
+    Chris Miller: 2
+    Alex Rose: 2
+    Joe Plummer: 2
+    Scott Adams: 2
+    Kevin Seeley: 2
+    Greg Gilmore: 2
+    Neko Case: 2
+    David Bessenhoffer: 2
+    Amy Blaschke: 2
+    Nick Dewitt: 2
+    Jenny Jimenez: 2
+    Trent Coahran: 2
+    Kevin L. Jones: 2
+    Dave Foster: 2
+    Spike Taylor: 2
+    Sean Downey: 2
+    Gary Smith: 2
+    Chris McFarlane: 2
+    Alice Sandahl: 2
+    Adam McCollom: 2
+    Tim Cady: 2
+    Erik Baldwin: 2
+    Richy Boyer: 2
+    Zachary Marley: 2
+    TV Coahran: 2
+    Randy Willoughby: 2
+    Andy Davenhall: 2
+    Ken Stringfellow: 2
+    Matthew McGowan: 2
+    Nicholas Brawley: 2
+    Doug Lorig: 2
+    Jeffery McNulty: 2
+    Jonah Bergman: 2
+    Brian Turner: 2
+    Steve Bonnell: 2
+    Carlos Lopez: 2
+    Cathy Lopez: 2
+    Van Conner: 2
+    Andy: 2
+    Tyler: 2
+    Matt Lawson: 2
+    Casey Foubert: 2
+    Cary Davis: 2
+    Michael Tyler: 2
+    Adam Bruno: 2
+    Mike Ayer: 2
+    Ed Littlefield: 2
+    Joe Skyward: 2
+    Andrew Toms: 2
+    Cassidy Gonzales: 2
+    Lance: 2
+    Mike Kunka: 2
+    Sam Scheibner: 2
+    David Bilbrey: 2
+    Kim Thayil: 2
+    Ian Dugas: 2
+    Nathan Rodriguez: 2
+    Lars Swenson: 2
+    Steve Davis: 2
+    Anthony Palmasani: 2
+    Andrew: 2
+    Kim Miller: 2
+    Nate: 2
+    Mike: 2
+    Henry Rose: 2
+    Dan Hoerner: 2
+    Ian Barnett: 2
+    Josh Sinder: 2
+    Blaine Cook: 2
+    Alex Sibbald: 2
+    Tom Neimeyer: 2
+    Steve Nelson: 2
+    Kim Kelly: 2
+    Noriko Kaji: 2
+    Rob Olsen: 2
+    John Randolph: 2
+    Dan Rabinowitz: 2
+    Eli Chuckovich: 2
+    Scotty Rickard: 2
+    John Van Deusen: 2
+    Michael Shilling: 2
+    Jared Warren: 2
+    Chuck Carroll: 2
+    Dave Carter: 2
+    Graham Black: 2
+    Jeff Stone: 2
+    Jon Auer: 2
+    Dave Dederer: 2
+    Brian Slodysko: 2
+    Joel Myrene: 2
+    Eric Johnson: 2
+    Josh Henningsgaard: 2
+    Shane Dauncey: 2
+    Dean Whitmore: 2
+    Charlie Smith: 2
+    Dave Harvey: 2
+    Al Lenderink: 2
+    Dave Bessenhoffer: 2
+    Kevin Hudson: 2
+    Robin Buchan: 2
+    Tom Hazelmyer: 2
+    Tony Ransom: 2
+    Neil McAdams: 2
+    Johanna Kunin: 2
+    Bill Coury: 2
+    Tom Cummings: 2
+    Chris Hernandez: 2
+    Jamey Braden: 2
+    Jon Treneff: 2
+    Aaron Benson: 2
+    Kelly Wyse: 2
+    Javier Suarez: 2
+    Tad Hutchison: 2
+    Starr Harris: 2
+    Shawn Trudeau: 2
+    Eric Carnell: 2
+    Dave Takata: 2
+    Nate Gunn: 2
+    Chris Scott: 2
+    Bobby Malvestuto: 2
+    Crystal Pistols: 2
+    Phil Petrocelli: 2
+    Rachel LeBlanc: 2
+    Mike Notter: 2
+    Micah Simler: 2
+    Bruce Pearson: 2
+    Michael Lee: 2
+    Kelly Blanchard: 2
+    Jason Hatch: 2
+    Benjamin Barnett: 2
+    Zach: 2
+    Jay Chilcote: 2
+    Terry Picknell: 2
+    Sacha Maxim: 2
+    Benjamin Verdoes: 2
+    Mark Blazer: 2
+    Tschuai: 2
+    Harry Snyder: 2
+    Shane Herrell: 2
+    Kimo Muraki: 2
+    Ryan Richter: 2
+    Danny Oleson: 2
+    Jason Jordan: 2
+    John O'Connell: 2
+    Chris Campbell: 2
+    Robb Benson: 2
+    James Hall: 2
+    David Bos: 2
+    Matt Brown: 2
+    Brant Kay: 2
+    Pete Remine: 2
+    Garth Reeves: 2
+    Chris Friel: 2
+    Taryn Dorsey: 2
+    Rachael Ferguson: 2
+    Sam Wolk: 2
+    Mike Berg: 2
+    Violet Saverine Blanchard: 2
+    Harris Thurmond: 2
+    James Atkins: 2
+    Stephen Devine: 2
+    Andy Fitts: 2
+    Lincoln Barr: 2
+    Jace Krause: 2
+    Jake Rohr: 2
+    Chad Clibborn: 2
+    Jim Davis: 2
+    Steve E. Nix: 2
+    Kicks: 2
+    Dan Bertolet: 2
+    Joshua Medaris: 2
+    Cody Beebe: 2
+    Chris Green: 2
+    Eric Miller: 2
+    Greg Floyd: 2
+    Aaron Myers: 2
+    Joe Catron: 2
+    Ed Fotheringham: 2
+    Stacy Peck: 2
+    Luke Beetham: 2
+    Jeff Anderson: 2
+    Aaron Yost: 2
+    Eric Christianson: 2
+    Katie Mosehauer: 2
+    Jake Vice: 2
+    Myke Pelly: 2
+    Lois Maffeo: 2
+    Brian Weber: 2
+    Josh Dale: 2
+    Jason Webley: 2
+    James Maeda: 2
+    Cuong Vu: 2
+    Charlotte AuRevoir: 2
+    Emily Denton: 2
+    Anthony Hornyak: 2
+    Bo Stewart: 2
+    Sean Meyer: 2
+    Paul Beck: 2
+    Constantine Parvulescu: 2
+    Scott McCullum: 2
+    Amy Denio: 2
+    Fred Chalenor: 2
+    Ellen Mills: 2
+    Cynthia Brothers: 2
+    Whitney Lyman: 2
+    James Whetzel: 2
+    Alan Anderson: 2
+    Matt McGillivray: 2
+    Stormi King: 2
+    Matt Frickelton: 2
+    Jeremy Hill: 2
+    Corey Paganucci: 2
+    Jason Bazinet: 2
+    TJ Berry: 2
+    Adam Tricoli: 2
+    Trent McIntyre: 2
+    Austin Rood: 2
+    Evan Flory-Barnes: 2
+    Jason Edwards: 2
+    Bryan Learned: 2
+    William Bernhard: 2
+    Kendra Cox: 2
+    Andy Sodt: 2
+    Annabella Kirby: 2
+    Matt Nims: 2
+    Lunarre Omura: 2
+    Don Kenoyer: 2
+    Zach Davies: 2
+    dennis: 2
+    Ron Hippe: 2
+    Malcolm Sangster: 2
+    Phil Sherman: 2
+    Josh Van Winkle: 2
+    Eric Cooley: 2
+    Dana Hollingsworth: 2
+    Greg Forschler: 2
+    Daniel Blackmoor: 2
+    Betty X: 2
+    Sonny Votolato: 2
+    Travis Yost: 2
+    Jake Nolte: 2
+    Jesse Dosher: 2
+    David Smith: 2
+    Ted Schuehle: 2
+    Clay Bartlett: 2
+    Andhi Spath: 2
+    Arlo Heart: 2
+    Wade Neal: 2
+    Bob Bulgrien: 2
+    Jesse Fox: 2
+    John Owen Atkins: 2
+    Shawn Stern: 2
+    Kelly Mickelson: 2
+    Chris Forry: 2
+    Stephanie Smith: 2
+    Lane Patterson: 2
+    Carla Bueno: 2
+    Kevin Preston: 2
+    Corey Wittenborn: 2
+    Jeff Mosier: 2
+    Zach Barnhart: 2
+    Tara Ellis: 2
+    Craig Extine: 2
+    En Esch: 2
+    Mike Soldano: 2
+    Rich Evans: 2
+    Mara Dralle Funk: 2
+    Patty Schemel: 2
+    Michael Wells: 2
+    Glenn Slater: 2
+    Seth Bolin: 2
+    Patrick Porter: 2
+    Matt Cunningham: 2
+    Chris Winters: 2
+    Fish Jones: 2
+    Pete Droge: 2
+    Scott Roots: 2
+    Neal Flaherty: 2
+    Tim Spencer: 2
+    David Nixon: 2
+    Rick Miller: 2
+    Dave Pascal: 2
+    Davee C: 2
+    Samantha Boshnack: 2
+    Tim Carey: 2
+    Chris Credit: 2
+    Peter Litwin: 2
+    Allen Tompkins: 2
+    Brandon Barrett: 2
+    Chad Hoflin: 2
+    Chris Jenkins: 2
+    Willy Graves: 2
+    Kevin Goldman: 2
+    Davis Martin: 2
+    Neil Welch: 2
+    Greg Sinibaldi: 2
+    Avalon Kalin: 2
+    Ty Mcdonald: 2
+    Jared Fiechtner: 2
+    Keith Lowe: 2
+    Scott Wade: 2
+    Patrick Taylor: 2
+    Jennie Severn: 2
+    Chris Swenson: 2
+    Steve Peterson: 2
+    Rolf Berteig: 2
+    Simon Simoncini: 2
+    Paul Schurr: 2
+    Chris Freed: 2
+    Ed Lee: 2
+    Ryan Granger: 2
+    Scott Schikler: 2
+    Kessiah Gordon: 2
+    Alex Miller: 2
+    Spencer Miller: 2
+    Matt Manges: 2
+    Jerry Neufeld-Kaiser: 2
+    Ivan Molton: 2
+    Brock Lowry: 2
+    Tim Thomas: 2
+    Dan Mohr: 2
+    Marlon Deppen: 2
+    Jason Lightfoot: 2
+    Mike Katell: 2
+    Wesley Nelson: 2
+    Aaron Taylor: 2
+    Jonathan Wooster: 2
+    Corrina MacFarlane: 2
+    Evan Rodd: 2
+    Lori Baron: 2
+    Phil Wandscher: 2
+    Gar Hooker: 2
+    Brian McCrossen: 2
+    Joe Ross: 2
+    Eric Lichter: 2
+    Karl Wilhelm: 2
+    Gerald Collier: 2
+    Craig Marois: 2
+    Nathan Fritz: 2
+    Bryan John Appleby: 2
+    Scott Teske: 2
+    Mike Moose Barber: 2
+    Tracey Ferrara: 2
+    Dennis Rea: 2
+    Laura Jean Robinson: 2
+    Carly Nicklaus: 2
+    Alice Grette: 2
+    Sophia Kowalski: 2
+    Mike Howton: 2
+    Mike Toschi: 2
+    Aaron Semer: 2
+    Dominic Aulisio: 2
+    Chris Croft: 2
+    Stephen O Malley: 2
+    Jesse Smith: 2
+    Steve Trettevik: 2
+    Rick Yust: 2
+    David Yow: 2
+    Greg Miller: 2
+    Jonathan Poneman: 2
+    Glen Slater: 2
+    Pip McCaslin: 2
+    Colin Roper: 2
+    Rob Mercer: 2
+    Thomas Mahoney: 2
+    George Romansic: 2
+    Moises Padilla: 2
+    Garth Brandenburg: 2
+    Dave Hillis: 2
+    Jeff Bowden: 2
+    Jim Anderson: 2
+    Jasper Chinn: 2
+    Hamilton Boyce: 2
+    Cameron Sharif: 2
+    Emily Beanblossom: 2
+    Ira Merrill: 2
+    Garrett Parker: 2
+    Erik Blood: 2
+    Will Hallauer: 2
+    Corey Gutch: 2
+    Andrew King: 2
+    Mark Isakson: 2
+    James Francis: 2
+    Austin Edge: 2
+    Adrian Aos: 2
+    Sam Skorheim: 2
+    Jacob Hogg: 2
+    Wayne Horvitz: 2
+    Nick Barber: 2
+    Nick Molenda: 2
+    Adam Dahlquist: 2
+    Mike Henderson: 2
+    Tim Strovas: 2
+    Steven James Burks: 2
+    Connor Koreski: 2
+    Justin Walsh: 2
+    Daniel Michael Viox: 2
+    Tim Seely: 2
+    Jon Low: 2
+    Maxwell Perry: 2
+    Nick Reinhart: 2
+    Doug Owen: 2
+    Duane Denison: 2
+    Graig Markel: 2
+    Shea Bliss: 2
+    Steven Ford: 2
+    Michael Savage: 2
+    Grace Hearn: 2
+    Jessica Lurie: 2
+    Ryan Maxwell: 2
+    Baine Craft: 2
+    Kerrick Olson: 2
+    Nathaniel Rogers: 2
+    Braden Blake: 2
+    Gavin Guss: 2
+    Xti Proffitt: 2
+    Sherri Jerome: 2
+    Jon Hedges: 2
+    Kieran Harrison: 2
+    Annie Ford: 2
+    Katie: 2
+    Tugboat Jim: 2
+    Bradford King: 2
+    Peter: 2
+    Tom Fitzgibbon: 2
+    Jesse Cohen: 2
+    Jimmy Pell: 2
+    Ian Pollack: 2
+    Garrett Lunceford: 2
+    Nouela Johnson: 2
+    Dawn Henschen: 2
+    Alexander Barr: 2
+    Kelton Sears: 2
+    Bob Martin: 2
+    Joe Day: 2
+    Seth Fikkert: 2
+    Bobby Wane: 2
+    Brian Noyeswatkins: 2
+    Gregg Belisle-Chi: 2
+    Jake Brady: 2
+    Art Brown: 2
+    Justin Harcus: 2
+    Rick Peterson: 2
+    Jim Reitz: 2
+    Tara Sloan: 2
+    Brian Weza: 2
+    Micheal Kalnoky: 2
+    Brittian Piper: 2
+    Caius Preda: 2
+    Jason: 2
+    Sean: 2
+    Will: 2
+    Kevin: 2
+    Mark Bombara: 2
+    Mark Romanowski: 2
+    Curt Kirkwood: 2
+    Christian: 2
+    Berto: 2
+    Peter Michel: 2
+    Jack Smith: 2
+    David Bazan: 2
+    Todd Gray: 2
+    (Josh Henningsgaard): 2
+    Aaron Backstrom: 2
+    Jen: 2
+    Dwayne: 2
+    Kate: 2
+    Garrett Gue: 2
+    Debbi Withers: 2
+    Geoff Harper: 2
+    Mike Russo: 2
+    Kevin Jones: 2
+    Kyle Runyon: 2
+    Andrew Cullen: 2
+    Graeme Nelson: 2
+    Joshua Plague: 2
+    Michael Griffen: 2
+    Jon Quitty Quitner: 2
+    Kevin Sur: 2
+    Ryan Lynch: 2
+    Adam Davis: 2
+    Scott Muhlbeier: 2
+    Brian Ackley: 2
+    Dain Hudson: 2
+    Jerome Cruzen: 2
+    Josiah Feinberg: 2
+    Skippy King: 2
+    Jake Reisenbichler: 2
+    Amy Szychowski: 2
+    Jim Chandler: 2
+    Matt Doctor: 2
+    Jake Hemming: 2
+    Derek Jackman: 2
+    Kris Boisoneau: 2
+    Steve Horvath: 2
+    Rachel Rudnick: 2
+    Mai Li Pittard: 2
+    Bob Husak: 2
+    Garrett Shavlik: 2
+    Erik Roper: 2
+    Allison Pickthorn: 2
+    Cedric Ross: 2
+    Fred Roth: 2
+    Jim Knodle: 2
+    Erik Spicer: 2
+    Dan McDonald: 2
+    Chris Karr: 2
+    Tarik Abouzied: 2
+    Andy Miller: 2
+    David Takata: 2
+    Matt Day: 2
+    Matt Strutynski: 2
+    Ryan Frederiksen: 2
+    Harley Thompson: 2
+    Paul Morgan: 2
+    Jake Huber: 2
+    Zach Alexander: 2
+    Robert Hanna: 2
+    Jesse Orr: 2
+    Dawn Wood: 2
+    Mikey Gervais: 2
+    Coolwhip Luke: 2
+    Tyson Lynn: 2
+    Chase Hoyt: 2
+    Matt Kolhede: 2
+    Christian Smith: 2
+    Muneh: 2
+    Jeff Robinson: 2
+    Alexis Lopez: 2
+Connections:
+  Read: 5437
+  Valid and Unique: 5384
+Cities:
+  Total Read: 2950
+  Unique: 112
+  Normalized Count: 161
+  Normalized:
+    "'seattle' => 'Seattle'": 46 Times
+    "'Seattle,' => 'Seattle'": 2 Times
+    "'san francisco' => 'San Francisco'": 1 Times
+    "'capitol hill/ ballard' => 'Capitol Hill/ Ballard'": 1 Times
+    "'kolkata' => 'Kolkata'": 1 Times
+    "'Goody Blick and the Country Kind' => 'Goody Blick And The Country Kind'": 1 Times
+    "'Ballard/Seattle' => 'Ballard/seattle'": 2 Times
+    "'bellingham' => 'Bellingham'": 2 Times
+    "'olympia' => 'Olympia'": 3 Times
+    "'Seattle, WA' => 'Seattle, Wa'": 7 Times
+    "'Kirkland ' => 'Kirkland'": 1 Times
+    "'seattle ' => 'Seattle'": 2 Times
+    "'Seattle ' => 'Seattle'": 34 Times
+    "'portland, OR/seattle, WA' => 'Portland, Or/seattle, Wa'": 1 Times
+    "'Bellevue, WA' => 'Bellevue, Wa'": 1 Times
+    "'SPOKANE' => 'Spokane'": 1 Times
+    "'Seattle/Bellingham' => 'Seattle/bellingham'": 1 Times
+    "'Seatte/Bellingham' => 'Seatte/bellingham'": 1 Times
+    "'Seattle, Portland, Athens GA' => 'Seattle, Portland, Athens Ga'": 1 Times
+    "'assam' => 'Assam'": 1 Times
+    "'Elmira, NY/Seattle, WA' => 'Elmira, Ny/seattle, Wa'": 1 Times
+    "'CD, Seattle' => 'Cd, Seattle'": 1 Times
+    "'Portland ' => 'Portland'": 1 Times
+    "'Seattle/Spokane' => 'Seattle/spokane'": 1 Times
+    "'Seattle, Portland OR' => 'Seattle, Portland Or'": 1 Times
+    "'oakland' => 'Oakland'": 1 Times
+    "'Seattle,WA' => 'Seattle,wa'": 1 Times
+    "'chicago' => 'Chicago'": 1 Times
+    "'Portland, now L.A.' => 'Portland, Now L.A.'": 1 Times
+    "'TACOMA' => 'Tacoma'": 1 Times
+    "'Washington DC' => 'Washington Dc'": 1 Times
+    "'Seattle/Portland' => 'Seattle/portland'": 1 Times
+    "'Seattle WA' => 'Seattle Wa'": 1 Times
+    "'XXXX' => 'Xxxx'": 1 Times
+    "'Sammamish ' => 'Sammamish'": 1 Times
+    "'SEattle' => 'Seattle'": 1 Times
+    "'Olympia/Seattle' => 'Olympia/seattle'": 2 Times
+    "'ellensburg' => 'Ellensburg'": 1 Times
+    "'Tacoma, WA' => 'Tacoma, Wa'": 1 Times
+    "'Missoula, MT' => 'Missoula, Mt'": 1 Times
+    "'Tacoma/Seattle' => 'Tacoma/seattle'": 1 Times
+    "'seattle/tri-cities' => 'Seattle/tri-cities'": 1 Times
+    "'dd' => 'Dd'": 1 Times
+    "'OLY/SEATTLE' => 'Oly/seattle'": 1 Times
+    "'port townsend' => 'Port Townsend'": 1 Times
+    "'noakhali' => 'Noakhali'": 1 Times
+    "'nowhereMark ' => 'Nowheremark'": 1 Times
+    "'nowhere' => 'Nowhere'": 1 Times
+    "' Seattle' => 'Seattle'": 1 Times
+    "'Tacoma ' => 'Tacoma'": 3 Times
+    "'Paris (France)' => 'Paris (france)'": 1 Times
+    "'Mt. Shasta/Seattle' => 'Mt. Shasta/seattle'": 1 Times
+    "'Chicago ' => 'Chicago'": 1 Times
+    "'seattle washington' => 'Seattle Washington'": 1 Times
+    "'Seattle/Tacoma' => 'Seattle/tacoma'": 1 Times
+    "'paris' => 'Paris'": 1 Times
+    "'san fransisco' => 'San Fransisco'": 1 Times
+    "'east bay' => 'East Bay'": 1 Times
+    "'Seattle/Bremerton/Tacoma' => 'Seattle/bremerton/tacoma'": 1 Times
+    "'SEATTLE' => 'Seattle'": 7 Times
+    "'ROSLYN' => 'Roslyn'": 1 Times
+    "'Seattle/London/San Diego' => 'Seattle/london/san Diego'": 1 Times
+  Band Count:
+    Seattle, WA, USA: 1168
+    Tacoma, WA, USA: 36
+    Olympia, WA, USA: 30
+    Bellingham, WA, USA: 30
+    Portland, OR, USA: 26
+    L.A., CA, USA: 9
+    Everett, WA, USA: 9
+    Bainbridge Island, WA, USA: 7
+    Anacortes, WA, USA: 6
+    Kirkland, WA, USA: 6
+    Oakland, CA, USA: 5
+    Chicago, IL, USA: 5
+    Brooklyn, NY, USA: 4
+    Issaquah, WA, USA: 4
+    Kent, WA, USA: 4
+    Bellevue, WA, USA: 3
+    San Francisco, CA, USA: 3
+    Bothell, WA, USA: 3
+    Renton, WA, USA: 3
+    Ellensburg, WA, USA: 3
+    Montesano, WA, USA: 3
+    Pullman, WA, USA: 3
+    Washington, DC, USA: 3
+    Edmonds, WA, USA: 3
+    Port Townsend, WA, USA: 3
+    Maple Valley, WA, USA: 3
+    Sacramento, CA, USA: 3
+    Mount Vernon, WA, USA: 3
+    Austin, TX, USA: 2
+    Vashon Island, WA, USA: 2
+    Aberdeen, WA, USA: 2
+    Spokane, WA, USA: 2
+    Burien, WA, USA: 2
+    New York, NY, USA: 2
+    Bremerton, WA, USA: 2
+    Sammamish, WA, USA: 2
+    Lynnwood, WA, USA: 2
+    Denver, CO, USA: 2
+    Enumclaw, WA, USA: 2
+    Seattle, WV, USA: 1
+    Seattle, VA, USA: 1
+    Charleston, SC, USA: 1
+    Kolkata, WA, USA: 1
+    Kolkata, West Bengal, India: 1
+    Vancouver, BC, Canada: 1
+    Goody Blick And The Country Kind: 1
+    Eastern House: 1
+    Nevada City, CA, USA: 1
+    Psychic Felines: 1
+    Richland, WA, USA: 1
+    Assam, WA, USA: 1
+    Elmira, NY, USA: 1
+    Ken Stringfellow: 1
+    Salem, OR, USA: 1
+    Westport, WA, USA: 1
+    Boston, MA, USA: 1
+    Xxxx: 1
+    Columbia, WA, USA: 1
+    Se: 1
+    Billings, MT, USA: 1
+    Sapo, 2: 1
+    Defunct, WA, USA: 1
+    Martinez, CA, USA: 1
+    Pittsburgh, PA, USA: 1
+    Missoula, MT, USA: 1
+    White Center, WA, USA: 1
+    Kenmore, WA, USA: 1
+    Montreal, QC, Canada: 1
+    Twisp, WA, USA: 1
+    Tri-cities, WA, USA: 1
+    Palm Desert, CA, USA: 1
+    Cincinnati, OH, USA: 1
+    Nashville, TN, USA: 1
+    Dd: 1
+    Madrid, Madrid, Spain: 1
+    Philadelphia, PA, USA: 1
+    Greenwood, WA, USA: 1
+    Burlington, WA, USA: 1
+    Noakhali: 1
+    Silverdale, WA, USA: 1
+    Nowheremark: 1
+    Nowhere: 1
+    Wakefield, WA, USA: 1
+    Paradise Valley, AZ, USA: 1
+    Calcutta, WV, USA: 1
+    Paris (france): 1
+    Rovaniemi, FI: 1
+    Mount Shasta, CA, USA: 1
+    Marysville, WA, USA: 1
+    Amsterdam, North Holland, Netherlands: 1
+    Gig Harbor, WA, USA: 1
+    Redmond, WA, USA: 1
+    Snohomish, WA, USA: 1
+    Paris, TX, USA: 1
+    East Bay, CA, USA: 1
+    Nirvana: 1
+    Lake Stevens, WA, USA: 1
+    Woodinville, WA, USA: 1
+    Boise, ID, USA: 1
+    Yakima, WA, USA: 1
+    Hollywood, CA, USA: 1
+    Nether Haugh, AZ, USA: 1
+    Tomelilla, AZ, USA: 1
+    Seatte, WA, USA: 1
+    Roslyn, WA, USA: 1
+    Shoreline, WA, USA: 1
+    Vashon, WA, USA: 1
+    Jakarta, ID, USA: 1
+    Bandung, ME, USA: 1
+    London, England, UK: 1
+    Pompeii: 1
+    Arlington, WA, USA: 1
+  No State Count: 13
+  No State:
+  - Goody Blick And The Country Kind
+  - Eastern House
+  - Psychic Felines
+  - Ken Stringfellow
+  - Xxxx
+  - Se
+  - Dd
+  - Noakhali
+  - Nowheremark
+  - Nowhere
+  - Paris (france)
+  - Nirvana
+  - Pompeii
+  Multiple States/Countries Count: 2
+  Multiple States/Countries:
+    Seattle:
+    - Seattle, WA, USA
+    - Seattle, WV, USA
+    - Seattle, VA, USA
+    Kolkata:
+    - Kolkata, WA, USA
+    - Kolkata, West Bengal, India
+  Assigned A State/Country Through Lookup Table Count: 85
+  Assigned A State/Country Through Lookup Table:
+    Seattle => Seattle, WA, USA: 38 Times
+    Bellevue => Bellevue, WA, USA: 1 Times
+    Tacoma => Tacoma, WA, USA: 1 Times
+    Capitol Hill/ Ballard => Seattle, WA, USA: 1 Times
+    Vancouver, British Columbia, Canada => Vancouver, BC, Canada: 1 Times
+    Capitol Hill => Seattle, WA, USA: 1 Times
+    Seattle, Wa => Seattle, WA, USA: 7 Times
+    Portland => Portland, OR, USA: 1 Times
+    Portland, Or/seattle, Wa => Portland, OR, USA: 1 Times
+    Bellevue, Wa => Bellevue, WA, USA: 1 Times
+    Seatte/bellingham => Bellingham, WA, USA: 1 Times
+    Seattle, Portland, Athens Ga => Seattle, WA, USA: 1 Times
+    Elmira, Ny/seattle, Wa => Elmira, NY, USA: 1 Times
+    Cd, Seattle => Seattle, WA, USA: 1 Times
+    Seattle/spokane => Seattle, WA, USA: 1 Times
+    Seattle, Portland Or => Seattle, WA, USA: 1 Times
+    Kirkland => Kirkland, WA, USA: 2 Times
+    Seattle,wa => Seattle, WA, USA: 1 Times
+    Portland, Now L.A. => Portland, OR, USA: 1 Times
+    Washington Dc => Washington, DC, USA: 1 Times
+    Bostin => Boston, MA, USA: 1 Times
+    Seattle/portland => Seattle, WA, USA: 1 Times
+    Seattle Wa => Seattle, WA, USA: 2 Times
+    Olympia/seattle => Olympia, WA, USA: 1 Times
+    Tacoma, Wa => Tacoma, WA, USA: 1 Times
+    Missoula, Mt => Missoula, MT, USA: 1 Times
+    Tacoma/seattle => Tacoma, WA, USA: 1 Times
+    Madison Park => Seattle, WA, USA: 1 Times
+    Oly/seattle => Olympia, WA, USA: 1 Times
+    Madrid => Madrid, Madrid, Spain: 1 Times
+    Washington D.C. => Washington, DC, USA: 2 Times
+    Greenwood => Greenwood, WA, USA: 1 Times
+    Wakefield / Portland => Wakefield, WA, USA: 1 Times
+    Kolkata => Kolkata, West Bengal, India: 1 Times
+    Sea => Seattle, WA, USA: 2 Times
+    Amsterdam => Amsterdam, North Holland, Netherlands: 1 Times
+    Seattle Washington => Seattle, WA, USA: 1 Times
+    L.A. => L.A., CA, USA: 1 Times
+    # City Name => Canonical City Name, State Name, Country Name: n Times
+  Not In Lookup Table (Won't Be Written) Count: 32
+  Not In Lookup Table (Won't Be Written):
+    "Band: 'Crictor', City: 'Kolkata', State: 'WA'": 1 Times
+    "Band: 'Delusions', City: 'Goody Blick And The Country Kind', State: ''": 1 Times
+    "Band: 'Free Jail', City: 'Eastern House', State: ''": 1 Times
+    "Band: 'Hornet Leg', City: 'Psychic Felines', State: ''": 1 Times
+    "Band: 'Seldom', City: 'Assam', State: 'WA'": 1 Times
+    "Band: 'The Posies', City: 'Ken Stringfellow', State: ''": 1 Times
+    "Band: 'The Action Suits', City: 'Seattle', State: 'WV'": 1 Times
+    "Band: 'Friday Mile', City: 'Xxxx', State: ''": 1 Times
+    "Band: 'Kind of Like Spitting', City: 'Columbia', State: 'WA'": 1 Times
+    "Band: 'Virgin of the Birds', City: 'Se', State: ''": 1 Times
+    "Band: 'Tales from the Birdbath', City: 'Sapo', State: '2'": 1 Times
+    "Band: 'The Kent 3', City: 'Defunct', State: 'WA'": 1 Times
+    "Band: 'Zorbatron', City: 'Dd', State: ''": 1 Times
+    "Band: 'Joshua Morrison', City: 'Noakhali', State: ''": 1 Times
+    "Band: 'Ham & Treachery', City: 'Nowheremark', State: ''": 1 Times
+    "Band: 'Teleologic', City: 'Nowhere', State: ''": 1 Times
+    "Band: 'low distortion unit', City: 'Paris (france)', State: ''": 1 Times
+    "Band: 'Gary Heffern', City: 'Rovaniemi', State: 'FI'": 1 Times
+    "Band: 'Before Cars', City: 'Nirvana', State: ''": 1 Times
+    "Band: 'The Mentors', City: 'Hollywood', State: 'CA'": 1 Times
+    "Band: 'share Files', City: 'Nether Haugh', State: 'AZ'": 1 Times
+    "Band: 'skirts', City: 'Tomelilla', State: 'AZ'": 1 Times
+    "Band: 'Newaxeyes', City: 'Seatte', State: 'WA'": 1 Times
+    "Band: 'First Thought', City: 'Seattle', State: 'VA'": 1 Times
+    "Band: 'Trapezoid Monks', City: 'Roslyn', State: 'WA'": 1 Times
+    "Band: 'The OF', City: 'Roslyn', State: 'WA'": 1 Times
+    "Band: 'Spark Plug', City: 'Shoreline', State: 'WA'": 1 Times
+    "Band: 'Walter and Donny', City: 'Vashon', State: 'WA'": 1 Times
+    "Band: 'Mocca', City: 'Jakarta', State: 'ID'": 1 Times
+    "Band: 'The Sigit', City: 'Bandung', State: 'ME'": 1 Times
+    "Band: 'JunkHalo', City: 'Pompeii', State: ''": 1 Times
+    "Band: 'WOODSHED', City: 'Arlington', State: 'WA'": 1 Times
+States:
+  Total Read: 2908
+  Unique: 31
+  Normalized (like 'Wa' => 'WA') Count: 58
+  Normalized (like 'Wa' => 'WA'):
+    "'Wa' => 'WA'": 26 Times
+    "'wa' => 'WA'": 24 Times
+    "'ca' => 'CA'": 2 Times
+    "'Fi' => 'FI'": 1 Times
+    "'Te' => 'TE'": 2 Times
+    "'Co' => 'CO'": 2 Times
+    "'Ny' => 'NY'": 1 Times
+  No Country Count: 3
+  No Country:
+  - '2'
+  - FI
+  - TE
+  Not In Lookup Table (Won't Be Written) Count: 4
+  Not In Lookup Table (Won't Be Written):
+    "Band: 'Tales from the Birdbath', State: '2'": 1 Times
+    "Band: 'Gary Heffern', State: 'FI'": 1 Times
+    "Band: 'Dikes of Holland', State: 'TE'": 1 Times
+    "Band: 'Palit', State: 'TE'": 1 Times
+Countries:
+  Inferred From Lookup Table Count: 6
+  Inferred From Lookup Table:
+  - USA
+  - Canada
+  - Spain
+  - India
+  - UK
+  - Netherlands
+Websites:
+  Total Read: 1057
+  Unique: 1037
+  Websites With Multiple Bands Count: 17
+  Websites With Multiple Bands:
+    http://www.facebook.com/pages/Detective-Agency-seattle-WA/124455814242992?ref=ts (2 Bands):
+    - Chip and Pan and the Band
+    - Detective Agency
+    http://www.cmykband.com (2 Bands):
+    - CMYK
+    - The Long Ranger
+    http:// (2 Bands):
+    - Prohibituary
+    - Young Adult
+    http://www.universaltrendsetter.org/ (2 Bands):
+    - The Minus 5
+    - Young Fresh Fellows
+    http://www.google.com (2 Bands):
+    - Seldom
+    - Athappilla
+    http://www.facebook.com/pages/ (4 Bands):
+    - Stag
+    - Battle Stations
+    - The Jimmystuarts
+    - Neon Nights
+    http://defunct (2 Bands):
+    - The Blow Up
+    - Legit
+    http://soundcloud.com/dasdhoom (2 Bands):
+    - Das Dhoom
+    - EQlateral
+    http://www.rustywilloughby.com (2 Bands):
+    - Llama
+    - Cobirds Unite
+    http://24/7 (2 Bands):
+    - architeuthis
+    - Land Action
+    http://www.shanetutmarc.com/ (2 Bands):
+    - Dolour
+    - The Traveling Mercies
+    http://www.TRDMRK.org (2 Bands):
+    - The Jan-Michael Vincent Car Crash
+    - Omnia Mutantor
+    http://www.myspace.com/legsthecrab (2 Bands):
+    - Legs the Crab
+    - Christopher Francis and Son
+    http://www.greenmonkeyrecords.com (3 Bands):
+    - The Icons
+    - Tom Dyer
+    - Tom Dyer/Northwest Ono Band
+    http://www.myspace.com/amazombies (2 Bands):
+    - The Amazombies
+    - Amazombies
+    http://www.suntoniobandanaz.com (2 Bands):
+    - Asun
+    - Suntonio Bandanaz (aka Asun)
+    http://www.smokeybrights.com/ (2 Bands):
+    - Smokey Brights
+    - Smokey Brights
+
+Dropping the 2.0 database and recreating (empty).
+
+Creating the 2.0 schema with the 2.0 creation script.
+  Running SQL script: bandmap2.0.pg.sql
+    Executing SQL: create table if not exists people (    id serial n...
+    Executing SQL: create index on people(name);
+    Executing SQL: create index on people(click_count);
+    Executing SQL: create table if not exists person_aliases (    ali...
+    Executing SQL: create table if not exists person_person_aliases (...
+    Executing SQL: create index on person_person_aliases(person_alias);
+    Executing SQL: create table if not exists countries (    id seria...
+    Executing SQL: create index on countries(name);
+    Executing SQL: create table if not exists states (   id serial no...
+    Executing SQL: create index on states(name);
+    Executing SQL: create index on states(country_id);
+    Executing SQL: create table if not exists cities (    id serial n...
+    Executing SQL: create index on cities(name);
+    Executing SQL: create index on cities(state_id);
+    Executing SQL: create table if not exists regions (   id serial n...
+    Executing SQL: create index on regions(name);
+    Executing SQL: create table if not exists region_cities (    regi...
+    Executing SQL: create index on region_cities(city_id);
+    Executing SQL: create table if not exists region_states (    regi...
+    Executing SQL: create index on region_states(state_id);
+    Executing SQL: create table if not exists region_countries (    r...
+    Executing SQL: create index on region_countries(country_id);
+    Executing SQL: create table if not exists region_regions (    reg...
+    Executing SQL: create index on region_regions(region2_id);
+    Executing SQL: create table if not exists bands (    id serial no...
+    Executing SQL: create index on bands(name);
+    Executing SQL: create index on bands(click_count);
+    Executing SQL: create table if not exists band_aliases (    alias...
+    Executing SQL: create table if not exists band_band_aliases (    ...
+    Executing SQL: create index on band_band_aliases(band_alias);
+    Executing SQL: create table if not exists roles (   id serial not...
+    Executing SQL: create index on roles(name);
+    Executing SQL: create table if not exists band_person_roles (    ...
+    Executing SQL: create index on band_person_roles(person_id);
+    Executing SQL: create index on band_person_roles(role_id);
+    Executing SQL: create table if not exists band_cities (    band_i...
+    Executing SQL: create index on band_cities(city_id);
+    Executing SQL: create table if not exists connections (    band_1...
+    Executing SQL: create index on connections(band_2_id);
+    Executing SQL: create table if not exists active_dates (    id se...
+    Executing SQL: create table if not exists band_active_dates (    ...
+    Executing SQL: create index on band_active_dates(active_dates_id);
+    Executing SQL: create table if not exists band_city_active_dates ...
+    Executing SQL: create index on band_city_active_dates(city_id);
+    Executing SQL: create index on band_city_active_dates(active_date...
+    Executing SQL: create table if not exists band_person_role_active...
+    Executing SQL: create index on band_person_role_active_dates(pers...
+    Executing SQL: create index on band_person_role_active_dates(role...
+    Executing SQL: create index on band_person_role_active_dates(acti...
+    Executing SQL: create table if not exists identity_types (    id ...
+    Executing SQL: create table if not exists app_roles (   id serial...
+    Executing SQL: create table if not exists users (    id serial no...
+    Executing SQL: create index on users(identity_type_id);
+    Executing SQL: create index on users(app_role_id);
+    Executing SQL: create index on users(person_id);
+    Executing SQL: create table if not exists sessions (    id serial...
+    Executing SQL: create index on sessions(user_id);
+    Executing SQL: create table if not exists edit_request_text (    ...
+    Executing SQL: create table if not exists anonymous_editors (    ...
+    Executing SQL: create index on anonymous_editors(ip_address);
+    Executing SQL: create index on anonymous_editors(user_agent);
+    Executing SQL: create table if not exists editors (    id serial ...
+    Executing SQL: create index on editors(user_id);
+    Executing SQL: create index on editors(anonymous_editor_id);
+    Executing SQL: create table if not exists edits (    id bigserial...
+    Executing SQL: create index on edits(datetime);
+    Executing SQL: create index on edits(editor_id);
+    Executing SQL: create index on edits(session_id);
+    Executing SQL: create table if not exists cell_revision_text (   ...
+    Executing SQL: create table if not exists table_columns (    id s...
+    Executing SQL: create unique index on table_columns("table", "col...
+    Executing SQL: create table if not exists cell_revision_types (  ...
+    Executing SQL: create table if not exists cell_revisions (    id ...
+    Executing SQL: create index on cell_revisions(cell_revision_type_...
+    Executing SQL: create index on cell_revisions(table_column_id);
+    Executing SQL: create index on cell_revisions(row_id);
+    Executing SQL: create table if not exists edit_cell_revisions (  ...
+    Executing SQL: create index on edit_cell_revisions(cell_revision_...
+    Executing SQL: create table if not exists tags (    tag varchar(2...
+    Executing SQL: create table if not exists info_source_tags (    t...
+    Executing SQL: create table if not exists info_sources (    id se...
+    Executing SQL: create index on info_sources(url);
+    Executing SQL: create table if not exists info_source_info_source...
+    Executing SQL: create index on info_source_info_source_tags(info_...
+    Executing SQL: create table if not exists info_source_children ( ...
+    Executing SQL: create index on info_source_children(child_id);
+    Executing SQL: create table if not exists annotations (    id big...
+    Executing SQL: create index on annotations(editor_id);
+    Executing SQL: create index on annotations(datetime);
+    Executing SQL: create index on annotations(info_source_id);
+    Executing SQL: create table if not exists cell_revision_annotatio...
+    Executing SQL: create index on cell_revision_annotations(annotati...
+    Executing SQL: create table if not exists band_info_sources (    ...
+    Executing SQL: create index on band_info_sources(info_source_id);
+    Executed 94 statements.  0 error(s).
+
+Saving the reorganized data to the 2.0 database.
+  Records Written:
+            roles: 1
+           people: 4840
+        countries: 6
+           states: 26
+           cities: 81
+     info_sources: 1037
+            bands: 3920
+band_person_roles: 6670
+      band_cities: 1449
+      connections: 5384
+band_info_sources: 1054

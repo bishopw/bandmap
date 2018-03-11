@@ -1,0 +1,331 @@
+input_col_index:
+  bands:
+    id: 0
+    name: 1
+    city: 2
+    state: 3
+    click_count: 4
+    last_updated: 5
+    website: 6
+    members: 7
+  pending_bands:
+    id: 0
+    name: 1
+    city: 2
+    state: 3
+    website: 4
+    members: 5
+    connections: 6
+  connections:
+    band1: 0
+    band2: 1
+  pending_connections:
+    id: 0
+    band1: 1
+    band2: 2
+    description: 3
+
+output_col_index:
+  roles:
+    id: 0
+    name: 1
+  bands:
+    id: 0
+    name: 1
+    click_count: 2
+  people:
+    id: 0
+    name: 1
+    click_count: 2
+  countries:
+    id: 0
+    name: 1
+  states:
+    id: 0
+    name: 1
+    country_id: 2
+  cities:
+    id: 0
+    name: 1
+    state_id: 2
+  info_sources:
+    id: 0
+    url: 1
+    description: 2
+
+
+migration_results:
+  Bands:
+    Read: 0
+    Unique: 0
+    Normalized Names Count: 0
+    Normalized Names: []
+    Deduplicated Count: 0
+    Deduplicated: {}
+    No Members Count: 0
+    No Members: []
+    Average Members Per Band: 0.00
+    Only Counting Bands With Members: 0
+    No City Count: 0
+    No City: []
+    Multiple Cities Count: 0
+    Multiple Cities: {}
+  People:
+    Total Read: 0
+    Unique: 0
+    Average Bands Per Person: 0.00
+    How Many Bands Are People In: {}
+    In Multiple Bands Count: 0
+    In Multiple Bands: {}
+  Connections:
+    Read: 0
+    Valid and Unique: 0
+  Cities:
+    Total Read: 0
+    Unique: 0
+    Normalized Count: 0
+    Normalized: []
+    Band Count: {}
+    No State Count: 0
+    No State: []
+    Multiple States/Countries Count: 0
+    Multiple States/Countries: {}
+    Assigned A State/Country Through Lookup Table Count: 0
+    Assigned A State/Country Through Lookup Table: {}
+    # City Name => Canonical City Name, State Name, Country Name: n Times
+    Not In Lookup Table (Won't Be Written) Count: 0
+    Not In Lookup Table (Won't Be Written): {}
+  States:
+    Total Read: 0
+    Unique: 0
+    Normalized (like 'Wa' => 'WA') Count: 0
+    Normalized (like 'Wa' => 'WA'): []
+    No Country Count: 0
+    No Country: []
+    Not In Lookup Table (Won't Be Written) Count: 0
+    Not In Lookup Table (Won't Be Written): {}
+  Countries:
+    Inferred From Lookup Table Count: 0
+    Inferred From Lookup Table: []
+  Websites:
+    Total Read: 0
+    Unique: 0
+    Websites With Multiple Bands Count: 0
+    Websites With Multiple Bands: {}
+
+countries_table:
+  Canada:
+    AB:
+    BC:
+      Vancouver:
+    MB:
+    NB:
+    NL:
+    NS:
+    NT:
+    NU:
+    ON:
+    PE:
+    QC:
+      Montreal:
+    SK:
+    YT:
+  Finland:
+    Lapland:
+      Rovaniemi:
+  France:
+    Île-de-France:
+      Paris:
+  India:
+    West Bengal:
+      Kolkata:
+        - Calcutta
+  Netherlands:
+    North Holland:
+      Amsterdam:
+  Spain:
+    Madrid:
+      Madrid:
+  USA:
+    AK:
+    AL:
+    AZ:
+      Paradise Valley:
+    AR:
+    CA:
+      East Bay:
+      L.A.:
+        - Los Angeles
+        - LA
+      Martinez:
+        - Contra Costa County
+      Mount Shasta:
+        - Mt. Shasta
+      Nevada City:
+      Oakland:
+      Palm Desert:
+      Sacramento:
+      San Francisco:
+        - San Fransisco
+    CO:
+      Denver:
+    CT:
+    DE:
+    FL:
+    GA:
+      Athens:
+    HI:
+    ID:
+      Boise:
+    IL:
+      Chicago:
+    IN:
+    IA:
+    KS:
+    KY:
+    LA:
+    ME:
+    MD:
+    MA:
+      Boston:
+        - Bostin
+    MI:
+    MN:
+    MS:
+    MO:
+    MT:
+      Billings:
+      Missoula:
+    NE:
+    NV:
+    NH:
+    NJ:
+    NM:
+    NY:
+      Brooklyn:
+      Elmira:
+      New York:
+    NC:
+    ND:
+    OH:
+      Cincinnati:
+    OK:
+    OR:
+      Portland:
+      Salem:
+    PA:
+      Philadelphia:
+      Pittsburgh:
+        - Pittsburg
+    RI:
+    SC:
+      Charleston:
+    SD:
+    TN:
+      Nashville:
+    TX:
+      Austin:
+      Paris:
+    UT:
+    VT:
+    VA:
+    WA:
+      Aberdeen:
+      Anacortes:
+      Bainbridge Island:
+      Bellevue:
+      Bellingham:
+      Bothell:
+      Bremerton:
+      Burien:
+      Burlington:
+      Edmonds:
+      Enumclaw:
+      Everett:
+      Ellensburg:
+      Gig Harbor:
+      Greenwood:
+      Issaquah:
+      Kenmore:
+      Kent:
+      Kirkland:
+      Lake Stevens:
+      Lynnwood:
+      Maple Valley:
+      Marysville:
+      Montesano:
+      Mount Vernon:
+      Olympia:
+        - Oly
+      Port Townsend:
+      Pullman:
+      Redmond:
+      Renton:
+        - East Renton
+      Richland:
+      Sammamish:
+      Seattle:
+        - Ballard
+        - Ballard/seattle
+        - Capitol Hill
+        - Capitol Hill/ Ballard
+        - Columbia City
+        - Madison Park
+        - Sea
+        - Seatlle
+        - Seattle-ish
+        - Seattle Wa
+        - Seattle Washington
+        - Seatttle
+        - Wallingfor
+        - Wallingford
+        - West Seattle
+      Silverdale:
+      Snohomish:
+      Spokane:
+      Tacoma:
+      Tri-Cities:
+      Twisp:
+      Vashon Island:
+        - Vason Island
+      Wakefield:
+      Westport:
+      White Center:
+      Woodinville:
+      Yakima:
+    WV:
+      Calcutta:
+        - Kolkata
+    WI:
+    WY:
+    DC:
+      Washington:
+        - Washington, D.C.
+        - Washington D.C.
+        - Washington Dc
+  UK:
+    England:
+      London:
+
+modifications:
+  bands:
+    The Action Suits:
+      city: Seattle
+      state: WA
+      annotation: I think there's no Seattle, WV, just WA.
+    Crictor:
+      city: Seattle
+      annotation: "Jenn Ghetto from Carissa's Wierd seems to have done this project also in Seattle: http://www.thestranger.com/seattle/is-she-wierd/Content?oid=3897324"
+    Fratboy Carnivores:
+      city: Vashon Island
+      annotation: "Pretty sure 'Vason' is a misspelling of 'Vashon'."
+    The Ivory Coast:
+      city: Boston
+      annotation: http://www.allmusic.com/artist/the-ivory-coast-mn0000101843
+    Joshua Morrison:
+      city: Snohomish
+      annotation: "City previously recorded as 'Noakhali' ('Noakhali is a district in South-eastern Bangladesh.').  Would be interested to know if there's a Bangladesh connection here, but Morrison is from Snohomish County according to http://www.seattletimes.com/entertainment/singer-joshua-morrison-straddles-the-gulf-between-artist-and-soldier/"
+    Before Cars:
+      city: ''
+      state: WA
+      annotation: "Has Chad Channing from Nirvana's Bleach but AFAI can tell is not actually from a physical location called 'Nirvana'.  Band pages indicate they are/were based in WA, other than that not sure: http://beforecars.com/about-2/ https://www.facebook.com/pg/Before-Cars-108320485542/about/?ref=page_internal"
