@@ -3,6 +3,13 @@ Bandmap Notes
 Some notes on Band Map dev stuff.
 
 
+Linux
+
+Find a command you ran a while ago:   history | grep <command>
+Find a process:                       ps aux | grep <name>
+Check a port:                         netstat | grep <port number>
+
+
 Postgres
 
 Become postgres user:   sudo -i -u postgres
@@ -14,6 +21,9 @@ Shut down postgres:     send SIGTERM (smart, or SIGINT/SIGQUIT if urgent)
                         variables are messed up on my postgres installation
                         so it doesn't work:
                         pg_ctl stop // (smart mode)
+Mac OS install at:      /Library/PostgreSQL/9.6
+Mac OS stop service:    sudo su
+                        sudo -u postgres /Library/PostgreSQL/9.6/bin/pg_ctl -D /Library/PostgreSQL/9.6/data stop
 
 Docker
 
@@ -61,6 +71,7 @@ List nodes in a swarm:                docker node ls
 Deploy an app from a stack file:      docker stack deploy --compose-file docker-stack.yml vote
 See all services running for an app:  docker stack services vote
 Remove an app:                        docker stack rm vote
+Force remove all containers:          docker rm -f $(docker ps -a -q)
 
 Create a new machine:                 docker-machine create --driver virtualbox default
 List machines with ip addresses:      docker-machine ls
@@ -74,14 +85,58 @@ Run a postgres container w/ persistent volume mounted at local dir /var/lib/post
 
 docker run -d --name pg-test -p 5432:5432 -v /var/lib/postgresql/data/bandmapdata:/var/lib/postgresql/data/bandmapdata -e POSTGRES_PASSWORD=a -e PGDATA=/var/lib/postgresql/data/bandmapdata postgres:9.6-alpine
 
-Find a command you ran a while ago:   history | grep <command>
-
 
 Git
 
-git branch -avv
+git status -uno
 git checkout -B bandmap-feature-name
 git fetch --all
+
+define an upstream repo:
+<from local working dir>
+git remote add upstream <upstream-repo>
+
+see all checkout-able branches on all remotes and tracking branches for local branches:
+git branch -avv
+
+create a branch:
+git branch <branch-name>
+
+refresh a fork from its upstream repo:
+<from local working dir>
+git checkout master
+
+git fetch <source-remote>
+git merge <source-remote> <branch>
+or?
+git pull <source-remote> <branch>
+
+git push <target-remote> <branch>
+
+refresh a local branch from another local branch:
+git checkout <local-branch>
+git merge --no-ff <another-local-branch>
+git push origin <local-branch>
+
+cherrypick a commit from a different branch to current branch:
+git cherry-pick 62ecb3
+
+undo a bad pushed commit:
+git reset --hard 7d0a08e7cac6cde83bebec973fe391f18e9c643c
+git push --force <target-remote> +master
+
+rebase some commits:
+git checkout <feature-branch>
+git rebase <master>
+
+squash commits:
+git checkout <master>
+git rebase -i <branch-name>~[2 or whatever number of commits to go back]
+alter file that pops up
+
+amend a commit message:
+
+git commit --amend
 
 Commit message example (see http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html):
 
@@ -114,6 +169,12 @@ Resolves: #123
 See also: #456, #789
 
 ------------------------------------------------------------------------
+
+Diff between branches and repos and stuff:
+git diff --full-index > ~/diff-name.diff
+git diff --full-index <target-remote>/<branch> <source-remote>/<branch> > ~/diff-name.diff
+git diff --full-index <earlier-commit> <later-commit>
+git diff --full-index 90fa55db7690a308e1f57d3ec0e2bd69305a3f41 c3de7fc81f4e751e6cc09b37d08fb6ad6025fb0c > ~/diff-name.diff
 
 
 Swagger Codegen
@@ -354,24 +415,6 @@ controller
 service
 collection.js
 database.js
-
-
-Band Map 2.0 New Features:
-  Browse upgraded, more informative, real-time rendered band maps.
-  See/edit descriptions of band connections ("what is the connection?").
-  See/edit active dates for bands, members, and their roles.
-  See/edit when bands were based where.
-  Filter maps by band location, members, and active dates.
-  Filter maps by X degrees of separation from band X or person Y.
-  Filter maps by connection type (just "shared members" or "other" for now).
-  See aggregate statistics for bands, members, roles, and locations.
-  See wiki-style edit histories for all information.
-  See/edit wiki-style citations for band facts.
-  Band info is automatically updated, expanded, and curated from the web.
-  Optionally create an account and log in to track your history and edits.
-  Access all Band Map data via REST API to make your own maps and apps with it.
-  Administer and oversee the site from a useful new admin dashboard.
-  Stop needing to verify all user-entered data -- instead audit recent activity and edit histories from admin dashboard and roll back any unwanted changes.
 
 
 Band Map 2.0 New Feature Implementation:

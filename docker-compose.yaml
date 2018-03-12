@@ -35,12 +35,13 @@ services:
 
     environment:
       POSTGRES_PASSWORD: a
-      PGDATA: /var/lib/postgresql/data/bandmapdata
+      # The below has a problem on mac os: https://stackoverflow.com/questions/45122459/docker-mounts-denied-the-paths-are-not-shared-from-os-x-and-are-not-known
+      PGDATA: /private/var/lib/postgresql/data/bandmapdata
     volumes:
       # For local dev environments:
       # Use a persistent directory on the host machine for postgres data files.
       # Map it to the same directory path in the container.
-      - /var/lib/postgresql/data/bandmapdata:/var/lib/postgresql/data/bandmapdata
+      - /private/var/lib/postgresql/data/bandmapdata:/private/var/lib/postgresql/data/bandmapdata
     # If on a non-Linux OS, make sure you share the drive used here. Go to Docker's settings -> Shared Drives
   #   volumes:
   #     # Persist the data between container invocations
@@ -56,7 +57,7 @@ services:
     # For local dev environments:
     # Build Band Map API from its context directory, cache as "bandmap-api".
     # Not valid for swarms: https://docs.docker.com/compose/compose-file/#build
-    build: ./images/bandmap-api
+    build: ./bandmap-api
     image: bandmap-api:latest
     ports:
       # Expose node on localhost port 3000.

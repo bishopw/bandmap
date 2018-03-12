@@ -1,0 +1,209 @@
+Band:
+        # Singular/plural names are inferred automatically
+        # from top level object name, but can be overridden here:
+  singular: band
+  plural: bands
+  capSingular: Band
+  capPlural: Bands
+  urlSingular: band
+  urlPlural: bands
+  codeSingular: Band
+  codePlural: Bands
+  camelCaseSingular: band
+  camelCasePlural: bands
+  tag: Bands
+Connection:
+  singular: connection
+  plural: connections
+  capSingular: Connection
+  capPlural: Connections
+  urlSingular: connection
+  urlPlural: connections
+  codeSingular: Connection
+  codePlural: Connections
+  camelCaseSingular: connection
+  camelCasePlural: connections
+  tag: Connections
+  collectionSummary: connections between bands
+  collectionDescription: connections between bands, with descriptions of what connects them (for example, shared members).  Connections can be POSTed and DELETEd, and their descriptions can be PATCHed, but they can't be replaced with PUT since a their id is fixed once their two bands are defined
+  band1Description: The first band.  {{specifyBandBy}}
+  band2Description: The second band.  {{specifyBandBy}}
+  specifyBandBy: ''
+  specifyConnectionBy: 'Existing connections can be specified in any of three ways: canonical id (like "123-789"), name id (like "band a-band b", also supplied in the connection "id" field) or by including either the id or name of both "band1" and "band2" objects (and not specifying a connection id).  The ordering of bands in any of the three methods does not matter (that is, "band a-band b" will address the same connection as "band b-band a").'
+  idDescription: The unique, stable ID of this connection.  It will be a string of the form "<band1-id>-<band2-id>".
+  collectionPathSummaryPatch: Modify or create the specified connection(s).
+  collectionPathDescriptionPatch: Modify or create the specified connection(s).  For existing connections, only the description can be modified, not the bands.  {{specifyConnectionBy}}  The query args for this operation apply only to the returned array confirming your changes.
+  collectionPathArrayDescriptionPatch: An array containing one or more existing or new connections.  For existing connections, only the description can be modified, not the bands.  {{specifyConnectionBy}}
+  patchDescription: An existing connection to modify (only descriptions can be modified), or a new connection to create.  {{specifyConnectionBy}}
+  collectionPathArrayDescriptionPut: An array containing one or more existing or new connections.  For existing connections, only the description can be "replaced", not the bands.  {{specifyConnectionBy}}
+  itemPathDescriptionPatch: An object specifying a new description for an existing connection.
+  patchOneDescription: An object specifying a new description for an existing connection.
+Person:
+  singular: person
+  plural: people
+  capSingular: Person
+  capPlural: People
+  urlSingular: person
+  urlPlural: people
+  codeSingular: Person
+  codePlural: People
+  camelCaseSingular: person
+  camelCasePlural: people
+  tag: People
+Role:
+  singular: role
+  plural: roles
+  capSingular: Role
+  capPlural: Roles
+  urlSingular: role
+  urlPlural: roles
+  codeSingular: Role
+  codePlural: Roles
+  camelCaseSingular: role
+  camelCasePlural: roles
+  tag: Roles
+City:
+  singular: city
+  plural: cities
+  capSingular: City
+  capPlural: Cities
+  urlSingular: city
+  urlPlural: cities
+  codeSingular: City
+  codePlural: Cities
+  camelCaseSingular: city
+  camelCasePlural: cities
+  tag: Locations
+State:
+  singular: state
+  plural: states
+  capSingular: State
+  capPlural: States
+  urlSingular: state
+  urlPlural: states
+  codeSingular: State
+  codePlural: States
+  camelCaseSingular: state
+  camelCasePlural: states
+  tag: Locations
+  collectionSummary: states/provinces/prefectures
+  collectionDescription: states, provinces, prefectures, or other administrative areas where bands or artists play
+Country:
+  singular: country
+  plural: countries
+  capSingular: Country
+  capPlural: Countries
+  urlSingular: country
+  urlPlural: countries
+  codeSingular: Country
+  codePlural: Countries
+  camelCaseSingular: country
+  camelCasePlural: countries
+  tag: Locations
+Region:
+  singular: region
+  plural: regions
+  capSingular: Region
+  capPlural: Regions
+  urlSingular: region
+  urlPlural: regions
+  codeSingular: Region
+  codePlural: Regions
+  camelCaseSingular: region
+  camelCasePlural: regions
+  tag: Locations
+Edit:
+  singular: edit
+  plural: edits
+  capSingular: Edit
+  capPlural: Edits
+  urlSingular: edit
+  urlPlural: edits
+  codeSingular: Edit
+  codePlural: Edits
+  camelCaseSingular: edit
+  camelCasePlural: edits
+  tag: Edit History
+  collectionSummary: edits
+  collectionDescription: edit transactions.  An edit is one successful  HTTP POST, PATCH, PUT, or DELETE call performed by a Band Map user.  Edits are made up of one or more revisions.  {{explainReadOnlyRecords}}
+Editor:
+  singular: editor
+  plural: editors
+  capSingular: Editor
+  capPlural: Editors
+  urlSingular: editor
+  urlPlural: editors
+  codeSingular: Editor
+  codePlural: Editors
+  camelCaseSingular: editor
+  camelCasePlural: editors
+  tag: Edit History
+  collectionSummary: editors
+  collectionDescription: editors.  An editor is an anonymous or registered Band Map editor who has performed one or more edits on the Band Map info.  {{explainReadOnlyRecords}}
+Revision:
+  singular: revision
+  plural: revisions
+  capSingular: Revision
+  capPlural: Revisions
+  urlSingular: revision
+  urlPlural: revisions
+  codeSingular: Revision
+  codePlural: Revisions
+  camelCaseSingular: revision
+  camelCasePlural: revisions
+  tag: Edit History
+  collectionSummary: revisions
+  collectionDescription: revisions.  A revision is a single discrete fact addition or modification to the Band Map database, including a reference to the database cell involved and the edit it was a part of, and the cell contents before and after the revision
+Annotation:
+  singular: annotation
+  plural: annotations
+  capSingular: Annotation
+  capPlural: Annotations
+  urlSingular: annotation
+  urlPlural: annotations
+  codeSingular: Annotation
+  codePlural: Annotations
+  camelCaseSingular: annotation
+  camelCasePlural: annotations
+  tag: Edit History
+  collectionDescription: annotations.  An annotation is an additional comment, usually an info source citation, associated with one discrete revision to the Band Map info
+InfoSource:
+  singular: info source
+  plural: info sources
+  capSingular: Info source
+  capPlural: Info sources
+  urlSingular: info-source
+  urlPlural: info-sources
+  codeSingular: InfoSource
+  codePlural: InfoSources
+  camelCaseSingular: infoSource
+  camelCasePlural: infoSources
+  tag: Edit History
+  collectionDescription: info sources, usually websites, for information about bands, people, or anything else found on Band Map
+User:
+  singular: user
+  plural: users
+  capSingular: User
+  capPlural: Users
+  urlSingular: user
+  urlPlural: users
+  codeSingular: User
+  codePlural: Users
+  camelCaseSingular: user
+  camelCasePlural: users
+  tag: Admin
+  collectionSummary: registered Band Map users
+  collectionDescription: registered Band Map users
+Session:
+  singular: session
+  plural: sessions
+  capSingular: Session
+  capPlural: Sessions
+  urlSingular: session
+  urlPlural: sessions
+  codeSingular: Session
+  codePlural: Sessions
+  camelCaseSingular: session
+  camelCasePlural: sessions
+  tag: Admin
+  collectionDescription: Band Map website sessions

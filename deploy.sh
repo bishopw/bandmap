@@ -7,7 +7,7 @@
 BANDMAP_ROOT=~/Documents/bandmap-repos
 BANDMAP_CODEGEN_ROOT=$BANDMAP_ROOT/bandmap-swagger-codegen
 SWAGGER_CONFIG=$BANDMAP_ROOT/bandmap/scripts/swagger-generator/swagger.yaml
-SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap/bandmap-swagger-ui/dist/bandmap-api.yaml
+SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap-swagger-ui/dist/bandmap-api.yaml
 BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api
 
 # # # Generate initial bandmap-api server stub.
@@ -31,16 +31,25 @@ BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api
 # #   --api-package bandmap \
 # #   --template-dir $BANDMAP_ROOT/bandmap-swagger-codegen/bandmap-templates
 
-# Rebuild swagger-ui.
+# Build swagger-ui.
 # I had a bunch of webpack troubles getting this to work, tried doing
 # 'sudo npm link webpack' and 'sudo npm install' and then running a bunch of
 # the "predev" and "dev" commands listed in swagger-ui's package.json before
 # npm run build  or build-core would work.
 cd $BANDMAP_ROOT/bandmap-swagger-ui
+npm install
 npm run build
 
+# Install bandmap-api dependencies.
+cd $BANDMAP_API_ROOT
+npm install
+
+# Generate swagger config.
+cd $BANDMAP_ROOT/bandmap/scripts/swagger-generator
+python3 swagger-generator.py
+
 # Replace the swagger-ui in the swagger-tools directory with our custom
-# swagger-ui.  
+# swagger-ui.
 rm -rf $BANDMAP_API_ROOT/node_modules/swagger-tools/middleware/swagger-ui
 cp $SWAGGER_CONFIG $SWAGGER_CONFIG_OUT
 cp -R $BANDMAP_ROOT/bandmap-swagger-ui/dist \
