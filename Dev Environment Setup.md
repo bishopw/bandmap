@@ -1,3 +1,4 @@
+
 Dev Environment Setup
 
 This is for new developers who want to contribute to Band Map.  It contains suggestions for setting up your dev environment and explains how the Band Map dev/test/deploy cycle works, including repo and DB access and hosting details of the staging and production environments.
@@ -33,8 +34,8 @@ Install a recent Python 3 version ("python3" already works for me on Ubuntu 16.0
 Clone Repositories:
 
 - Install git.
-- Create a bandmap-repos root directory to clone the repositories in at <repos> for example at ~/Documents/bandmap-repos.  There are currently at least 2, maybe 3 repos you will want.
-- cd <bandmap-repos>
+- Create a bandmap-repos root directory to clone the repositories in at [bandmap-repos] for example at ~/Documents/bandmap-repos.  There are currently at least 2, maybe 3 repos you will want.
+- cd [bandmap-repos]
 - git clone https://github.com/bishopw/bandmap.git
 - git clone https://github.com/bishopw/bandmap-swagger-ui.git
 - If you need to regenerate the stub API server from scratch for some reason (you probably don't need to anymore): git clone https://github.com/bishopw/bandmap-swagger-codegen.git
@@ -63,19 +64,19 @@ Database Migration:
 - Save the returned SQL script somewhere (or use the existing script in /scripts/migrate-db/bandmap1.0.mysql.sql).
 - A newly exported script will mostly be the wordpress DB, which you don't need, so you can edit it and cut out everything below "-- Database: `bandmap_wordpress`"
 - Use MySQL Workbench or command line or whatever to run the script.
-- Adjust the <repo>/scripts/migrate-db/migrate-db.py database connection profiles at the top of the file to your local settings.
+- Adjust the [root]/bandmap/scripts/migrate-db/migrate-db.py database connection profiles at the top of the file to your local settings.
 - YOUR 2.0 DB WILL BE DROPPED IF IT EXISTS ALREADY AND REBUILT FROM SCRATCH BY THE FOLLOWING SCRIPT.
 - Run migrate-db.py
 
 
 Swagger Codegen:
 
-- You probably don't need to do this part anymore, but it was how I originally created the stub code under <bandmap-repos>/bandmap/bandmap-api, so I will include it here just FYI:
+- You probably don't need to do this part anymore, but it was how I originally created the stub code under [bandmap-repos]/bandmap/bandmap-api, so I will include it here just FYI:
 - install Java 7 or 8
 - brew update
 - brew cask install java
 - brew install maven
-- Clone bandmap swagger-codegen at <bandmap-repos> root: git clone https://github.com/bishopw/bandmap-swagger-codegen
+- Clone bandmap swagger-codegen at [bandmap-repos] root: git clone https://github.com/bishopw/bandmap-swagger-codegen
 - Follow install instructions: https://github.com/swagger-api/swagger-codegen#swagger-code-generator
 - Autogenerate Node server for the API and API Docs server:
 - (Instructions at https://github.com/swagger-api/swagger-codegen/wiki/Server-stub-generator-HOWTO)
@@ -100,8 +101,8 @@ Legacy Band Map:
 
 Deploy:
 
-- Use <bandmap-repos>/bandmap/scripts/deploy.sh to deploy and run.
+- Use [bandmap-repos]/bandmap/scripts/deploy.sh to deploy and run.
 - You may need to change the paths at the top of the script to correspond to your local dev environment.
-- On mac you may need to go into <bandmap-repos>/bandmap/docker-compose.yaml and change /var/lib/postgresql/data/bandmapdata => /private/var/lib/postgresql/data/bandmapdata (I'm looking for a better workaround for this.)
+- On mac you may need to go into [bandmap-repos]/bandmap/docker-compose.yaml and change /var/lib/postgresql/data/bandmapdata => /private/var/lib/postgresql/data/bandmapdata (I'm looking for a better workaround for this.)
 - I also struggled with permissions on the postgresql/data volume on mac.  "sudo chmod 777 /private/var/lib/postgresql/data/" seemed to fix it.
 - Note that the first time you deploy, you'll need to populate/have populated your DB before navigating to localhost:3000 actually works (see "Database Migration" above).
