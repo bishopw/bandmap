@@ -4,11 +4,11 @@
 
 # Do the prerequisites in "Dev Environment Setup.txt" before running.
 
-BANDMAP_ROOT=~/Documents/bandmap-repos
-BANDMAP_CODEGEN_ROOT=$BANDMAP_ROOT/bandmap-swagger-codegen
-SWAGGER_CONFIG=$BANDMAP_ROOT/bandmap/scripts/swagger-generator/swagger.yaml
-SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap-swagger-ui/dist/bandmap-api.yaml
-BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api
+export BANDMAP_ROOT=~/Documents/bandmap-repos
+export BANDMAP_CODEGEN_ROOT=$BANDMAP_ROOT/bandmap-swagger-codegen
+export SWAGGER_CONFIG=$BANDMAP_ROOT/bandmap/scripts/swagger-generator/swagger.yaml
+export SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap-swagger-ui/dist/bandmap-api.yaml
+export BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api
 
 # # # Generate initial bandmap-api server stub.
 # # # (This step is no longer necessary, and should no longer be performed, as
@@ -60,8 +60,10 @@ cp -R $BANDMAP_ROOT/bandmap-swagger-ui/dist \
 # custom versions to fix bugs in swagger-tools dependencies:
 # path-to-regexp: fix the url regex to correctly parse hyphens
 cp -R $BANDMAP_API_ROOT/node_module_replacements/path-to-regexp $BANDMAP_API_ROOT/node_modules/swagger-tools/node_modules/
+cp -R $BANDMAP_API_ROOT/node_module_replacements/swagger-metadata.js $BANDMAP_API_ROOT/node_modules/swagger-tools/middleware/swagger-metadata.js
 
 # Start DB and API servers in docker.
+cd $BANDMAP_ROOT/bandmap
 docker container rm -f bandmap_api_1
 docker-compose up -d --build
 
@@ -70,4 +72,5 @@ docker-compose up -d --build
 # docker container rm -f bandmap_api_1
 # cd $BANDMAP_API_ROOT
 # export DEBUG=band-map-api,swagger-tools:middleware:metadata,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:router,swagger-tools:middleware:ui,sql:pg
+# export DEBUG=band-map-api,swagger-tools:middleware:metadata,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:ui,sql:pg
 # npm start

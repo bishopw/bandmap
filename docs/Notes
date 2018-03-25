@@ -5,6 +5,7 @@ Some notes on Band Map dev stuff.
 
 Linux
 
+Redirect stderr and stdout to file:   npm start &> filename
 Find a command you ran a while ago:   history | grep <command>
 Find a process:                       ps aux | grep <name>
 Check a port:                         netstat | grep <port number>
