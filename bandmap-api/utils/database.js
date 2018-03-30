@@ -6,6 +6,7 @@ const debug = require('debug')('band-map-api'),
   tloNames =
     require('../utils/top-level-object-names.js').byNameForm.camelCasePlural,
   utils = require('../utils/utils.js'),
+  nameFromPath = utils.nameFromPath,
 
   Sequelize = require('sequelize');
 
@@ -13,6 +14,7 @@ let sequelize = new Sequelize('bandmap', 'postgres', 'a', {
     host: 'localhost',
     port: 5432,
     dialect: 'postgres',
+    operatorsAliases: false,
     pool: {
       max: 16,
       min: 0,
@@ -653,6 +655,7 @@ let getSpecialCaseFieldName = dbFieldName => {
   get = objectChain => {
     // Build a chain of 'with' clauses building up the requested fields for
     // each object in the nested object chain.
+debug('get() objectChain:',utils.toYaml(objectChain));
     let sql = `
       WITH
       {{withs}}
@@ -844,12 +847,11 @@ let getSpecialCaseFieldName = dbFieldName => {
       if (sort) {
         let sFields = Array.from(Object.keys(sort));
         for (let j = 0, jlen = sFields.length; j < jlen; j++) {
-          let sField = sFields[j];
-          let formattedSField, finalSortField;
+          let sField = sFields[j],
+            formattedSField, finalSortField;
 
           // For immediate field, prepend current object alias.
           if (sField.indexOf('.') === -1) {
-            formattedSField = `${alias}.${obj.fields[sField][COLUMN_NAME]}`;
             // Include sort fields in the fields lists if they are not already
             // there.  (This should only happen for immediate fields.)
             if (isCountField(sField)) {
@@ -872,12 +874,14 @@ let getSpecialCaseFieldName = dbFieldName => {
                 allFinalFields.push(finalSortField);
               }
             }
+            formattedSField =
+              `${alias}.${obj.fields[nameFromPath(sField)][COLUMN_NAME]}`;
 
           // Fully qualified field.  Translate it to output field format
-          // and prepend previous object alias.
+          // and prepend previous object alias (.
           } else {
             finalSortField = getOutputFieldName(sField);
-            formattedSField = `${pAlias}.${finalSortField}`;
+            formattedSField = `${pAlias ? pAlias + '.' : ''}${finalSortField}`;
           }
 
           let order =

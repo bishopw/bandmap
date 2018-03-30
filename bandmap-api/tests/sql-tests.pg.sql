@@ -1,7 +1,91 @@
 ﻿/*
+
+          Organize specs/test list, existing GET bug fixes.
+
+          Backburner Full GET Feature Set.
+          Finish GET functionality for needed endpoints - test/specs first.
+          Finish POST/PATCH/PUT/DELETE for needed endpoints.
+          Wiki style auditable/revertable edit history - sessions, edits, sources, citations.
+          New DB migration script that goes through API.
+          New admin UI interface - approve/revert edits individually or by session/user batch.
+03.25.Sun Send Email.
+04.01.Sun 
+04.08.Sun 
+04.15.Sun DnD
+04.22.Sun
+04.29.Sun Send Email.
+05.06.Sun
+05.13.Sun
+05.20.Sun
+          New Frontend.
+05.27.Sun Send Email
+05.31.Fri Band Map 1.0 Parity
+
+Instead of the problematic, brittle concept of ranges of active dates, shouldn't we just store band events like shows, album/song releases, and posts?  Isn't band activity more like a heat map of past events than a set of specific ranges?  What about band person role active dates and band city active dates?
+Consider dated events: Show, Album, Song, Post/Article/Interview
+How do we model the joining/leaving of people from bands over time?
+Does each band event have to have an associated band lineup?  Seems too burdensome.
+What about the location of bands and possible changes over time (La Luz moves from Seattle to L.A.)?
+Is/are a band's city(ies) just the city(ies) with the most or the most recent band events?
+
 bugs:
-  wrong 'total': localhost:3000/api/bands/wimps/people?limit=0
-  server-error: http://localhost:3000/api/bands?fields=total
+  Cannot read property 'aliasPart' of undefined:
+    http://localhost:3000/api/bands?fields=total&limit=5
+    (trouble mapping collection container fields to what db fields are needed)
+    (translate "total" etc fields to as well as from db query format)
+    (looks like fetchTypes and outputToInputFieldParts should include unrequested
+    ids in healthy runs)
+
+GOOD: GET /api/bands?fields=bands.people.name&limit=5
+
+fetchTypes:
+bands: array
+bands.people: array
+bands.people.name: string
+bands.id: integer
+bands.people.id: integer
+
+outputToInputFieldParts:
+__bands:
+  - bands
+bands__id:
+  - bands
+  - id
+bands__people:
+  - bands
+  - people
+bands_people__id:
+  - bands
+  - people
+  - id
+bands_people__name:
+  - bands
+  - people
+  - name
+
+
+BAD: GET /api/bands?fields=total&limit=5
+
+fetchTypes:
+total: integer
+
+outputToInputFieldParts:
+bands__count:
+  - total
+
+
+  Just getting bandsCount should do a count *:
+    http://localhost:3000/api/bands?fields=bandsCount&limit=5&offset=20
+  These should be understood as no-ops and return immediately, echoing the input arg (with warning):
+    http://localhost:3000/api/bands?fields=link&limit=5&offset=20
+    http://localhost:3000/api/bands?fields=LiMiT&limit=5&offset=20
+    http://localhost:3000/api/bands?fields=offset&limit=5&offset=20
+    http://localhost:3000/api/bands?fields=warnings&limit=5&offset=20
+    http://localhost:3000/api/bands?fields=errors&limit=5&offset=20
+    http://localhost:3000/api/bands?fields=link,limit,offset,warnings,errors&limit=5&offset=20
+  wrong 'total':
+    localhost:3000/api/bands/wimps/people?limit=0
+    http://localhost:3000/api/bands/wimps/people?limit=1
 
 resolved bugs:
   wrong 'total': http://localhost:3000/api/bands/wimps/people?limit=2
@@ -11,11 +95,17 @@ resolved bugs:
   server-error: http://localhost:3000/api/bands/?limit=10&fields=total,bands.name,bands.people.name,bands.peopleCount,bands.connectedBandsCount,bands.connectedBands.name
   no default subsort by id: http://localhost:3000/api/bands/?limit=400&sort=bands.connectedBandsCount:asc&fields=bands.id,bands.name,bands.people.name,bands.peopleCount,bands.connectedBandsCount,bands.connectedBands.name
 
-common use cases:
+Test/Specs for Band Map 1.0 Parity (duplicated from main list below):
 
-http://localhost:3000/api/bands/?limit=4&offset=98
-http://localhost:3000/api/bands/?limit=4&offset=98&sort=bands.clickCount
+
+
+Test/Specs For Common Use Cases (manual for now... should automate these):
+
+http://localhost:3000/api/bands/
+http://localhost:3000/api/bands/?limit=4&offset=988
+http://localhost:3000/api/bands/?limit=4&offset=1098&sort=bands.clickCount
 http://localhost:3000/api/bands/?limit=4&offset=98&sort=bands.clickCount:desc&fields=bands.name,bands.clickCount
+
 http://localhost:3000/api/bands/?limit=10&sort=bands.peopleCount:desc
 http://localhost:3000/api/bands/?limit=10&sort=bands.clickCount:desc
 http://localhost:3000/api/bands/?limit=4&offset=98&sort=bands.peopleCount

@@ -108,10 +108,16 @@ let
   lastElement = array => array[array.length - 1],
 
   /**
+  Given a dot-delimited pathname like 'bands.people.roles.id',
+  return just the name, like 'id'.
+  */
+  nameFromPath = path => lastElement(path.split('.')),
+
+  /**
   Given an array of dot-delimited pathnames like 'bands.people.roles.id',
   return an array of just the endpoint names, like 'id'.
   */
-  namesFromPaths = paths => paths.map(p => lastElement(p.split('.'))),
+  namesFromPaths = paths => paths.map(p => nameFromPath(p)),
 
   /**
   Return a copy of the string array with all elements trimmed and converted
@@ -150,11 +156,23 @@ let
       c:
         e:
   */
-  getObjectTreeFromFieldList = fieldList => {
+  noOpFields = ['link', 'offset', 'limit', 'warnings', 'errors'],
+  getObjectTreeFromFieldList = (req, fieldList) => {
     let tree = {};
     Object.keys(fieldList).forEach(k => {
       let parts = k.split('.'),
         node = tree;
+      if (parts.length === 1) {
+        if (noOpFields.indexOf(parts[0]) !== -1) {
+          return; // "no-op" echoed fields above require no actual server work.
+        }
+        // Otherwise, maybe something like 'total' or 'first' that requires
+        // we get the count of the root collection.
+        if (!node.hasOwnProperty(req.bandMap.rootCollection)) {
+          node[req.bandMap.rootCollection] = {};
+        }
+        return;
+      }
       parts = parts.slice(0, parts.length-1);
       parts.forEach(part => {
         if (!node.hasOwnProperty(part)) {
@@ -163,6 +181,9 @@ let
         node = node[part];
       });
     });
+    if (Object.keys(tree).length === 0) {
+      // TODO: return a no-op response with warning.
+    }
     return tree;
   },
 
@@ -380,29 +401,30 @@ let
   };
 
 module.exports = {
-  initAPIErrorHandling: initAPIErrorHandling,
+  initAPIErrorHandling,
 
-  isNumeric: isNumeric,
-  isObject: isObject,
-  isMap: isMap,
+  isNumeric,
+  isObject,
+  isMap,
 
-  lastElement: lastElement,
-  namesFromPaths: namesFromPaths,
-  elementsToLowerCase: elementsToLowerCase,
-  keysToLowerCase: keysToLowerCase,
-  getObjectTreeFromFieldList: getObjectTreeFromFieldList,
-  getFieldMapFromFieldList: getFieldMapFromFieldList,
-  getLeavesFromTree: getLeavesFromTree,
-  assignFieldsWithFilter: assignFieldsWithFilter,
-  assignFieldsWithFilterMap: assignFieldsWithFilterMap,
-  removeEmptyStrings: removeEmptyStrings,
-  removeAll: removeAll,
-  copyToDepth: copyToDepth,
-  deepCopy: deepCopy,
-  mapToObject: mapToObject,
-  undefinedToString: undefinedToString,
-  toYaml: toYaml,
-  writeJson: writeJson
+  lastElement,
+  nameFromPath,
+  namesFromPaths,
+  elementsToLowerCase,
+  keysToLowerCase,
+  getObjectTreeFromFieldList,
+  getFieldMapFromFieldList,
+  getLeavesFromTree,
+  assignFieldsWithFilter,
+  assignFieldsWithFilterMap,
+  removeEmptyStrings,
+  removeAll,
+  copyToDepth,
+  deepCopy,
+  mapToObject,
+  undefinedToString,
+  toYaml,
+  writeJson
 };
 
 })();

@@ -54,13 +54,13 @@ rm -rf $BANDMAP_API_ROOT/node_modules/swagger-tools/middleware/swagger-ui
 cp $SWAGGER_CONFIG $SWAGGER_CONFIG_OUT
 cp -R $BANDMAP_ROOT/bandmap-swagger-ui/dist \
   $BANDMAP_API_ROOT/node_modules/swagger-tools/middleware/swagger-ui/
+cp -R $BANDMAP_API_ROOT/node_module_replacements/swagger-metadata.js $BANDMAP_API_ROOT/node_modules/swagger-tools/middleware/swagger-metadata.js
 
 # Until I have time to actually submit fixes to the relevant github projects,
 # wait for a release cycle, and update the node modules, manually hardwire in
 # custom versions to fix bugs in swagger-tools dependencies:
 # path-to-regexp: fix the url regex to correctly parse hyphens
 cp -R $BANDMAP_API_ROOT/node_module_replacements/path-to-regexp $BANDMAP_API_ROOT/node_modules/swagger-tools/node_modules/
-cp -R $BANDMAP_API_ROOT/node_module_replacements/swagger-metadata.js $BANDMAP_API_ROOT/node_modules/swagger-tools/middleware/swagger-metadata.js
 
 # Start DB and API servers in docker.
 cd $BANDMAP_ROOT/bandmap
@@ -72,5 +72,5 @@ docker-compose up -d --build
 # docker container rm -f bandmap_api_1
 # cd $BANDMAP_API_ROOT
 # export DEBUG=band-map-api,swagger-tools:middleware:metadata,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:router,swagger-tools:middleware:ui,sql:pg
-# export DEBUG=band-map-api,swagger-tools:middleware:metadata,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:ui,sql:pg
+# export DEBUG=band-map-api,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:ui,sql:pg
 # npm start

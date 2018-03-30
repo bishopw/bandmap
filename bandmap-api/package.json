@@ -15,11 +15,11 @@
   "dependencies": {
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
-    "knex": "^0.13.0",
+    "knex": "^0.14.0",
     "moment": "^2.21",
     "pg": "^7.1.2",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.5.0",
-    "swagger-tools": "0.10.1"
+    "sequelize": "^4.37.4",
+    "swagger-tools": "^0.10.3"
   }
 }

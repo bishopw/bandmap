@@ -283,7 +283,7 @@ let
       types = req.bandMap.fields.types,
       neededTypes = utils.assignFieldsWithFilter({}, types, neededFields),
       neededTypesMap = utils.getFieldMapFromFieldList(neededTypes),
-      objectTree = utils.getObjectTreeFromFieldList(neededTypes),
+      objectTree = utils.getObjectTreeFromFieldList(req, neededTypes),
       objectChain = [];
 
     // Scan down to root collection object in the tree.
@@ -531,6 +531,7 @@ let
           let parent = resultTree,
             lastParentPath;
           Object.entries(row).forEach(([outputField, value]) => {
+debug('outputField:',outputField,'value:',value);
 
             // Ignore null data cells.
             if (value === null || value === undefined) {
@@ -696,11 +697,14 @@ let
     }
 
     let 
-      objectTree = utils.getObjectTreeFromFieldList(fetchTypes),
+      objectTree = utils.getObjectTreeFromFieldList(req, fetchTypes),
       objectLeaves = utils.getLeavesFromTree(objectTree),
 
       // Construct map from database output field names to input field names.
       outputToInputFieldParts = {};
+debug('fetchTypes:',utils.toYaml(fetchTypes));
+debug('objectTree:',utils.toYaml(objectTree));
+debug('objectLeaves:',utils.toYaml(objectLeaves));
     for (let i = 0, len = fetchMapKeys.length; i < len; i++) {
       let objPath = fetchMapKeys[i],
         objFields = fetchMap[objPath],
@@ -727,6 +731,7 @@ let
         }
       }
     }
+debug('outputToInputFieldParts:',utils.toYaml(outputToInputFieldParts));
 
     // Result objects will be prepared before the results come back and will
     // hold empty templates for each object type with the fields in the right
@@ -758,7 +763,7 @@ let
       // node reorders number type keys (like our object ids) but Maps preserve
       // keys in insertion order.
       resultTree = new Map();
-
+debug('resultObjects:', utils.toYaml(resultObjects));
     // For each leaf, prepare an objectChain to query the objects along its
     // path.
     let fieldsQueue = utils.deepCopy(fetchMap),
@@ -971,13 +976,13 @@ let
   },
 
   fetchCollection = (req, res, fetched) => {
-    // If the collection request is 'complex' (if it has filters or sorts on
-    // anything other than just the root object), first fetch the filtered,
-    // sorted, limited ids of the root objects ('FSL fetch').
     let dbRootCollection = getDBRootCollection(req),
       sortObjects = getSortObjects(req),
       filterObjects = getFilterObjects(req);
 
+    // If the collection request is 'complex' (if it has filters or sorts on
+    // anything other than just the root object), first fetch the filtered,
+    // sorted, limited ids of the root objects ('FSL fetch').
     if (filterObjects.length > 1 ||
       (filterObjects.length === 1 && filterObjects[0] !== dbRootCollection)) {
       req.throwAPIError(501, 'not-implemented',
