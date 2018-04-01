@@ -127,6 +127,22 @@ const
       }
     }, tloNames.roles),
 
+    connections: Object.assign({
+      aliasPart: 'cx',
+      table: 'connections',
+      fields: {
+        band_1_id: ['band_1_id', 'integer'],
+        band_2_id: ['band_2_id', 'integer'],
+        description: ['description', 'string']
+      },
+      counts: {
+        'root': {
+          select: `SELECT count(*) AS count FROM {{alias}}`,
+          join: `LEFT JOIN cx_count ON TRUE`
+        }
+      }
+    }, tloNames.connections),
+
     activeDates: Object.assign({
       aliasPart: 'ad',
       table: 'active_dates',
@@ -655,7 +671,6 @@ let getSpecialCaseFieldName = dbFieldName => {
   get = objectChain => {
     // Build a chain of 'with' clauses building up the requested fields for
     // each object in the nested object chain.
-debug('get() objectChain:',utils.toYaml(objectChain));
     let sql = `
       WITH
       {{withs}}

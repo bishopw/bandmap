@@ -476,6 +476,11 @@ let
         filterTree: filterTree,
         sort: sort
       });
+
+      // TODO: Return immediately if we don't need anything from the DB.
+      // (for example if only "no-op" fields were requested.)
+      let noOpFields = ['link', 'offset', 'limit', 'warnings', 'errors'];
+
     }
     // Route to the appropriate sub-handler.
     // TODO: Handle special requests for static namespace directory data:

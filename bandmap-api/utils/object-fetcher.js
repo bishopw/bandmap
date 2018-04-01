@@ -76,11 +76,13 @@ let
   Given a list of fully qualified DB field paths, return a copy of the
   list with primary id fields added for any subobject whose *Count field
   was listed on its parent but whose primary id field was not already listed.
+  This includes adding a primary id for the root object if 'total' appears
+  in the list.
   */
-  addAllCountedSubobjectIds = fieldList => {
+  addAllCountedSubobjectIds = (fieldList, rootCollection) => {
     let allFieldsList = utils.deepCopy(fieldList);
     fieldList.forEach(f => {
-      let pObj = getParentObject(f),
+      let pObj = getParentObject(f) || (f === 'total') ? rootCollection : '',
         tlo = tloNames[fieldNameFromPath(pObj)];
       if (tlo !== undefined) {
         let pObjId = tlo.primaryId,
@@ -279,11 +281,12 @@ let
     // Construct a list of needed sort objects with needed sort fields, and
     // the tree of objects from those.
     let sort = req.bandMap.sort,
-      neededFields = addAllCountedSubobjectIds(Array.from(Object.keys(sort))),
+      neededFields = addAllCountedSubobjectIds(
+        Array.from(Object.keys(sort)), req.bandMap.rootCollection),
       types = req.bandMap.fields.types,
       neededTypes = utils.assignFieldsWithFilter({}, types, neededFields),
       neededTypesMap = utils.getFieldMapFromFieldList(neededTypes),
-      objectTree = utils.getObjectTreeFromFieldList(req, neededTypes),
+      objectTree = utils.getObjectTreeFromFieldList(neededTypes),
       objectChain = [];
 
     // Scan down to root collection object in the tree.
@@ -408,33 +411,20 @@ let
     // The DB result tree has two types of nested nodes to walk:
     // arrays (collections/subcollections) and objects (subobjects).
 
-    /** Recursively convert a DB result tree node to a final API collection or
-    subcollection array. */
-    let assembleResultCollection =
-      (pathParts, resultCollection) => {
-
-        let outArray = [];
-
-        // Walk the result objects at this result tree node, appending a
-        // response object to the output array for each one.
-        resultCollection.forEach(resultObj => {
-          let outObj = assembleResultObject(pathParts, resultObj);
-          if (utils.isObject(outObj)) {
-            outArray.push(outObj);
-          } // Else if there was no data for this object, don't add an output
-            // object for it (not sure this can happen).
-        });
-
-        return outArray;
-      },
-
-      /** Recursively convert a DB result tree node to a final API subobject. */
-      assembleResultObject = (pathParts, resultObj) => {
+    /** Recursively convert a DB result tree node to a final API subobject. */
+    let assembleResultObject = (pathParts, resultObj) => {
 
         let outObj = {},
 
           path = pathParts.join('.'),
           nodeMap = requestedMap[path];
+
+        if (nodeMap === undefined) {
+          // This path corresponds to an object the user did not request.
+          // (Can happen when the user requests 'total' on a root object but
+          // no fields on the object itself.)
+          return undefined;
+        }
 
         // For each field requested for this object type...
         Object.entries(nodeMap).forEach(([fieldPath, fieldType]) => {
@@ -465,11 +455,13 @@ let
           // subobject under it.
           } else if (fieldType === 'object') {
             if (utils.isMap(resultValue)) {
-              outObj[outFieldName] =
+              let subObj =
                 assembleResultObject(
                   pathParts.concat([fieldName]),
                   resultValue);
-
+              if (subObj !== undefined) {
+                outObj[outFieldName] = subObj;
+              }
             } // Else if we have no data for this subobject, don't return even
               // the field name.
 
@@ -500,6 +492,25 @@ let
         });
 
         return outObj;
+      },
+
+      /** Recursively convert a DB result tree node to a final API collection or
+      subcollection array. */
+      assembleResultCollection = (pathParts, resultCollection) => {
+
+        let outArray = [];
+
+        // Walk the result objects at this result tree node, appending a
+        // response object to the output array for each one.
+        resultCollection.forEach(resultObj => {
+          let outObj = assembleResultObject(pathParts, resultObj);
+          if (utils.isObject(outObj)) {
+            outArray.push(outObj);
+          } // Else if there was no data for this object, don't add an output
+            // object for it.
+        });
+
+        return outArray;
       };
 
     // The root output at this layer is always an array.
@@ -531,7 +542,6 @@ let
           let parent = resultTree,
             lastParentPath;
           Object.entries(row).forEach(([outputField, value]) => {
-debug('outputField:',outputField,'value:',value);
 
             // Ignore null data cells.
             if (value === null || value === undefined) {
@@ -667,8 +677,8 @@ debug('outputField:',outputField,'value:',value);
       types[fullPID] = 'integer'; // TODO: <== Sketchy. Find actual type.
       preEndpointPrimaryFields.push(fullPID);
     }
-    fetchList =
-      addAllCountedSubobjectIds(preEndpointPrimaryFields.concat(fetchList));
+    fetchList = addAllCountedSubobjectIds(
+        preEndpointPrimaryFields.concat(fetchList), req.bandMap.rootCollection);
     let fetchTypes = utils.assignFieldsWithFilter({}, types, fetchList),
       fetchMap = utils.getFieldMapFromFieldList(fetchTypes);
 
@@ -697,12 +707,13 @@ debug('outputField:',outputField,'value:',value);
     }
 
     let 
-      objectTree = utils.getObjectTreeFromFieldList(req, fetchTypes),
+      objectTree = utils.getObjectTreeFromFieldList(fetchTypes),
       objectLeaves = utils.getLeavesFromTree(objectTree),
 
       // Construct map from database output field names to input field names.
       outputToInputFieldParts = {};
 debug('fetchTypes:',utils.toYaml(fetchTypes));
+debug('fetchMap:',utils.toYaml(fetchMap));
 debug('objectTree:',utils.toYaml(objectTree));
 debug('objectLeaves:',utils.toYaml(objectLeaves));
     for (let i = 0, len = fetchMapKeys.length; i < len; i++) {
@@ -731,7 +742,6 @@ debug('objectLeaves:',utils.toYaml(objectLeaves));
         }
       }
     }
-debug('outputToInputFieldParts:',utils.toYaml(outputToInputFieldParts));
 
     // Result objects will be prepared before the results come back and will
     // hold empty templates for each object type with the fields in the right
@@ -763,7 +773,7 @@ debug('outputToInputFieldParts:',utils.toYaml(outputToInputFieldParts));
       // node reorders number type keys (like our object ids) but Maps preserve
       // keys in insertion order.
       resultTree = new Map();
-debug('resultObjects:', utils.toYaml(resultObjects));
+
     // For each leaf, prepare an objectChain to query the objects along its
     // path.
     let fieldsQueue = utils.deepCopy(fetchMap),

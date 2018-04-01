@@ -8,8 +8,7 @@
           Wiki style auditable/revertable edit history - sessions, edits, sources, citations.
           New DB migration script that goes through API.
           New admin UI interface - approve/revert edits individually or by session/user batch.
-03.25.Sun Send Email.
-04.01.Sun 
+04.01.Sun Send Email.
 04.08.Sun 
 04.15.Sun DnD
 04.22.Sun
@@ -29,51 +28,6 @@ What about the location of bands and possible changes over time (La Luz moves fr
 Is/are a band's city(ies) just the city(ies) with the most or the most recent band events?
 
 bugs:
-  Cannot read property 'aliasPart' of undefined:
-    http://localhost:3000/api/bands?fields=total&limit=5
-    (trouble mapping collection container fields to what db fields are needed)
-    (translate "total" etc fields to as well as from db query format)
-    (looks like fetchTypes and outputToInputFieldParts should include unrequested
-    ids in healthy runs)
-
-GOOD: GET /api/bands?fields=bands.people.name&limit=5
-
-fetchTypes:
-bands: array
-bands.people: array
-bands.people.name: string
-bands.id: integer
-bands.people.id: integer
-
-outputToInputFieldParts:
-__bands:
-  - bands
-bands__id:
-  - bands
-  - id
-bands__people:
-  - bands
-  - people
-bands_people__id:
-  - bands
-  - people
-  - id
-bands_people__name:
-  - bands
-  - people
-  - name
-
-
-BAD: GET /api/bands?fields=total&limit=5
-
-fetchTypes:
-total: integer
-
-outputToInputFieldParts:
-bands__count:
-  - total
-
-
   Just getting bandsCount should do a count *:
     http://localhost:3000/api/bands?fields=bandsCount&limit=5&offset=20
   These should be understood as no-ops and return immediately, echoing the input arg (with warning):
@@ -88,6 +42,7 @@ bands__count:
     http://localhost:3000/api/bands/wimps/people?limit=1
 
 resolved bugs:
+  parsing error: http://localhost:3000/api/bands?fields=total&limit=5
   wrong 'total': http://localhost:3000/api/bands/wimps/people?limit=2
   wrong error: http://localhost:3000/api/bands/wimps/people?limit=4&offset=98
   should give empty collection: http://localhost:3000/api/bands/141/people
@@ -95,9 +50,18 @@ resolved bugs:
   server-error: http://localhost:3000/api/bands/?limit=10&fields=total,bands.name,bands.people.name,bands.peopleCount,bands.connectedBandsCount,bands.connectedBands.name
   no default subsort by id: http://localhost:3000/api/bands/?limit=400&sort=bands.connectedBandsCount:asc&fields=bands.id,bands.name,bands.people.name,bands.peopleCount,bands.connectedBandsCount,bands.connectedBands.name
 
-Test/Specs for Band Map 1.0 Parity (duplicated from main list below):
-
-
+1.0 Parity Test/Specs (duplicated from main list below):
+Backend:
+  ✔ get all bands: http://localhost:3000/api/bands/?no-fields=bands.link,bands.connectedBands
+    get all connections: http://localhost:3000/api/connections
+In App:
+    submit a connection (band1, band2, reason) => 
+    submit a band (name, city, state, website, members, connected bands) => 
+  ✔ click band node => get band info (connections (links and highlighted points on svg), location, website, members): 
+    edit band (location, website, members) => click edit from band info:
+    top 6 most recently updated:
+  ✔ top 6 most connections:
+  ✔ top 6 most popular:
 
 Test/Specs For Common Use Cases (manual for now... should automate these):
 
@@ -466,3 +430,71 @@ on b.band_id = bp.band_id
 where lower(p.name) = 'rachel ratner'
 )
 select * from p
+
+-- Connections
+WITH
+cx AS (
+  SELECT
+  cx.band_1_id AS connection__band_1_id,
+  cx.band_2_id AS connection__band_2_id,
+  cx.description AS connection__description
+  FROM connections AS cx
+  ORDER BY connection__band_1_id, connection__band_2_id
+  LIMIT 10000 OFFSET 0
+),
+cx_count AS (
+  SELECT count(*) AS connection__count FROM cx
+),
+cx_b AS (
+  SELECT
+  cx.connection__band_1_id AS connection__band_1_id,
+  cx.connection__band_2_id AS connection__band_2_id,
+  cx.description AS connection__description,
+  b.id AS band__id,
+  b.name AS band_name,
+  b.click_count AS band_click_count,
+  FROM bands AS b
+  INNER JOIN cx
+  ON b.id = cx.connection__band_1_id
+  OR b.id = cx.connection__band_2_id
+  LEFT JOIN b_count
+  ON TRUE
+),
+filtered as (
+select
+c.band_id as band_id,
+c.band_name as band_name,
+c.band_clickcount as band_clickcount,
+c.person_id as person_id,
+c.person_name as person_name,
+c.person_clickcount as person_clickcount,
+c.city_id as city_id,
+c.city_name as city_name
+from c
+where (c.band_id > 1000 or c.person_name like lower('a%')) or (c.city_name = 'seattle')
+), grouped as (
+select
+filtered.band_id as band_id,
+min(filtered.band_name) as band_name,
+min(filtered.band_clickcount) as band_clickcount,
+min(filtered.person_id) as person_id,
+min(filtered.person_name) as person_name,
+min(filtered.person_clickcount) as person_clickcount,
+min(filtered.city_id) as city_id,
+min(filtered.city_name) as city_name
+from filtered
+group by band_id
+), ordered as (
+select
+grouped.band_id as band_id,
+grouped.band_name as band_name,
+grouped.band_clickcount as band_clickcount,
+grouped.person_id as person_id,
+grouped.person_name as person_name,
+grouped.person_clickcount as person_clickcount,
+grouped.city_id as city_id,
+grouped.city_name as city_name
+from grouped
+order by person_name desc nulls last, band_id desc nulls last
+)
+select * from ordered;
