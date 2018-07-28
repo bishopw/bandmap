@@ -101,7 +101,7 @@ Legacy Band Map:
 
 Deploy:
 
-- Use [bandmap-repos]/bandmap/scripts/deploy.sh to deploy and run.
+- Use [bandmap-repos]/bandmap/deploy.sh to deploy and run.
 - You may need to change the paths at the top of the script to correspond to your local dev environment.
 - On mac you may need to go into [bandmap-repos]/bandmap/docker-compose.yaml and change /var/lib/postgresql/data/bandmapdata => /private/var/lib/postgresql/data/bandmapdata (I'm looking for a better workaround for this.)
 - I also struggled with permissions on the postgresql/data volume on mac.  "sudo chmod 777 /private/var/lib/postgresql/data/" seemed to fix it.

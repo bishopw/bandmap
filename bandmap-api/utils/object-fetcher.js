@@ -288,6 +288,9 @@ let
       neededTypesMap = utils.getFieldMapFromFieldList(neededTypes),
       objectTree = utils.getObjectTreeFromFieldList(neededTypes),
       objectChain = [];
+debug('fetchFSLIDs(): neededFields:',neededFields);
+debug('fetchFSLIDs(): neededTypesMap:',neededTypesMap);
+debug('fetchFSLIDs(): objectTree:',objectTree);
 
     // Scan down to root collection object in the tree.
     let node = objectTree,
@@ -705,6 +708,7 @@ let
       initial = Object.assign(initial, extractCountFields(fetchTypes));
       fetchMap[objPath] = Object.assign(initial, objFields);
     }
+debug('fetchMap:',utils.toYaml(fetchMap));
 
     let 
       objectTree = utils.getObjectTreeFromFieldList(fetchTypes),
@@ -712,10 +716,7 @@ let
 
       // Construct map from database output field names to input field names.
       outputToInputFieldParts = {};
-debug('fetchTypes:',utils.toYaml(fetchTypes));
-debug('fetchMap:',utils.toYaml(fetchMap));
-debug('objectTree:',utils.toYaml(objectTree));
-debug('objectLeaves:',utils.toYaml(objectLeaves));
+
     for (let i = 0, len = fetchMapKeys.length; i < len; i++) {
       let objPath = fetchMapKeys[i],
         objFields = fetchMap[objPath],

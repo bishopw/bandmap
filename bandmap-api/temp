@@ -1,0 +1,2042 @@
+
+> bandmap-api-server@1.0.0 prestart /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api
+> npm install
+
+npm WARN rollback Rolling back abbrev@1.1.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/abbrev'
+npm WARN rollback Rolling back ansi-regex@2.1.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/ansi-regex'
+npm WARN rollback Rolling back balanced-match@1.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/balanced-match'
+npm WARN rollback Rolling back aproba@1.2.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/aproba'
+npm WARN rollback Rolling back chownr@1.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/chownr'
+npm WARN rollback Rolling back code-point-at@1.1.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/code-point-at'
+npm WARN rollback Rolling back brace-expansion@1.1.11 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/brace-expansion'
+npm WARN rollback Rolling back console-control-strings@1.1.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/console-control-strings'
+npm WARN rollback Rolling back fs.realpath@1.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/fs.realpath'
+npm WARN rollback Rolling back has-unicode@2.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/has-unicode'
+npm WARN rollback Rolling back inherits@2.0.3 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/inherits'
+npm WARN rollback Rolling back ini@1.3.5 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/ini'
+npm WARN rollback Rolling back isarray@1.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/isarray'
+npm WARN rollback Rolling back minimatch@3.0.4 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/minimatch'
+npm WARN rollback Rolling back ignore-walk@3.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/ignore-walk'
+npm WARN rollback Rolling back ms@2.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/ms'
+npm WARN rollback Rolling back npm-bundled@1.0.3 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/npm-bundled'
+npm WARN rollback Rolling back npm-packlist@1.1.10 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/npm-packlist'
+npm WARN rollback Rolling back number-is-nan@1.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/number-is-nan'
+npm WARN rollback Rolling back object-assign@4.1.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/object-assign'
+npm WARN rollback Rolling back is-fullwidth-code-point@1.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/is-fullwidth-code-point'
+npm WARN rollback Rolling back os-homedir@1.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/os-homedir'
+npm WARN rollback Rolling back os-tmpdir@1.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/os-tmpdir'
+npm WARN rollback Rolling back osenv@0.1.5 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/osenv'
+npm WARN rollback Rolling back process-nextick-args@2.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/process-nextick-args'
+npm WARN rollback Rolling back path-is-absolute@1.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/path-is-absolute'
+npm WARN rollback Rolling back safe-buffer@5.1.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/safe-buffer'
+npm WARN rollback Rolling back safer-buffer@2.1.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/safer-buffer'
+npm WARN rollback Rolling back set-blocking@2.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/set-blocking'
+npm WARN rollback Rolling back signal-exit@3.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/signal-exit'
+npm WARN rollback Rolling back strip-ansi@3.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/strip-ansi'
+npm WARN rollback Rolling back string-width@1.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/string-width'
+npm WARN rollback Rolling back strip-json-comments@2.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/strip-json-comments'
+npm WARN rollback Rolling back are-we-there-yet@1.1.4 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/are-we-there-yet'
+npm WARN rollback Rolling back util-deprecate@1.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/util-deprecate'
+npm WARN rollback Rolling back gauge@2.7.4 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/gauge'
+npm WARN rollback Rolling back wide-align@1.1.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/wide-align'
+npm WARN rollback Rolling back npmlog@4.1.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/npmlog'
+npm WARN rollback Rolling back wrappy@1.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/wrappy'
+npm WARN rollback Rolling back inflight@1.0.6 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/inflight'
+npm WARN rollback Rolling back once@1.4.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/once'
+npm WARN rollback Rolling back glob@7.1.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/glob'
+npm WARN rollback Rolling back rimraf@2.6.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/rimraf'
+npm WARN rollback Rolling back minipass@2.2.4 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/minipass'
+npm WARN rollback Rolling back yallist@3.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/yallist'
+npm WARN rollback Rolling back minizlib@1.1.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/minizlib'
+npm WARN rollback Rolling back fs-minipass@1.2.5 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/fs-minipass'
+npm WARN rollback Rolling back core-util-is@1.0.2 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/core-util-is'
+npm WARN rollback Rolling back concat-map@0.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/concat-map'
+npm WARN rollback Rolling back deep-extend@0.5.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/deep-extend'
+npm WARN rollback Rolling back delegates@1.0.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/delegates'
+npm WARN rollback Rolling back detect-libc@1.0.3 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/detect-libc'
+npm WARN rollback Rolling back minimist@0.0.8 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/minimist'
+npm WARN rollback Rolling back nan@2.10.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/nan'
+npm WARN rollback Rolling back mkdirp@0.5.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/mkdirp'
+npm WARN rollback Rolling back debug@2.6.9 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/debug'
+npm WARN rollback Rolling back nopt@4.0.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/nopt'
+npm WARN rollback Rolling back sax@1.2.4 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/sax'
+npm WARN rollback Rolling back semver@5.5.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/semver'
+npm WARN rollback Rolling back string_decoder@1.1.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/string_decoder'
+npm WARN rollback Rolling back tar@4.4.1 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/tar'
+npm WARN rollback Rolling back minimist@1.2.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/rc/node_modules/minimist'
+npm WARN rollback Rolling back iconv-lite@0.4.21 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/iconv-lite'
+npm WARN rollback Rolling back needle@2.2.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/needle'
+npm WARN rollback Rolling back readable-stream@2.3.6 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/readable-stream'
+npm WARN rollback Rolling back node-pre-gyp@0.10.0 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/node-pre-gyp'
+npm WARN rollback Rolling back fsevents@1.2.4 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/abbrev'
+npm WARN rollback Rolling back rc@1.2.7 failed (this is probably harmless): ENOTEMPTY: directory not empty, rmdir '/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/fsevents/node_modules/rc/node_modules/minimist'
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+up to date in 17.452s
+[!] 1 vulnerability found [2866 packages audited]
+    Severity: 1 High
+    Run `npm audit` for more detail
+
+
+> bandmap-api-server@1.0.0 start /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api
+> nodemon index.js
+
+[33m[nodemon] 1.17.5[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node index.js`[39m
+2018-07-04T18:38:47.454Z swagger-tools:middleware:validator Initializing swagger-validator middleware
+2018-07-04T18:38:47.456Z swagger-tools:middleware:validator   Response validation: disabled
+2018-07-04T18:38:47.486Z swagger-tools:middleware:ui Initializing swagger-ui middleware
+2018-07-04T18:38:47.487Z swagger-tools:middleware:ui   Using swagger-ui from: internal
+2018-07-04T18:38:47.487Z swagger-tools:middleware:ui   API Docs path: /api-docs
+2018-07-04T18:38:47.494Z swagger-tools:middleware:ui   swagger-ui path: /docs
+Your server is listening on port 3000 (http://localhost:3000)
+Swagger-ui is available on http://localhost:3000/docs
+2018-07-04T18:39:01.692Z swagger-tools:middleware:validator GET /api/connections
+2018-07-04T18:39:01.692Z swagger-tools:middleware:validator   Will process: yes
+2018-07-04T18:39:01.693Z swagger-tools:middleware:validator   Request validation:
+2018-07-04T18:39:01.693Z swagger-tools:middleware:validator     Validation: succeeded
+Wed, 04 Jul 2018 18:39:01 GMT band-map-api 1530729541695: Processing request: /api/connections
+Wed, 04 Jul 2018 18:39:01 GMT band-map-api fetchFSLIDs(): neededFields: [ 'connections:(band_1_id,band_2_id)' ]
+Wed, 04 Jul 2018 18:39:01 GMT band-map-api fetchFSLIDs(): neededTypesMap: { root: { 'connections:(band_1_id,band_2_id)': 'string' } }
+Wed, 04 Jul 2018 18:39:01 GMT band-map-api fetchFSLIDs(): objectTree: {}
+Wed, 04 Jul 2018 18:39:01 GMT band-map-api Error: Missing expected root object path while making sort query.
+    at dbRootCollectionParts.forEach.p (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:308:15)
+    at Array.forEach (<anonymous>)
+    at fetchFSLIDs (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:304:27)
+    at fetchCollection (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1007:14)
+    at fetchNextThing (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1041:12)
+    at Object.fetchObjects (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1045:12)
+    at Object.handle (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/handlers/collection-handler.js:69:21)
+    at handle (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/handlers/band-map-api-handler.js:499:13)
+    at call (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/connect/index.js:239:7)
+    at next (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/connect/index.js:183:5)
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:388:30
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1126:9
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:473:16
+    at iteratorCallback (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1050:13)
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:958:16
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1123:13
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:376:30
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1121:9
+    at eachOfArrayLike (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1055:9)
+    at eachOf (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1103:5)
+    at _asyncMap (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1119:5)
+    at Object.map (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1108:16)
+2018-07-04T18:39:11.386Z swagger-tools:middleware:validator GET /api/bands
+2018-07-04T18:39:11.386Z swagger-tools:middleware:validator   Will process: yes
+2018-07-04T18:39:11.386Z swagger-tools:middleware:validator   Request validation:
+2018-07-04T18:39:11.386Z swagger-tools:middleware:validator     Validation: succeeded
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api 1530729551386: Processing request: /api/bands
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api fetchMap: root:
+  bandsCount: integer
+  bands.peopleCount: integer
+  bands.cityStateCountriesCount: integer
+  bands.connectedBandsCount: integer
+  bands.infoSourcesCount: integer
+  bands.people.rolesCount: integer
+  link: string
+  offset: integer
+  limit: integer
+  total: integer
+  bands: array
+  first: string
+  prev: string
+  next: string
+  last: string
+bands:
+  bands.id: integer
+  bands.link: string
+  bands.name: string
+  bands.clickCount: integer
+  bands.people: array
+  bands.peopleCount: integer
+  bands.cityStateCountries: array
+  bands.cityStateCountriesCount: integer
+  bands.connectedBands: array
+  bands.connectedBandsCount: integer
+  bands.infoSources: array
+  bands.infoSourcesCount: integer
+  bands.activeDates: array
+bands.people:
+  bands.people.id: integer
+  bands.people.link: string
+  bands.people.name: string
+  bands.people.roles: array
+  bands.people.rolesCount: integer
+  bands.people.activeDates: array
+bands.people.roles:
+  bands.people.roles.id: integer
+  bands.people.roles.link: string
+  bands.people.roles.name: string
+  bands.people.roles.activeDates: array
+bands.people.roles.activeDates:
+  bands.people.roles.activeDates.id: integer
+  bands.people.roles.activeDates.from: date
+  bands.people.roles.activeDates.until: date
+bands.people.activeDates:
+  bands.people.activeDates.id: integer
+  bands.people.activeDates.from: date
+  bands.people.activeDates.until: date
+bands.cityStateCountries:
+  bands.cityStateCountries.id: integer
+  bands.cityStateCountries.link: string
+  bands.cityStateCountries.name: string
+  bands.cityStateCountries.activeDates: array
+bands.cityStateCountries.activeDates:
+  bands.cityStateCountries.activeDates.id: integer
+  bands.cityStateCountries.activeDates.from: date
+  bands.cityStateCountries.activeDates.until: date
+bands.connectedBands:
+  bands.connectedBands.id: integer
+  bands.connectedBands.link: string
+  bands.connectedBands.name: string
+  bands.connectedBands.description: string
+bands.infoSources:
+  bands.infoSources.id: integer
+  bands.infoSources.url: string
+  bands.infoSources.description: string
+bands.activeDates:
+  bands.activeDates.id: integer
+  bands.activeDates.from: date
+  bands.activeDates.until: date
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  id: asc
+limit: 10000
+offset: 0
+count: unfiltered
+fields:
+  - id
+  - link
+  - name
+  - clickCount
+  - people
+  - peopleCount
+  - cityStateCountries
+  - connectedBands
+  - infoSources
+  - activeDates
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  id: asc
+limit: 10000
+offset: 0
+fields:
+  - id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  id: asc
+limit: 10000
+offset: 0
+fields:
+  - id
+  - cityStateCountriesCount
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  id: asc
+limit: 10000
+offset: 0
+fields:
+  - id
+  - connectedBandsCount
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  id: asc
+limit: 10000
+offset: 0
+fields:
+  - id
+  - infoSourcesCount
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  id: asc
+limit: 10000
+offset: 0
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.name AS bands__name,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ), 
+      b_all AS (
+        SELECT
+        b.id AS bands__id,
+        b.name AS bands__name,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        
+      ),
+      b_count AS (
+        SELECT count(*) AS count FROM b_all
+      ),
+      b_p AS (
+        SELECT
+        b_count.count AS bands__count,
+        b.bands__id AS bands__id,
+        b.bands__name AS bands__name,
+        b.bands__clickcount AS bands__clickcount,
+        b_p.id AS bands_people__id,
+        b_p.name AS bands_people__name
+        FROM people AS b_p
+        JOIN band_person_roles AS bpr
+           ON b_p.id = bpr.person_id
+           RIGHT JOIN b
+           ON b.bands__id = bpr.band_id
+
+        LEFT JOIN b_count ON TRUE
+      ),
+      b_p_count AS (
+        SELECT
+             b_p.bands__id AS bands__id,
+             COUNT(*) AS count
+             FROM  b_p
+             WHERE b_p.bands_people__id IS NOT NULL
+             GROUP BY b_p.bands__id
+             UNION SELECT
+             b_p.bands__id AS bands__id,
+             0 AS count
+             FROM b_p
+             WHERE b_p.bands_people__id IS NULL
+             GROUP BY b_p.bands__id
+      ),
+      b_p_r AS (
+        SELECT
+        b_p.bands__count AS bands__count,
+        b_p.bands__id AS bands__id,
+        b_p.bands__name AS bands__name,
+        b_p.bands__clickcount AS bands__clickcount,
+        b_p_count.count AS bands_people__count,
+        b_p.bands_people__id AS bands_people__id,
+        b_p.bands_people__name AS bands_people__name,
+        b_p_r.id AS bands_people_roles__id,
+        b_p_r.name AS bands_people_roles__name
+        FROM roles AS b_p_r
+        JOIN band_person_roles AS bpr
+           ON b_p_r.id = bpr.role_id
+           RIGHT JOIN b_p
+           ON b_p.bands__id = bpr.band_id AND b_p.bands_people__id = bpr.person_id
+
+        LEFT JOIN b_p_count ON b_p_count.bands__id = b_p.bands__id
+      ),
+      b_p_r_count AS (
+        SELECT
+             b_p_r.bands__id AS bands__id,
+             b_p_r.bands_people__id AS bands_people__id,
+             COUNT(*) AS count
+             FROM b_p_r
+             WHERE b_p_r.bands_people_roles__id IS NOT NULL
+             GROUP BY b_p_r.bands__id,
+             b_p_r.bands_people__id
+             UNION SELECT
+             b_p_r.bands__id AS bands__id,
+             b_p_r.bands_people__id AS bands_people__id,
+             0 AS count
+             FROM b_p_r
+             WHERE b_p_r.bands_people_roles__id IS NULL
+             GROUP BY b_p_r.bands__id,
+             b_p_r.bands_people__id
+      ),
+      b_p_r_ad AS (
+        SELECT
+        b_p_r.bands__count AS bands__count,
+        b_p_r.bands__id AS bands__id,
+        b_p_r.bands__name AS bands__name,
+        b_p_r.bands__clickcount AS bands__clickcount,
+        b_p_r.bands_people__count AS bands_people__count,
+        b_p_r.bands_people__id AS bands_people__id,
+        b_p_r.bands_people__name AS bands_people__name,
+        b_p_r_count.count AS bands_people_roles__count,
+        b_p_r.bands_people_roles__id AS bands_people_roles__id,
+        b_p_r.bands_people_roles__name AS bands_people_roles__name,
+        b_p_r_ad.id AS bands_people_roles_activedates__id,
+        b_p_r_ad.from AS bands_people_roles_activedates__from,
+        b_p_r_ad.until AS bands_people_roles_activedates__until
+        FROM active_dates AS b_p_r_ad
+        JOIN band_person_role_active_dates AS bprad
+           ON b_p_r_ad.id = bprad.active_dates_id
+           RIGHT JOIN b_p_r
+           ON b_p_r.bands__id = bprad.band_id
+           AND b_p_r.bands_people__id = bprad.person_id
+           AND b_p_r.bands_people_roles__id = bprad.role_id
+
+        LEFT JOIN b_p_r_count
+             ON b_p_r_count.bands__id = b_p_r.bands__id
+             AND b_p_r_count.bands_people__id = b_p_r.bands_people__id
+
+        ORDER BY b_p_r.bands__id ASC NULLS LAST
+      )
+      SELECT
+         b_p_r_ad.bands__count AS bands__count,
+       b_p_r_ad.bands__id AS bands__id,
+       b_p_r_ad.bands__name AS bands__name,
+       b_p_r_ad.bands__clickcount AS bands__clickcount,
+       b_p_r_ad.bands_people__count AS bands_people__count,
+       b_p_r_ad.bands_people__id AS bands_people__id,
+       b_p_r_ad.bands_people__name AS bands_people__name,
+       b_p_r_ad.bands_people_roles__count AS bands_people_roles__count,
+       b_p_r_ad.bands_people_roles__id AS bands_people_roles__id,
+       b_p_r_ad.bands_people_roles__name AS bands_people_roles__name,
+       b_p_r_ad.bands_people_roles_activedates__id AS bands_people_roles_activedates__id,
+       b_p_r_ad.bands_people_roles_activedates__from AS bands_people_roles_activedates__from,
+       b_p_r_ad.bands_people_roles_activedates__until AS bands_people_roles_activedates__until
+         FROM b_p_r_ad
+       ORDER BY
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id
+        FROM bands AS b
+        ORDER BY b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_p AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b_p.id AS bands_people__id
+        FROM people AS b_p
+        JOIN band_person_roles AS bpr
+           ON b_p.id = bpr.person_id
+           RIGHT JOIN b
+           ON b.bands__id = bpr.band_id
+      ),
+      b_p_ad AS (
+        SELECT
+        b_p.bands__id AS bands__id,
+        b_p.bands_people__id AS bands_people__id,
+        b_p_ad.id AS bands_people_activedates__id,
+        b_p_ad.from AS bands_people_activedates__from,
+        b_p_ad.until AS bands_people_activedates__until
+        FROM active_dates AS b_p_ad
+        JOIN band_person_role_active_dates AS bprad
+           ON b_p_ad.id = bprad.active_dates_id
+           RIGHT JOIN b_p
+           ON b_p.bands__id = bprad.band_id
+           AND b_p.bands_people__id = bprad.person_id
+      )
+      SELECT
+         b_p_ad.bands__id AS bands__id,
+       b_p_ad.bands_people__id AS bands_people__id,
+       b_p_ad.bands_people_activedates__id AS bands_people_activedates__id,
+       b_p_ad.bands_people_activedates__from AS bands_people_activedates__from,
+       b_p_ad.bands_people_activedates__until AS bands_people_activedates__until
+         FROM b_p_ad
+       ORDER BY
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id
+        FROM bands AS b
+        ORDER BY b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_csc AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b_csc.id AS bands_citystatecountries__id,
+        b_csc.name AS bands_citystatecountries__name
+        FROM (
+          SELECT
+          c.id AS id,
+          c.name || ', ' || s.name || ', ' || co.name AS name
+          FROM cities AS c
+          JOIN states AS s
+          ON c.state_id = s.id
+          JOIN countries AS co
+          ON s.country_id = co.id
+        ) AS b_csc
+        JOIN band_cities AS bc
+           ON b_csc.id = bc.city_id
+           RIGHT JOIN b
+           ON b.bands__id = bc.band_id
+      ),
+      b_csc_count AS (
+        SELECT
+            b_csc.bands__id AS bands__id,
+            COUNT(*) AS count
+            FROM b_csc
+            WHERE b_csc.bands_citystatecountries__id IS NOT NULL
+            GROUP BY b_csc.bands__id
+            UNION SELECT
+            b_csc.bands__id AS bands__id,
+            0 AS count
+            FROM b_csc
+            WHERE b_csc.bands_citystatecountries__id IS NULL
+            GROUP BY b_csc.bands__id
+      ),
+      b_csc_ad AS (
+        SELECT
+        b_csc.bands__id AS bands__id,
+        b_csc_count.count AS bands_citystatecountries__count,
+        b_csc.bands_citystatecountries__id AS bands_citystatecountries__id,
+        b_csc.bands_citystatecountries__name AS bands_citystatecountries__name,
+        b_csc_ad.id AS bands_citystatecountries_activedates__id,
+        b_csc_ad.from AS bands_citystatecountries_activedates__from,
+        b_csc_ad.until AS bands_citystatecountries_activedates__until
+        FROM active_dates AS b_csc_ad
+        JOIN band_city_active_dates AS bcad
+           ON b_csc_ad.id = bcad.active_dates_id
+           RIGHT JOIN b_csc
+           ON b_csc.bands__id = bcad.band_id
+
+        LEFT JOIN b_csc_count ON b_csc_count.bands__id = b_csc.bands__id
+      )
+      SELECT
+         b_csc_ad.bands__id AS bands__id,
+       b_csc_ad.bands_citystatecountries__count AS bands_citystatecountries__count,
+       b_csc_ad.bands_citystatecountries__id AS bands_citystatecountries__id,
+       b_csc_ad.bands_citystatecountries__name AS bands_citystatecountries__name,
+       b_csc_ad.bands_citystatecountries_activedates__id AS bands_citystatecountries_activedates__id,
+       b_csc_ad.bands_citystatecountries_activedates__from AS bands_citystatecountries_activedates__from,
+       b_csc_ad.bands_citystatecountries_activedates__until AS bands_citystatecountries_activedates__until
+         FROM b_csc_ad
+       ORDER BY
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id
+        FROM bands AS b
+        ORDER BY b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_cb AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b_cb.id AS bands_connectedbands__id,
+        b_cb.name AS bands_connectedbands__name,
+        cx.description AS bands_connectedbands__description
+        FROM bands AS b_cb
+        JOIN connections AS cx
+           ON (b_cb.id = cx.band_1_id OR b_cb.id = cx.band_2_id)
+           RIGHT JOIN b
+           ON b.bands__id != b_cb.id
+           AND (b.bands__id = cx.band_1_id OR b.bands__id = cx.band_2_id)
+      ),
+      b_cb_count AS (
+        SELECT
+            b_cb.bands__id AS bands__id,
+            COUNT(*) AS count
+            FROM b_cb
+            WHERE b_cb.bands_connectedbands__id IS NOT NULL
+            GROUP BY b_cb.bands__id
+            UNION SELECT
+            b_cb.bands__id AS bands__id,
+            0 AS count
+            FROM b_cb
+            WHERE b_cb.bands_connectedbands__id IS NULL
+            GROUP BY b_cb.bands__id
+      )
+      SELECT
+         b_cb.bands__id AS bands__id,
+       b_cb_count.count AS bands_connectedbands__count,
+       b_cb.bands_connectedbands__id AS bands_connectedbands__id,
+       b_cb.bands_connectedbands__name AS bands_connectedbands__name,
+       b_cb.bands_connectedbands__description AS bands_connectedbands__description
+         FROM b_cb
+       LEFT JOIN b_cb_count ON b_cb_count.bands__id = b_cb.bands__id
+       ORDER BY
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id
+        FROM bands AS b
+        ORDER BY b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_i AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b_i.id AS bands_infosources__id,
+        b_i.url AS bands_infosources__url,
+        b_i.description AS bands_infosources__description
+        FROM info_sources AS b_i
+        JOIN band_info_sources AS bis
+           ON b_i.id = bis.info_source_id
+           RIGHT JOIN b
+           ON b.bands__id = bis.band_id
+      ),
+      b_i_count AS (
+        SELECT
+             b_i.bands__id AS bands__id,
+             COUNT(*) AS count
+             FROM b_i
+             WHERE b_i.bands_infosources__id IS NOT NULL
+             GROUP BY b_i.bands__id
+             UNION SELECT
+             b_i.bands__id AS bands__id,
+             0 AS count
+             FROM b_i
+             WHERE b_i.bands_infosources__id IS NULL
+             GROUP BY b_i.bands__id
+      )
+      SELECT
+         b_i.bands__id AS bands__id,
+       b_i_count.count AS bands_infosources__count,
+       b_i.bands_infosources__id AS bands_infosources__id,
+       b_i.bands_infosources__url AS bands_infosources__url,
+       b_i.bands_infosources__description AS bands_infosources__description
+         FROM b_i
+       LEFT JOIN b_i_count ON b_i_count.bands__id = b_i.bands__id
+       ORDER BY
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:39:11 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id
+        FROM bands AS b
+        ORDER BY b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_ad AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b_ad.id AS bands_activedates__id,
+        b_ad.from AS bands_activedates__from,
+        b_ad.until AS bands_activedates__until
+        FROM active_dates AS b_ad
+        JOIN band_active_dates AS bad
+           ON b_ad.id = bad.active_dates_id
+           RIGHT JOIN b
+           ON b.bands__id = bad.band_id
+      )
+      SELECT
+         b_ad.bands__id AS bands__id,
+       b_ad.bands_activedates__id AS bands_activedates__id,
+       b_ad.bands_activedates__from AS bands_activedates__from,
+       b_ad.bands_activedates__until AS bands_activedates__until
+         FROM b_ad
+       ORDER BY
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:39:12 GMT band-map-api 1530729552987: Wrote response.  Elapsed time: 1601 ms.
+2018-07-04T18:40:08.338Z swagger-tools:middleware:validator GET /api/bands?sort=bands.citiesCount
+2018-07-04T18:40:08.338Z swagger-tools:middleware:validator   Will process: yes
+2018-07-04T18:40:08.338Z swagger-tools:middleware:validator   Request validation:
+2018-07-04T18:40:08.339Z swagger-tools:middleware:validator     Validation: succeeded
+Wed, 04 Jul 2018 18:40:08 GMT band-map-api 1530729608339: Processing request: /api/bands
+Wed, 04 Jul 2018 18:40:08 GMT band-map-api fetchFSLIDs(): neededFields: [ 'bands.cityStateCountriesCount', 'bands.id' ]
+Wed, 04 Jul 2018 18:40:08 GMT band-map-api fetchFSLIDs(): neededTypesMap: { bands: 
+   { 'bands.cityStateCountriesCount': 'integer',
+     'bands.id': 'integer' } }
+Wed, 04 Jul 2018 18:40:08 GMT band-map-api fetchFSLIDs(): objectTree: { bands: {} }
+Wed, 04 Jul 2018 18:40:08 GMT band-map-api TypeError: Cannot read property 'split' of undefined
+    at Object.get (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/database.js:782:46)
+    at fetchFSLIDs (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:365:10)
+    at fetchCollection (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1007:14)
+    at fetchNextThing (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1041:12)
+    at Object.fetchObjects (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1045:12)
+    at Object.handle (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/handlers/collection-handler.js:69:21)
+    at handle (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/handlers/band-map-api-handler.js:499:13)
+    at call (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/connect/index.js:239:7)
+    at next (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/connect/index.js:183:5)
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:388:30
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1126:9
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:473:16
+    at iteratorCallback (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1050:13)
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:958:16
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1123:13
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:376:30
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1121:9
+    at eachOfArrayLike (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1055:9)
+    at eachOf (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1103:5)
+    at _asyncMap (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1119:5)
+    at Object.map (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1108:16)
+    at swaggerValidator (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:358:15)
+2018-07-04T18:40:44.200Z swagger-tools:middleware:validator GET /api/bands?sort=bands.peopleCount
+2018-07-04T18:40:44.200Z swagger-tools:middleware:validator   Will process: yes
+2018-07-04T18:40:44.200Z swagger-tools:middleware:validator   Request validation:
+2018-07-04T18:40:44.200Z swagger-tools:middleware:validator     Validation: succeeded
+Wed, 04 Jul 2018 18:40:44 GMT band-map-api 1530729644200: Processing request: /api/bands
+Wed, 04 Jul 2018 18:40:44 GMT band-map-api fetchFSLIDs(): neededFields: [ 'bands.peopleCount', 'bands.id' ]
+Wed, 04 Jul 2018 18:40:44 GMT band-map-api fetchFSLIDs(): neededTypesMap: { bands: { 'bands.peopleCount': 'integer', 'bands.id': 'integer' } }
+Wed, 04 Jul 2018 18:40:44 GMT band-map-api fetchFSLIDs(): objectTree: { bands: {} }
+Wed, 04 Jul 2018 18:40:44 GMT band-map-api TypeError: Cannot read property 'split' of undefined
+    at Object.get (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/database.js:782:46)
+    at fetchFSLIDs (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:365:10)
+    at fetchCollection (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1007:14)
+    at fetchNextThing (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1041:12)
+    at Object.fetchObjects (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/utils/object-fetcher.js:1045:12)
+    at Object.handle (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/handlers/collection-handler.js:69:21)
+    at handle (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/handlers/band-map-api-handler.js:499:13)
+    at call (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/connect/index.js:239:7)
+    at next (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/connect/index.js:183:5)
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:388:30
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1126:9
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:473:16
+    at iteratorCallback (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1050:13)
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:958:16
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1123:13
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:376:30
+    at /media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1121:9
+    at eachOfArrayLike (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1055:9)
+    at eachOf (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1103:5)
+    at _asyncMap (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1119:5)
+    at Object.map (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/async/dist/async.js:1108:16)
+    at swaggerValidator (/media/bishop/Data00/data/bandmap-repos/bandmap/bandmap-api/node_modules/swagger-tools/middleware/swagger-validator.js:358:15)
+2018-07-04T18:47:39.001Z swagger-tools:middleware:validator GET /api/bands/?limit=4&offset=1098&sort=bands.clickCount
+2018-07-04T18:47:39.002Z swagger-tools:middleware:validator   Will process: yes
+2018-07-04T18:47:39.002Z swagger-tools:middleware:validator   Request validation:
+2018-07-04T18:47:39.002Z swagger-tools:middleware:validator     Validation: succeeded
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api 1530730059002: Processing request: /api/bands/
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api fetchMap: root:
+  bandsCount: integer
+  bands.peopleCount: integer
+  bands.cityStateCountriesCount: integer
+  bands.connectedBandsCount: integer
+  bands.infoSourcesCount: integer
+  bands.people.rolesCount: integer
+  link: string
+  offset: integer
+  limit: integer
+  total: integer
+  bands: array
+  first: string
+  prev: string
+  next: string
+  last: string
+bands:
+  bands.id: integer
+  bands.link: string
+  bands.name: string
+  bands.clickCount: integer
+  bands.people: array
+  bands.peopleCount: integer
+  bands.cityStateCountries: array
+  bands.cityStateCountriesCount: integer
+  bands.connectedBands: array
+  bands.connectedBandsCount: integer
+  bands.infoSources: array
+  bands.infoSourcesCount: integer
+  bands.activeDates: array
+bands.people:
+  bands.people.id: integer
+  bands.people.link: string
+  bands.people.name: string
+  bands.people.roles: array
+  bands.people.rolesCount: integer
+  bands.people.activeDates: array
+bands.people.roles:
+  bands.people.roles.id: integer
+  bands.people.roles.link: string
+  bands.people.roles.name: string
+  bands.people.roles.activeDates: array
+bands.people.roles.activeDates:
+  bands.people.roles.activeDates.id: integer
+  bands.people.roles.activeDates.from: date
+  bands.people.roles.activeDates.until: date
+bands.people.activeDates:
+  bands.people.activeDates.id: integer
+  bands.people.activeDates.from: date
+  bands.people.activeDates.until: date
+bands.cityStateCountries:
+  bands.cityStateCountries.id: integer
+  bands.cityStateCountries.link: string
+  bands.cityStateCountries.name: string
+  bands.cityStateCountries.activeDates: array
+bands.cityStateCountries.activeDates:
+  bands.cityStateCountries.activeDates.id: integer
+  bands.cityStateCountries.activeDates.from: date
+  bands.cityStateCountries.activeDates.until: date
+bands.connectedBands:
+  bands.connectedBands.id: integer
+  bands.connectedBands.link: string
+  bands.connectedBands.name: string
+  bands.connectedBands.description: string
+bands.infoSources:
+  bands.infoSources.id: integer
+  bands.infoSources.url: string
+  bands.infoSources.description: string
+bands.activeDates:
+  bands.activeDates.id: integer
+  bands.activeDates.from: date
+  bands.activeDates.until: date
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+count: unfiltered
+fields:
+  - id
+  - link
+  - name
+  - clickCount
+  - people
+  - peopleCount
+  - cityStateCountries
+  - connectedBands
+  - infoSources
+  - activeDates
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: clickCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+count: unfiltered
+fields:
+  - id
+  - link
+  - name
+  - clickCount
+  - people
+  - peopleCount
+  - cityStateCountries
+  - connectedBands
+  - infoSources
+  - activeDates
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: clickCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+  - cityStateCountriesCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: clickCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+  - cityStateCountriesCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+  - connectedBandsCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: clickCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+  - connectedBandsCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+  - infoSourcesCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: clickCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+fields:
+  - id
+  - infoSourcesCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: clickCount
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api objectConfig: objectPath: bands
+filters: undefined
+sort:
+  clickCount: asc
+  id: asc
+limit: 4
+offset: 1098
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api alias: b
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api sField: id
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api obj: aliasPart: b
+table: bands
+fields:
+  id:
+    - id
+    - integer
+  name:
+    - name
+    - string
+  clickCount:
+    - click_count
+    - integer
+joins:
+  connections: |-
+    {{joinType}} JOIN {{prevAlias}}
+              ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+              OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id
+counts:
+  root:
+    select: 'SELECT count(*) AS count FROM {{alias}}'
+    join: LEFT JOIN b_count ON TRUE
+singular: band
+plural: bands
+capSingular: Band
+capPlural: Bands
+urlSingular: band
+urlPlural: bands
+codeSingular: Band
+codePlural: Bands
+camelCaseSingular: band
+camelCasePlural: bands
+swaggerDefinition: Band
+resourcePath: /api/bands
+primaryId: id
+secondaryId: name
+
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.name AS bands__name,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.click_count ASC NULLS LAST,
+        b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ), 
+      b_all AS (
+        SELECT
+        b.id AS bands__id,
+        b.name AS bands__name,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        
+      ),
+      b_count AS (
+        SELECT count(*) AS count FROM b_all
+      ),
+      b_p AS (
+        SELECT
+        b_count.count AS bands__count,
+        b.bands__id AS bands__id,
+        b.bands__name AS bands__name,
+        b.bands__clickcount AS bands__clickcount,
+        b_p.id AS bands_people__id,
+        b_p.name AS bands_people__name
+        FROM people AS b_p
+        JOIN band_person_roles AS bpr
+           ON b_p.id = bpr.person_id
+           RIGHT JOIN b
+           ON b.bands__id = bpr.band_id
+
+        LEFT JOIN b_count ON TRUE
+      ),
+      b_p_count AS (
+        SELECT
+             b_p.bands__id AS bands__id,
+             COUNT(*) AS count
+             FROM  b_p
+             WHERE b_p.bands_people__id IS NOT NULL
+             GROUP BY b_p.bands__id
+             UNION SELECT
+             b_p.bands__id AS bands__id,
+             0 AS count
+             FROM b_p
+             WHERE b_p.bands_people__id IS NULL
+             GROUP BY b_p.bands__id
+      ),
+      b_p_r AS (
+        SELECT
+        b_p.bands__count AS bands__count,
+        b_p.bands__id AS bands__id,
+        b_p.bands__name AS bands__name,
+        b_p.bands__clickcount AS bands__clickcount,
+        b_p_count.count AS bands_people__count,
+        b_p.bands_people__id AS bands_people__id,
+        b_p.bands_people__name AS bands_people__name,
+        b_p_r.id AS bands_people_roles__id,
+        b_p_r.name AS bands_people_roles__name
+        FROM roles AS b_p_r
+        JOIN band_person_roles AS bpr
+           ON b_p_r.id = bpr.role_id
+           RIGHT JOIN b_p
+           ON b_p.bands__id = bpr.band_id AND b_p.bands_people__id = bpr.person_id
+
+        LEFT JOIN b_p_count ON b_p_count.bands__id = b_p.bands__id
+      ),
+      b_p_r_count AS (
+        SELECT
+             b_p_r.bands__id AS bands__id,
+             b_p_r.bands_people__id AS bands_people__id,
+             COUNT(*) AS count
+             FROM b_p_r
+             WHERE b_p_r.bands_people_roles__id IS NOT NULL
+             GROUP BY b_p_r.bands__id,
+             b_p_r.bands_people__id
+             UNION SELECT
+             b_p_r.bands__id AS bands__id,
+             b_p_r.bands_people__id AS bands_people__id,
+             0 AS count
+             FROM b_p_r
+             WHERE b_p_r.bands_people_roles__id IS NULL
+             GROUP BY b_p_r.bands__id,
+             b_p_r.bands_people__id
+      ),
+      b_p_r_ad AS (
+        SELECT
+        b_p_r.bands__count AS bands__count,
+        b_p_r.bands__id AS bands__id,
+        b_p_r.bands__name AS bands__name,
+        b_p_r.bands__clickcount AS bands__clickcount,
+        b_p_r.bands_people__count AS bands_people__count,
+        b_p_r.bands_people__id AS bands_people__id,
+        b_p_r.bands_people__name AS bands_people__name,
+        b_p_r_count.count AS bands_people_roles__count,
+        b_p_r.bands_people_roles__id AS bands_people_roles__id,
+        b_p_r.bands_people_roles__name AS bands_people_roles__name,
+        b_p_r_ad.id AS bands_people_roles_activedates__id,
+        b_p_r_ad.from AS bands_people_roles_activedates__from,
+        b_p_r_ad.until AS bands_people_roles_activedates__until
+        FROM active_dates AS b_p_r_ad
+        JOIN band_person_role_active_dates AS bprad
+           ON b_p_r_ad.id = bprad.active_dates_id
+           RIGHT JOIN b_p_r
+           ON b_p_r.bands__id = bprad.band_id
+           AND b_p_r.bands_people__id = bprad.person_id
+           AND b_p_r.bands_people_roles__id = bprad.role_id
+
+        LEFT JOIN b_p_r_count
+             ON b_p_r_count.bands__id = b_p_r.bands__id
+             AND b_p_r_count.bands_people__id = b_p_r.bands_people__id
+
+        ORDER BY b_p_r.bands__clickcount ASC NULLS LAST,
+        b_p_r.bands__id ASC NULLS LAST
+      )
+      SELECT
+         b_p_r_ad.bands__count AS bands__count,
+       b_p_r_ad.bands__id AS bands__id,
+       b_p_r_ad.bands__name AS bands__name,
+       b_p_r_ad.bands__clickcount AS bands__clickcount,
+       b_p_r_ad.bands_people__count AS bands_people__count,
+       b_p_r_ad.bands_people__id AS bands_people__id,
+       b_p_r_ad.bands_people__name AS bands_people__name,
+       b_p_r_ad.bands_people_roles__count AS bands_people_roles__count,
+       b_p_r_ad.bands_people_roles__id AS bands_people_roles__id,
+       b_p_r_ad.bands_people_roles__name AS bands_people_roles__name,
+       b_p_r_ad.bands_people_roles_activedates__id AS bands_people_roles_activedates__id,
+       b_p_r_ad.bands_people_roles_activedates__from AS bands_people_roles_activedates__from,
+       b_p_r_ad.bands_people_roles_activedates__until AS bands_people_roles_activedates__until
+         FROM b_p_r_ad
+       ORDER BY
+       bands__clickcount ASC NULLS LAST,
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.click_count ASC NULLS LAST,
+        b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_p AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b.bands__clickcount AS bands__clickcount,
+        b_p.id AS bands_people__id
+        FROM people AS b_p
+        JOIN band_person_roles AS bpr
+           ON b_p.id = bpr.person_id
+           RIGHT JOIN b
+           ON b.bands__id = bpr.band_id
+      ),
+      b_p_ad AS (
+        SELECT
+        b_p.bands__id AS bands__id,
+        b_p.bands__clickcount AS bands__clickcount,
+        b_p.bands_people__id AS bands_people__id,
+        b_p_ad.id AS bands_people_activedates__id,
+        b_p_ad.from AS bands_people_activedates__from,
+        b_p_ad.until AS bands_people_activedates__until
+        FROM active_dates AS b_p_ad
+        JOIN band_person_role_active_dates AS bprad
+           ON b_p_ad.id = bprad.active_dates_id
+           RIGHT JOIN b_p
+           ON b_p.bands__id = bprad.band_id
+           AND b_p.bands_people__id = bprad.person_id
+      )
+      SELECT
+         b_p_ad.bands__id AS bands__id,
+       b_p_ad.bands__clickcount AS bands__clickcount,
+       b_p_ad.bands_people__id AS bands_people__id,
+       b_p_ad.bands_people_activedates__id AS bands_people_activedates__id,
+       b_p_ad.bands_people_activedates__from AS bands_people_activedates__from,
+       b_p_ad.bands_people_activedates__until AS bands_people_activedates__until
+         FROM b_p_ad
+       ORDER BY
+       bands__clickcount ASC NULLS LAST,
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.click_count ASC NULLS LAST,
+        b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_csc AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b.bands__clickcount AS bands__clickcount,
+        b_csc.id AS bands_citystatecountries__id,
+        b_csc.name AS bands_citystatecountries__name
+        FROM (
+          SELECT
+          c.id AS id,
+          c.name || ', ' || s.name || ', ' || co.name AS name
+          FROM cities AS c
+          JOIN states AS s
+          ON c.state_id = s.id
+          JOIN countries AS co
+          ON s.country_id = co.id
+        ) AS b_csc
+        JOIN band_cities AS bc
+           ON b_csc.id = bc.city_id
+           RIGHT JOIN b
+           ON b.bands__id = bc.band_id
+      ),
+      b_csc_count AS (
+        SELECT
+            b_csc.bands__id AS bands__id,
+            COUNT(*) AS count
+            FROM b_csc
+            WHERE b_csc.bands_citystatecountries__id IS NOT NULL
+            GROUP BY b_csc.bands__id
+            UNION SELECT
+            b_csc.bands__id AS bands__id,
+            0 AS count
+            FROM b_csc
+            WHERE b_csc.bands_citystatecountries__id IS NULL
+            GROUP BY b_csc.bands__id
+      ),
+      b_csc_ad AS (
+        SELECT
+        b_csc.bands__id AS bands__id,
+        b_csc.bands__clickcount AS bands__clickcount,
+        b_csc_count.count AS bands_citystatecountries__count,
+        b_csc.bands_citystatecountries__id AS bands_citystatecountries__id,
+        b_csc.bands_citystatecountries__name AS bands_citystatecountries__name,
+        b_csc_ad.id AS bands_citystatecountries_activedates__id,
+        b_csc_ad.from AS bands_citystatecountries_activedates__from,
+        b_csc_ad.until AS bands_citystatecountries_activedates__until
+        FROM active_dates AS b_csc_ad
+        JOIN band_city_active_dates AS bcad
+           ON b_csc_ad.id = bcad.active_dates_id
+           RIGHT JOIN b_csc
+           ON b_csc.bands__id = bcad.band_id
+
+        LEFT JOIN b_csc_count ON b_csc_count.bands__id = b_csc.bands__id
+      )
+      SELECT
+         b_csc_ad.bands__id AS bands__id,
+       b_csc_ad.bands__clickcount AS bands__clickcount,
+       b_csc_ad.bands_citystatecountries__count AS bands_citystatecountries__count,
+       b_csc_ad.bands_citystatecountries__id AS bands_citystatecountries__id,
+       b_csc_ad.bands_citystatecountries__name AS bands_citystatecountries__name,
+       b_csc_ad.bands_citystatecountries_activedates__id AS bands_citystatecountries_activedates__id,
+       b_csc_ad.bands_citystatecountries_activedates__from AS bands_citystatecountries_activedates__from,
+       b_csc_ad.bands_citystatecountries_activedates__until AS bands_citystatecountries_activedates__until
+         FROM b_csc_ad
+       ORDER BY
+       bands__clickcount ASC NULLS LAST,
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.click_count ASC NULLS LAST,
+        b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_cb AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b.bands__clickcount AS bands__clickcount,
+        b_cb.id AS bands_connectedbands__id,
+        b_cb.name AS bands_connectedbands__name,
+        cx.description AS bands_connectedbands__description
+        FROM bands AS b_cb
+        JOIN connections AS cx
+           ON (b_cb.id = cx.band_1_id OR b_cb.id = cx.band_2_id)
+           RIGHT JOIN b
+           ON b.bands__id != b_cb.id
+           AND (b.bands__id = cx.band_1_id OR b.bands__id = cx.band_2_id)
+      ),
+      b_cb_count AS (
+        SELECT
+            b_cb.bands__id AS bands__id,
+            COUNT(*) AS count
+            FROM b_cb
+            WHERE b_cb.bands_connectedbands__id IS NOT NULL
+            GROUP BY b_cb.bands__id
+            UNION SELECT
+            b_cb.bands__id AS bands__id,
+            0 AS count
+            FROM b_cb
+            WHERE b_cb.bands_connectedbands__id IS NULL
+            GROUP BY b_cb.bands__id
+      )
+      SELECT
+         b_cb.bands__id AS bands__id,
+       b_cb.bands__clickcount AS bands__clickcount,
+       b_cb_count.count AS bands_connectedbands__count,
+       b_cb.bands_connectedbands__id AS bands_connectedbands__id,
+       b_cb.bands_connectedbands__name AS bands_connectedbands__name,
+       b_cb.bands_connectedbands__description AS bands_connectedbands__description
+         FROM b_cb
+       LEFT JOIN b_cb_count ON b_cb_count.bands__id = b_cb.bands__id
+       ORDER BY
+       bands__clickcount ASC NULLS LAST,
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.click_count ASC NULLS LAST,
+        b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_i AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b.bands__clickcount AS bands__clickcount,
+        b_i.id AS bands_infosources__id,
+        b_i.url AS bands_infosources__url,
+        b_i.description AS bands_infosources__description
+        FROM info_sources AS b_i
+        JOIN band_info_sources AS bis
+           ON b_i.id = bis.info_source_id
+           RIGHT JOIN b
+           ON b.bands__id = bis.band_id
+      ),
+      b_i_count AS (
+        SELECT
+             b_i.bands__id AS bands__id,
+             COUNT(*) AS count
+             FROM b_i
+             WHERE b_i.bands_infosources__id IS NOT NULL
+             GROUP BY b_i.bands__id
+             UNION SELECT
+             b_i.bands__id AS bands__id,
+             0 AS count
+             FROM b_i
+             WHERE b_i.bands_infosources__id IS NULL
+             GROUP BY b_i.bands__id
+      )
+      SELECT
+         b_i.bands__id AS bands__id,
+       b_i.bands__clickcount AS bands__clickcount,
+       b_i_count.count AS bands_infosources__count,
+       b_i.bands_infosources__id AS bands_infosources__id,
+       b_i.bands_infosources__url AS bands_infosources__url,
+       b_i.bands_infosources__description AS bands_infosources__description
+         FROM b_i
+       LEFT JOIN b_i_count ON b_i_count.bands__id = b_i.bands__id
+       ORDER BY
+       bands__clickcount ASC NULLS LAST,
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api Executing (default): WITH
+      b AS (
+        SELECT
+        b.id AS bands__id,
+        b.click_count AS bands__clickcount
+        FROM bands AS b
+        ORDER BY b.click_count ASC NULLS LAST,
+        b.id ASC NULLS LAST
+        LIMIT $1
+        OFFSET $2
+      ),
+      b_ad AS (
+        SELECT
+        b.bands__id AS bands__id,
+        b.bands__clickcount AS bands__clickcount,
+        b_ad.id AS bands_activedates__id,
+        b_ad.from AS bands_activedates__from,
+        b_ad.until AS bands_activedates__until
+        FROM active_dates AS b_ad
+        JOIN band_active_dates AS bad
+           ON b_ad.id = bad.active_dates_id
+           RIGHT JOIN b
+           ON b.bands__id = bad.band_id
+      )
+      SELECT
+         b_ad.bands__id AS bands__id,
+       b_ad.bands__clickcount AS bands__clickcount,
+       b_ad.bands_activedates__id AS bands_activedates__id,
+       b_ad.bands_activedates__from AS bands_activedates__from,
+       b_ad.bands_activedates__until AS bands_activedates__until
+         FROM b_ad
+       ORDER BY
+       bands__clickcount ASC NULLS LAST,
+       bands__id ASC NULLS LAST;
+Wed, 04 Jul 2018 18:47:39 GMT band-map-api 1530730059047: Wrote response.  Elapsed time: 45 ms.

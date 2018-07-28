@@ -41,7 +41,10 @@ const
         clickCount: ['click_count', 'integer']
       },
       joins: {
-        // TODO
+        'connections':
+          `{{joinType}} JOIN {{prevAlias}}
+          ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
+          OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id`
       },
       counts: {
         'root': {
@@ -314,7 +317,8 @@ const
 
 const specialCaseFieldNames = {
     'bands.cities': 'bands.cityStateCountries',
-    'bands.webLinks': 'bands.infoSources'
+    'bands.webLinks': 'bands.infoSources',
+    'connections.id': 'connections:(band_1_id,band_2_id)'
   };
 
 let getSpecialCaseFieldName = dbFieldName => {
@@ -880,6 +884,10 @@ let getSpecialCaseFieldName = dbFieldName => {
                 insertBefore(pCountFieldClause, pObjAliasPlusFFP, fieldClauses);
               }
             } else {
+debug('objectConfig:',utils.toYaml(objectConfig));
+debug('alias:',utils.toYaml(alias));
+debug('sField:',utils.toYaml(sField));
+debug('obj:',utils.toYaml(obj));
               let sortColumn = `${alias}.${obj.fields[sField][COLUMN_NAME]}`;
               finalSortField = `${finalFieldPrefix}${sField.toLowerCase()}`;
               let sortFieldClause =

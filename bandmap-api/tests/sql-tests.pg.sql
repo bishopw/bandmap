@@ -1,24 +1,18 @@
 ﻿/*
+7.28 GET tests work with new code org and refactored codepath
 
-          Organize specs/test list, existing GET bug fixes.
+  14  api & docs running, debuggable.
+  25  git in order
 
-          Backburner Full GET Feature Set.
-          Finish GET functionality for needed endpoints - test/specs first.
-          Finish POST/PATCH/PUT/DELETE for needed endpoints.
-          Wiki style auditable/revertable edit history - sessions, edits, sources, citations.
-          New DB migration script that goes through API.
-          New admin UI interface - approve/revert edits individually or by session/user batch.
-04.01.Sun Send Email.
-04.08.Sun 
-04.15.Sun DnD
-04.22.Sun
-04.29.Sun Send Email.
-05.06.Sun
-05.13.Sun
-05.20.Sun
-          New Frontend.
-05.27.Sun Send Email
-05.31.Fri Band Map 1.0 Parity
+GET tests work with new code org and refactored codepath
+                 wiki-style CRUD ops on bands/connections w/ history and rollback
+                 new admin page
+
+Finish GET functionality for needed endpoints - test/specs first.
+Finish POST/PATCH/PUT/DELETE for needed endpoints.
+Wiki style auditable/revertable edit history - sessions, edits, sources, citations.
+New DB migration script that goes through API.
+New admin UI interface - approve/revert edits individually or by session/user batch.
 
 Instead of the problematic, brittle concept of ranges of active dates, shouldn't we just store band events like shows, album/song releases, and posts?  Isn't band activity more like a heat map of past events than a set of specific ranges?  What about band person role active dates and band city active dates?
 Consider dated events: Show, Album, Song, Post/Article/Interview
@@ -26,6 +20,32 @@ How do we model the joining/leaving of people from bands over time?
 Does each band event have to have an associated band lineup?  Seems too burdensome.
 What about the location of bands and possible changes over time (La Luz moves from Seattle to L.A.)?
 Is/are a band's city(ies) just the city(ies) with the most or the most recent band events?
+
+Future bandmap-api module organization:
+
+bandmap-api
+  modules             - cross-cutting api functionality, used by all the handlers
+    auth              - authentication and authorization provision, tracking tokens
+    cache
+    database          - db connection provision, all db queries should go through here
+    request           - wrapper around connect request for band-map-specific request functionality, especially swagger field parsing, validation, and mapping
+    response          - band-map-specific response functionality: mostly a helper for collection handlers to map db output back to response fields, validation with swagger
+    filter
+    sort
+  handlers
+    api               - entry point, request pre-processing, and initial routing to appropriate target handler
+    error
+    directory
+    collection        - base class for all collection handlers in collections dir
+    collection-item   - base class for all collection item handlers in collections dir
+  collections         - collection and collection-item handlers: contain collection-specific swagger<->db field mappings, SQL queries (could later be stored procs) specific to retrieving each collection.
+    bands
+    people
+    roles
+    connections
+  utils
+  tests
+  index.js
 
 bugs:
   Just getting bandsCount should do a count *:
@@ -38,12 +58,11 @@ bugs:
     http://localhost:3000/api/bands?fields=errors&limit=5&offset=20
     http://localhost:3000/api/bands?fields=link,limit,offset,warnings,errors&limit=5&offset=20
   wrong 'total':
-    localhost:3000/api/bands/wimps/people?limit=0
+    http://localhost:3000/api/bands/wimps/people?limit=0
     http://localhost:3000/api/bands/wimps/people?limit=1
 
 resolved bugs:
   parsing error: http://localhost:3000/api/bands?fields=total&limit=5
-  wrong 'total': http://localhost:3000/api/bands/wimps/people?limit=2
   wrong error: http://localhost:3000/api/bands/wimps/people?limit=4&offset=98
   should give empty collection: http://localhost:3000/api/bands/141/people
   last link beyond end of collection: http://localhost:3000/api/bands/?limit=10
@@ -430,71 +449,3 @@ on b.band_id = bp.band_id
 where lower(p.name) = 'rachel ratner'
 )
 select * from p
-
--- Connections
-WITH
-cx AS (
-  SELECT
-  cx.band_1_id AS connection__band_1_id,
-  cx.band_2_id AS connection__band_2_id,
-  cx.description AS connection__description
-  FROM connections AS cx
-  ORDER BY connection__band_1_id, connection__band_2_id
-  LIMIT 10000 OFFSET 0
-),
-cx_count AS (
-  SELECT count(*) AS connection__count FROM cx
-),
-cx_b AS (
-  SELECT
-  cx.connection__band_1_id AS connection__band_1_id,
-  cx.connection__band_2_id AS connection__band_2_id,
-  cx.description AS connection__description,
-  b.id AS band__id,
-  b.name AS band_name,
-  b.click_count AS band_click_count,
-  FROM bands AS b
-  INNER JOIN cx
-  ON b.id = cx.connection__band_1_id
-  OR b.id = cx.connection__band_2_id
-  LEFT JOIN b_count
-  ON TRUE
-),
-filtered as (
-select
-c.band_id as band_id,
-c.band_name as band_name,
-c.band_clickcount as band_clickcount,
-c.person_id as person_id,
-c.person_name as person_name,
-c.person_clickcount as person_clickcount,
-c.city_id as city_id,
-c.city_name as city_name
-from c
-where (c.band_id > 1000 or c.person_name like lower('a%')) or (c.city_name = 'seattle')
-), grouped as (
-select
-filtered.band_id as band_id,
-min(filtered.band_name) as band_name,
-min(filtered.band_clickcount) as band_clickcount,
-min(filtered.person_id) as person_id,
-min(filtered.person_name) as person_name,
-min(filtered.person_clickcount) as person_clickcount,
-min(filtered.city_id) as city_id,
-min(filtered.city_name) as city_name
-from filtered
-group by band_id
-), ordered as (
-select
-grouped.band_id as band_id,
-grouped.band_name as band_name,
-grouped.band_clickcount as band_clickcount,
-grouped.person_id as person_id,
-grouped.person_name as person_name,
-grouped.person_clickcount as person_clickcount,
-grouped.city_id as city_id,
-grouped.city_name as city_name
-from grouped
-order by person_name desc nulls last, band_id desc nulls last
-)
-select * from ordered;

@@ -4,8 +4,9 @@
 const fs = require('fs'),
   path = require('path'),
   http = require('http'),
-
   app = require('connect')(),
+  compression = require('compression'),
+
   swaggerTools = require('swagger-tools'),
   jsyaml = require('js-yaml'),
 
@@ -29,6 +30,8 @@ const fs = require('fs'),
 
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
+
+  app.use(compression());
 
   // Interpret Swagger resources and attach metadata to request -
   // must be first in swagger-tools middleware chain

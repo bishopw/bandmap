@@ -73,8 +73,10 @@ const
       "camelCasePlural": "connections",
       "swaggerDefinition": "Connection",
       "resourcePath": "/api/connections",
-      "primaryId": "id",
-      "secondaryId": "name"
+      // primaryId means primary *api field* id.  The connections returned from
+      // the api have an "id" field, but the primary key in the database is
+      // actually the composite key (band_1_id, band_2_id).
+      "primaryId": "id"
     },
     "Person": {
       "singular": "person",

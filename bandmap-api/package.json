@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [
     "swagger"
@@ -13,13 +13,17 @@
   "license": "Unlicense",
   "private": true,
   "dependencies": {
+    "compression": "^1.7.2",
     "connect": "^3.2.0",
     "js-yaml": "^3.3.0",
     "knex": "^0.14.0",
-    "moment": "^2.21",
+    "moment": "^2.22.0",
     "pg": "^7.1.2",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.37.4",
+    "sequelize": "^4.37.5",
     "swagger-tools": "^0.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
