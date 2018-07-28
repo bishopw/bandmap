@@ -11,7 +11,7 @@ const fs = require('fs'),
   jsyaml = require('js-yaml'),
 
   bandMapAPIHandler = require(
-    path.join(__dirname, './handlers/band-map-api-handler')),
+    path.join(__dirname, './src/handlers/band-map-api-handler')),
 
   swaggerPath =
     'node_modules/swagger-tools/middleware/swagger-ui/bandmap-api.yaml',
@@ -21,6 +21,8 @@ const fs = require('fs'),
 // swaggerUi configuration
   let swaggerUiOptions = {
     //swaggerUiDir: path.join(__dirname, '../bandmap-swagger-ui/dist'),
+    apiDocs: '/api-docs',
+    swaggerUi: '/docs'
   },
 
   // The Swagger document (require it, build it programmatically, fetch it

@@ -2,9 +2,14 @@
 7.28 GET tests work with new code org and refactored codepath
 
   14  api & docs running, debuggable.
-  25  git in order
+  15  git in order
+  35  think about new code and class layout, read through design doc again
+  14  mess with swagger-ui config /docs vs. /api-docs URI
+      move files to new directory layout
+      implement new codepaths piecemeal, one test at a time for the endpoints under test
+        http://localhost:3000/api/bands/?limit=4&offset=988
 
-GET tests work with new code org and refactored codepath
+GET tests to work with new code org and refactored codepath
                  wiki-style CRUD ops on bands/connections w/ history and rollback
                  new admin page
 
@@ -24,28 +29,30 @@ Is/are a band's city(ies) just the city(ies) with the most or the most recent ba
 Future bandmap-api module organization:
 
 bandmap-api
-  modules             - cross-cutting api functionality, used by all the handlers
-    auth              - authentication and authorization provision, tracking tokens
-    cache
-    database          - db connection provision, all db queries should go through here
-    request           - wrapper around connect request for band-map-specific request functionality, especially swagger field parsing, validation, and mapping
-    response          - band-map-specific response functionality: mostly a helper for collection handlers to map db output back to response fields, validation with swagger
-    filter
-    sort
-  handlers
-    api               - entry point, request pre-processing, and initial routing to appropriate target handler
-    error
-    directory
-    collection        - base class for all collection handlers in collections dir
-    collection-item   - base class for all collection item handlers in collections dir
-  collections         - collection and collection-item handlers: contain collection-specific swagger<->db field mappings, SQL queries (could later be stored procs) specific to retrieving each collection.
-    bands
-    people
-    roles
-    connections
-  utils
-  tests
   index.js
+  tests
+  node_modules
+  src
+    utils
+    modules             - cross-cutting api functionality, used by all the handlers
+      auth              - authentication and authorization provision, tracking tokens
+      cache
+      database          - db connection provision, all db queries should go through here
+      request           - wrapper around connect request for band-map-specific request functionality, especially swagger field parsing, validation, and mapping
+      response          - band-map-specific response functionality: mostly a helper for collection handlers to map db output back to response fields, validation with swagger
+      filter
+      sort
+    handlers
+      api               - entry point, request pre-processing, and initial routing to appropriate target handler
+      error
+      directory
+      collection        - base class for all collection handlers in collections dir
+      collection-item   - base class for all collection item handlers in collections dir
+    collections         - collection and collection-item handlers: contain collection-specific swagger<->db field mappings, SQL queries (could later be stored procs) specific to retrieving each collection.
+      bands
+      people
+      roles
+      connections
 
 bugs:
   Just getting bandsCount should do a count *:

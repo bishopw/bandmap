@@ -98,7 +98,7 @@ let
       endPoint = pathNameParts[pathNameParts.length - 1],
       rootCollection;
 
-    // /docs request: Forward to swagger-ui,js via index.js
+    // /docs requests: Forward to swagger-ui,js via index.js
     if (pathNameParts.length > 1 && pathNameParts[1] === 'docs') {
       debug('Forwarding /docs request to swagger-ui.');
       return next();
