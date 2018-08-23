@@ -10,9 +10,7 @@
     let capPlural = tloNames.convert(urlSingular, 'urlSingular', 'capPlural');
 */
 
-const
-
-  nameForms = [
+const nameForms = [
     "singular",
     "plural",
     "capSingular",
@@ -24,9 +22,9 @@ const
     "camelCaseSingular",
     "camelCasePlural",
     "resourcePath"
-  ],
+  ];
 
-  topLevelObjects = {
+let topLevelObjects = {
     // As output by swagger-generator.py:
     "Band": {
       "singular": "band",
@@ -351,9 +349,47 @@ const
       "primaryId": "id",
       "secondaryId": undefined
     }
+  };
+
+// Augment TLOs with "aliased" objects like band1 and band2 for so mappings
+// back from database queries to API fields can look up ids correctly.
+Object.assign(topLevelObjects, {
+  "Band1": {
+    "singular": "band1",
+    "plural": "band1",
+    "capSingular": "Band1",
+    "capPlural": "Band1",
+    "urlSingular": "band1",
+    "urlPlural": "band1",
+    "codeSingular": "Band1",
+    "codePlural": "Band1",
+    "camelCaseSingular": "band1",
+    "camelCasePlural": "band1",
+    "swaggerDefinition": "Band1",
+    "resourcePath": "/api/bands",
+    "primaryId": "id",
+    "secondaryId": "name"
   },
 
-  byNameForm = (() => {
+  "Band2": {
+    "singular": "band2",
+    "plural": "band2",
+    "capSingular": "Band2",
+    "capPlural": "Band2",
+    "urlSingular": "band2",
+    "urlPlural": "band2",
+    "codeSingular": "Band2",
+    "codePlural": "Band2",
+    "camelCaseSingular": "band2",
+    "camelCasePlural": "band2",
+    "swaggerDefinition": "Band2",
+    "resourcePath": "/api/bands",
+    "primaryId": "id",
+    "secondaryId": "name"
+  }
+});
+
+const byNameForm = (() => {
     /**
       So we can do stuff like:
         TLONames.byNameForm.urlPlural[objName].codeSingular.

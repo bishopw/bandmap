@@ -288,9 +288,6 @@ let
       neededTypesMap = utils.getFieldMapFromFieldList(neededTypes),
       objectTree = utils.getObjectTreeFromFieldList(neededTypes),
       objectChain = [];
-debug('fetchFSLIDs(): neededFields:',neededFields);
-debug('fetchFSLIDs(): neededTypesMap:',neededTypesMap);
-debug('fetchFSLIDs(): objectTree:',objectTree);
 
     // Scan down to root collection object in the tree.
     let node = objectTree,
@@ -408,7 +405,6 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
     rootPathParts,
     rootResultArray
   ) => {
-
     let dbToApi = req.bandMap.fields.dbToApi;
 
     // The DB result tree has two types of nested nodes to walk:
@@ -416,7 +412,6 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
 
     /** Recursively convert a DB result tree node to a final API subobject. */
     let assembleResultObject = (pathParts, resultObj) => {
-
         let outObj = {},
 
           path = pathParts.join('.'),
@@ -500,7 +495,6 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
       /** Recursively convert a DB result tree node to a final API collection or
       subcollection array. */
       assembleResultCollection = (pathParts, resultCollection) => {
-
         let outArray = [];
 
         // Walk the result objects at this result tree node, appending a
@@ -533,8 +527,8 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
     return (
       db.get(leafObjectChain)
       .then(results => {
-
-        let dbRootObjName = fieldNameFromPath(getDBRootCollection(req));
+        let fieldTypes = req.bandMap.fields.types,
+          dbRootObjName = fieldNameFromPath(getDBRootCollection(req));
 
         // For each result row, accumulate the fetched data onto the relevant
         // object in resultTree.
@@ -544,6 +538,7 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
         results.forEach(row => {
           let parent = resultTree,
             lastParentPath;
+
           Object.entries(row).forEach(([outputField, value]) => {
 
             // Ignore null data cells.
@@ -554,6 +549,7 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
             let parts = outputToInputFieldParts[outputField],
               parentPathParts = parts.slice(0, parts.length-1),
               parentPath = parentPathParts.join('.'),
+              parentType = fieldTypes[parentPath],
               parentName = parentPathParts[parentPathParts.length-1],
               parentPrimaryId =
                 parentName ? tloNames[parentName].primaryId : undefined,
@@ -569,30 +565,47 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
               return;
             }
 
-            // If this field has a different path, assume we've moved on to the
-            // next subobject's results.  Create a new result entry for it in
-            // the output if one does not exist already and descend down to it.
+            // If this field has a different path, (for example
+            // 'bands_people__id' or 'connections_band1__id')...
             if (parentPath !== lastParentPath) {
               lastParentPath = parentPath;
-              parent.set(parentName, parent.get(parentName) || new Map());
-              parent = parent.get(parentName);
-              if (name !== parentPrimaryId) {
-                req.throwAPIError(
-                  500, 'server-error',
-                  `Expected primary id ` +
-                  `'${parentPath}.${parentPrimaryId}' but found ` +
-                  `'${parts.join('.')}' while ` +
-                  `scanning rows returned from database.`
-                );
+
+              // We've moved on to the next subobject's results ('people' or
+              // 'band1'). Create a new result entry for the subobject if one
+              // does not exist already and descend down to it.
+
+              // If the subobject is part of a collection array ('people'),
+              // first descend through the collection array level.
+              if ([undefined, 'array'].includes(parentType)) {
+                parent.set(parentName, parent.get(parentName) || new Map());
+                parent = parent.get(parentName);
+                if (name !== parentPrimaryId) {
+                  req.throwAPIError(
+                    500, 'server-error',
+                    `Expected primary id ` +
+                    `'${parentPath}.${parentPrimaryId}' but found ` +
+                    `'${parts.join('.')}' while ` +
+                    `scanning rows returned from database.`
+                  );
+                }
               }
-              if (!parent.has(value)) {
+
+              // Descend to the subobject itself.
+              let subObjectKey =
+                parentType === 'object' ?
+                  parentName : // The static field name of a single subobject
+                               // (like 'band1' in a connection).
+                  value; // The primary key of an object in a subcollection.
+              if (!parent.has(subObjectKey) ||
+                  parent.get(subObjectKey) === undefined) {
                 let emptyObj =
                   resultObjects.hasOwnProperty(parentPath) ?
                   utils.deepCopy(resultObjects[parentPath]) :
                   new Map();
-                parent.set(value, emptyObj);
+                parent.set(subObjectKey, emptyObj);
               }
-              parent = parent.get(value);
+
+              parent = parent.get(subObjectKey);
             }
 
             // If this is the root object and we are using this leaf's results
@@ -708,7 +721,6 @@ debug('fetchFSLIDs(): objectTree:',objectTree);
       initial = Object.assign(initial, extractCountFields(fetchTypes));
       fetchMap[objPath] = Object.assign(initial, objFields);
     }
-debug('fetchMap:',utils.toYaml(fetchMap));
 
     let 
       objectTree = utils.getObjectTreeFromFieldList(fetchTypes),
@@ -920,7 +932,6 @@ debug('fetchMap:',utils.toYaml(fetchMap));
 
         let total = 0,
           objects = [];
-
         if (resultTree.size === 0) {
 
           // Unexpected empty result set.
@@ -976,7 +987,6 @@ debug('fetchMap:',utils.toYaml(fetchMap));
                 rootResultNode);
           total = total || objects.length;
         }
-
         return ({total: total, objects: objects});
       })
     );
@@ -1002,16 +1012,19 @@ debug('fetchMap:',utils.toYaml(fetchMap));
       );
     }
 
-    if (sortObjects.length > 1 ||
-      (sortObjects.length === 1 && sortObjects[0] !== dbRootCollection)) {
-      return fetchFSLIDs(req, res, fetched, sortObjects, filterObjects);
-    }
+    // TODO: complex filter/sort/limit queries
+    // if (sortObjects.length > 1 ||
+    //   (sortObjects.length === 1 && sortObjects[0] !== dbRootCollection)) {
+    //   return fetchFSLIDs(req, res, fetched, sortObjects, filterObjects);
+    // }
 
+    // TODO: remove this commented block once confirmed special case sorting
+    // of connections works
     // Convert fully qualified sort field names to immediate field names.
-    let sort = {};
-    Array.from(Object.keys(req.bandMap.sort)).forEach(sKey => {
-      sort[fieldNameFromPath(sKey)] = req.bandMap.sort[sKey];
-    });
+    // let sort = {};
+    // Array.from(Object.keys(req.bandMap.sort)).forEach(sKey => {
+    //   sort[fieldNameFromPath(sKey)] = req.bandMap.sort[sKey];
+    // });
 
     // Append root collection object config to the object chain using root
     // filter, sort, and limits then proceed with data query for sub-objects.
@@ -1021,7 +1034,7 @@ debug('fetchMap:',utils.toYaml(fetchMap));
         filterObjects.length > 0 ?
         [parseFilterTree(req.bandMap.filterTree, 'immediate')] :
         undefined,
-      sort: sort,
+      sort: req.bandMap.sort,
       limit: req.bandMap.params.limit,
       offset: req.bandMap.params.offset
     });

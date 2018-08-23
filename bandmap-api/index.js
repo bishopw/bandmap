@@ -10,8 +10,8 @@ const fs = require('fs'),
   swaggerTools = require('swagger-tools'),
   jsyaml = require('js-yaml'),
 
-  bandMapAPIHandler = require(
-    path.join(__dirname, './src/handlers/band-map-api-handler')),
+  apiHandler = new (require(
+    path.join(__dirname, './src/handlers/api-handler')))(),
 
   swaggerPath =
     'node_modules/swagger-tools/middleware/swagger-ui/bandmap-api.yaml',
@@ -43,13 +43,13 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerValidator());
 
   // Route validated requests to appropriate handler
-  app.use(bandMapAPIHandler.handle);
+  app.use(apiHandler.handle);
 
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi(swaggerUiOptions));
 
   // Return error JSON according to our schema if there were errors.
-  app.use(bandMapAPIHandler.handleErrors);
+  app.use(apiHandler.handleErrors);
 
   // Start the server
   http.createServer(app).listen(serverPort, function () {

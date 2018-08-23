@@ -1,19 +1,28 @@
+/*
+
+/handlers/api-handler.js
+
+Main Band Map API entry point, request pre-processing, and initial routing to
+appropriate target handler.
+
+*/
+
 (function () {
 'use strict';
 
 const debug = require('debug')('band-map-api'),
 
-  db = require('../utils/database.js'),
+  oldCollectionHandler = require('./old-collection-handler.js'),
+  oldCollectionItemHandler = require('./old-collection-item-handler.js'),
+  errorHandler = new (require('./error-handler.js'))(),
   tloNames = require('../utils/top-level-object-names.js'),
-  utils = require('../utils/utils.js'),
-
   schemaParser = require('../utils/schema-parser.js'),
   parameterParser = require('../utils/parameter-parser.js'),
+  db = require('../utils/database.js'),
+  utils = require('../utils/utils.js'),
 
-  collectionHandler = require('./collection-handler.js'),
-  collectionItemHandler = require('./collection-item-handler.js');
+  Request = require('../modules/request.js'),
 
-let
 
   /**
     Stub Handler: Return an example response based on the swagger spec.
@@ -23,89 +32,30 @@ let
       res.statusCode = 501;
       return Promise.resolve(schemaParser.makeStubResponse(req));
     }
-  },
+  };
 
-  /**
-    This handler is wired in to the top-level app router in index.js.
-    It synchronously (no Promises involved) formats errors from earlier
-    handlers, including swagger validation stuff, writes out a JSON error
-    object, and closes out the response.
-  */
-  handleErrors = (err, req, res, next) => { // Have to put the unused fourth arg
-                                            // here or connect/express barfs.
-    let errors = req.bandMap ? req.bandMap.errors || [] : [],
-      warnings = req.bandMap ? req.bandMap.warnings || [] : [];
+class ApiHandler {
 
-    if (errors.length > 0) {
-      err = errors[0];
-    } else {
-      errors.push(err);
-    }
-
-    let statusCode = err.statusCode || 500;
-    res.statusCode = statusCode;
-
-    if (!err.hasOwnProperty('code') || Number.isInteger(err.code)) {
-      err.code = 'server-error';
-    }
-
-    // Format codes returned by swagger-validator.js into Band Map style.
-    err.code = err.code.toLowerCase().replace(/'_'/g, '-');
-
-    let response = {
-      errors: []
-    };
-
-    errors.forEach(e => {
-      response.errors.push({
-        code: e.code || 'server-error',
-        message: e.message || 'Unknown server error.'
-      });
-    });
-
-    if (warnings.length > 0) {
-      response.warnings = [];
-      warnings.forEach(w => {
-        response.warnings.push({
-          code: w.code || 'server-warning',
-          message: w.message || 'Unknown warning.'
-        });
-      });
-    }
-
-    debug(err);
-    utils.writeJson(res, response);
-
-  },
+  get handleErrors() { return errorHandler.handleErrors; }
 
   /**
    * Route and handle all Band Map API requests.
    * Returns a response object to be serialized as JSON,
    * or throws an error via next(err) to be handled by handleErrors().
    **/
-  handle = (req, res, next) => {
+  handle(req, res, next) {
 
-    // Initialize error/warning handling.
-    req.bandMap = {};
-    utils.initAPIErrorHandling(req);
-
-    let serverUrl = req.headers.host || 'hostname';
-    serverUrl = `https://${serverUrl}`; // TODO: autodetect http/https protocol
-
-    let pathName = req._parsedUrl.pathname,
-      pathNameParts = pathName.split('/'),
-      resourceType = 'unknown',
-      endPoint = pathNameParts[pathNameParts.length - 1],
-      rootCollection;
+    // Initialize Band-Map-specific request features.
+    req.bandMap = new Request(req);
 
     // /docs requests: Forward to swagger-ui,js via index.js
-    if (pathNameParts.length > 1 && pathNameParts[1] === 'docs') {
+    if (req.bandMap.pathName.startsWith('/docs')) {
       debug('Forwarding /docs request to swagger-ui.');
       return next();
     }
 
     let startTime = new Date().getTime();
-    debug(`${startTime}: Processing request: ${req._parsedUrl.pathname}`);
+    debug(`Processing request: ${req.bandMap.pathName}`);
 
     /*
     Parse from URL nodes:
@@ -117,14 +67,15 @@ let
     For 'collection and 'collectionItem' requests:
     - rootCollection: 'bands' | 'people' | etc...
     */
-    let swagger = req.swagger || {},
+    let rootCollection,
+      swagger = req.swagger || {},
       swaggerPaths = Array.from(Object.keys(
         swagger.swaggerObject ? swagger.swaggerObject.paths : {}
       )),
       swaggerParams = swagger.params || {},
       isSwaggerPath = req.swagger ? req.swagger.isSwaggerPath : false,
       lastPartWasACollection = false,
-      partsLeft = pathNameParts.slice(),
+      partsLeft = req.bandMap.pathNameParts.slice(),
       directoryEndpoints = ['api', 'locations', 'edit-history'],
       tagCollections = ['info-source-tags'],
       containerChainPath = [],
@@ -153,56 +104,56 @@ let
     // Scan across the URL nodes, left to right.
     while (partsLeft.length > 0) {
       let part = partsLeft.shift().trim();
-      endPoint = part;
+      req.bandMap.endPoint = part;
       if (part.length === 0) {
         continue;
       } else if (!lastPartWasACollection &&
-        tloNames.byNameForm.urlPlural.hasOwnProperty(endPoint.toLowerCase())) {
-        resourceType = tagCollections.includes(part) ?
+        tloNames.byNameForm.urlPlural.hasOwnProperty(req.bandMap.endPoint.toLowerCase())) {
+        req.bandMap.resourceType = tagCollections.includes(part) ?
           'tagCollection' : 'collection';
         rootCollection = part;
         lastPartWasACollection = true;
       } else if (lastPartWasACollection) {
-        resourceType = tagCollections.includes(rootCollection) ?
+        req.bandMap.resourceType = tagCollections.includes(rootCollection) ?
           'tagCollectionItem' : 'collectionItem';
         containerChain.push(makeContainerChainEntry(rootCollection, part));
         lastPartWasACollection = false;
       } else if (directoryEndpoints.includes(part) &&
-        pathNameParts.length <= 4 ) {
-        resourceType = 'directory';
+        req.bandMap.pathNameParts.length <= 4 ) {
+        req.bandMap.resourceType = 'directory';
       } else {
-        resourceType = 'unknown';
+        req.bandMap.resourceType = 'unknown';
       }
     }
 
-    if (!isSwaggerPath || resourceType === 'unknown') {
+    if (!isSwaggerPath || req.bandMap.resourceType === 'unknown') {
       // No resource by that name.  Try to suggest a better URL.
-      let lcEndPoint = endPoint.toLowerCase().trim(),
+      let lcEndPoint = req.bandMap.endPoint.toLowerCase().trim(),
         suggestion;
-      if (pathName === '/') {
-        suggestion = `${serverUrl}/api`;
+      if (req.bandMap.pathName === '/') {
+        suggestion = `${req.bandMap.serverUrl}/api`;
 
-      } else if (endPoint.length > 0 && swaggerPaths.length > 0) {
+      } else if (req.bandMap.endPoint.length > 0 && swaggerPaths.length > 0) {
         for (let i = 0; i < swaggerPaths.length; ++i) {
           let p = swaggerPaths[i],
             lcp = p.toLowerCase();
 
           // Check for a matching endpoint at a different URL location.
           if (lcp.endsWith(lcEndPoint)) {
-            let sUrl = `${serverUrl}/api${p}`;
+            let sUrl = `${req.bandMap.serverUrl}/api${p}`;
             if (suggestion === undefined || sUrl.length < suggestion.length) {
               suggestion = sUrl;
             }
 
           // Check for a collection item URL with a matching root collection.
-          } else if (resourceType === 'collectionItem' && rootCollection) {
+          } else if (req.bandMap.resourceType === 'collectionItem' && rootCollection) {
             let pparts = lcp.split('/'),
               ppLen = pparts.length,
               pCollection = ppLen > 1 ? pparts[ppLen-2] : '';
             if (rootCollection.toLowerCase() === pCollection.toLowerCase()) {
               let pCollectionURLParts = pparts.slice(0, ppLen - 1),
                 pcPath = pCollectionURLParts.join('/'),
-                pcUrl = `${serverUrl}/api${pcPath}/${endPoint}`;
+                pcUrl = `${req.bandMap.serverUrl}/api${pcPath}/${req.bandMap.endPoint}`;
               if (suggestion === undefined ||
                 pcUrl.length < suggestion.length) {
                 suggestion = pcUrl;
@@ -216,14 +167,14 @@ let
           `  Did you mean '${suggestion}'?` :
           '';
       req.throwAPIError(404, 'not-found',
-        `No resource found for URL '${serverUrl}${pathName}'.${suggestion}`
+        `No resource found for URL '${req.bandMap.serverUrl}${req.bandMap.pathName}'.${suggestion}`
       );
     }
     if (rootCollection !== undefined) {
       rootCollection =
         tloNames.convert(rootCollection, 'urlPlural', 'camelCasePlural');
     }
-    let apiPrefix = resourceType === 'collection' ? `${rootCollection}.` : '';
+    let apiPrefix = req.bandMap.resourceType === 'collection' ? `${rootCollection}.` : '';
     // The DB prefix is the fully qualified collection name of the root
     // collection.
     let dbPrefix = '';
@@ -231,80 +182,22 @@ let
       let lastContainer = containerChain[containerChain.length-1];
       dbPrefix = lastContainer.objectPath;
     }
-    if (resourceType === 'collection') {
+    if (req.bandMap.resourceType === 'collection') {
       dbPrefix += dbPrefix.length > 0 ? '.' : '';
       dbPrefix += rootCollection;
     }
     dbPrefix += dbPrefix.length > 0 ? '.' : '';
 
-    /*
-    Add a Band Map-specific request attributes object to the request so
-    subsequent handlers don't have to keep looking up runtime info about
-    the server and request that we've already looked up.
-    After preparation, the format should look like, for example:
-      errors:        [] or [Error, Error, ...]
-      warnings:      [] or ['warning message...', 'warning message...', ...]
-      serverUrl:     https://localhost:3000
-      pathName:      /api/bands
-      pathNameParts: ['', 'api', 'bands']
-      endPoint:      'bands'
-      resourceType:  collection | collectionItem | ...
-      rawParams:     Params as parsed by swagger tools.
-      params:        key:value mappings of all parameters, validated and with
-                     defaults applied where nothing was specified.  Includes
-                     url parameters, like {band} in /bands/{band}
-      containerChain: Ordered sequence of containing collections to reach the
-                      root collection, with filters for each level, of form:
-                      [
-                        {object: 'bands', value: <id>, filters: [<filter>...]},
-                        ...
-                      ]
-      rootCollection: 'bands' (camelCasePlural)
-      apiPrefix:      Like 'bands.' for collections, '' for collection items
-      dbPrefix:       Fully qualified root collection name, plus '.'
-      fields:
-        apiToDB:     Mapping of all fully qualified field names as they appear
-                     in the API layer (request/response) to fully qualified
-                     field names as they appear in the DB layer.
-        dbToApi:     Reverse of apiToDB.
-        types:       DB field names to expected data types.
-        map:         Like types but with fields nested under parent object.
-        requested:   Array of API field names, subset of all fields requested by
-                     the user.
-        requestedDB: Like requested, but the DB field name version of fields.
-      filterTree:    Filter parse tree for building SQL calls
-                     (see parameter-parser.js for structure).
-      sort:          Ordered map of fully qualified DB field names to sort
-                     order ('asc'|'desc') for sorting.
-    */
     Object.assign(req.bandMap, {
-      serverUrl: serverUrl,
-      pathName: pathName,
-      pathNameParts: pathNameParts,
-      endPoint: endPoint,
-      resourceType: resourceType,
-      rawParams: {},
-      params: {},
       containerChain: containerChain,
       rootCollection: rootCollection,
       apiPrefix: apiPrefix,
       dbPrefix: dbPrefix,
-      fields: {
-        apiToDB: undefined,
-        dbToApi: undefined,
-        types:   undefined,
-        map: undefined,
-        requested: undefined,
-        requestedDB: undefined,
-        needed: undefined
-      },
-      filterTree: undefined,
-      sort: []
     });
 
     // Do extra parameter parsing and preparation needed for collections and
     // collection items.
-    if (['collection', 'collectionItem'].includes(resourceType)) {
+    if (['collection', 'collectionItem'].includes(req.bandMap.resourceType)) {
 
       // Prepare Fields.
       // Parse available fields from the JSON schema.
@@ -345,15 +238,23 @@ let
       // was given.
       let sort = [],
         rootTLO = tloNames.byNameForm.camelCasePlural[rootCollection],
-        defaultSort = `${apiPrefix}${rootTLO.primaryId}:asc`.toLowerCase(),
+        defaultSort = [`${apiPrefix}${rootTLO.primaryId}`.toLowerCase()],
         alreadyIncluded = false;
+      // Special case for connection default sort:
+      if (rootTLO.singular === 'connection') {
+        defaultSort = [
+          `${apiPrefix}band_1_id`,
+          `${apiPrefix}band_2_id`,
+          `${apiPrefix}id` // Last resort - use the id that's on every leaf.
+        ];
+      }
       params.sort.forEach(p => {
-        if (p.split(':')[0].toLowerCase() === defaultSort) {
+        if (defaultSort.includes(p.split(':')[0].toLowerCase())) {
           alreadyIncluded = true;
         }
       });
       if (!alreadyIncluded) {
-        params.sort.push(defaultSort);
+        params.sort = params.sort.concat(defaultSort.map(s => `${s}:asc`));
       }
 
       // Prepare Sorting.
@@ -366,6 +267,7 @@ let
           icFieldListKeys,
           params.sort
         );
+console.log('api-handler: early sort:',sort);
 
       // Prepare Filtering.
       // Parse and validate the "filter" query argument if one was given.
@@ -419,7 +321,7 @@ let
       });
       // Add id field types that exist only in the DB layer, like webLinks.id.
       let addDBOnlyIdTypes = typesMap => {
-        let fullTypesMap = [];
+        let fullTypesMap = {};
         Object.keys(typesMap).forEach(p => {
           let fieldName = p.split('.').pop(),
             tlo = tloNames.byNameForm.camelCasePlural[fieldName];
@@ -462,6 +364,7 @@ let
         sortDB[dbFieldName] = sort[apiFieldName];
       });
       sort = sortDB;
+console.log('api-handler: sort:',sort);
 
       // Add completed parse results to req.bandMap for reference.
       Object.assign(req.bandMap, {
@@ -476,12 +379,12 @@ let
         filterTree: filterTree,
         sort: sort
       });
-
       // TODO: Return immediately if we don't need anything from the DB.
       // (for example if only "no-op" fields were requested.)
       let noOpFields = ['link', 'offset', 'limit', 'warnings', 'errors'];
 
     }
+
     // Route to the appropriate sub-handler.
     // TODO: Handle special requests for static namespace directory data:
     // /
@@ -489,12 +392,12 @@ let
     // /edit-history
     let handler = {
         directory: stubHandler,
-        collection: collectionHandler,
-        collectionItem: collectionItemHandler,
+        collection: oldCollectionHandler,
+        collectionItem: oldCollectionItemHandler,
         tagCollection: stubHandler,
         tagCollectionItem: stubHandler
 
-      }[resourceType] || stubHandler; // Default to stub handler.
+      }[req.bandMap.resourceType] || stubHandler; // Default to stub handler.
 
     handler.handle(req, res, next)
 
@@ -509,96 +412,18 @@ let
 
       // Write out the response.
       utils.writeJson(res, response);
-      let endTime = new Date().getTime(),
-        elapsedTime = endTime - startTime;
-      debug(
-        `${new Date().getTime()}: Wrote response.  ` +
-        `Elapsed time: ${elapsedTime} ms.`);
+      let elapsedTime = new Date().getTime() - startTime;
+      debug(`Wrote response.  Elapsed time: ${elapsedTime} ms.`);
     })
 
     .catch(err => {
-      let endTime = new Date().getTime(),
-        elapsedTime = endTime - startTime;
-      debug(
-        `${new Date().getTime()}: Writing error response.  ` +
-        `Elapsed time: ${elapsedTime} ms.`);
+      let elapsedTime = new Date().getTime() - startTime;
+      debug(`Writing error response.  Elapsed time: ${elapsedTime} ms.`);
       next(err);
     });
-
-  };
-
-module.exports = {
-  handleErrors: handleErrors,
-  handle: handle
-};
-
-/*
-TODO:
-  Generalize Collection Container Response:
-  {
-    "link": "https://www.seattlebandmap.com/api/<collection>?limit=100&offset=200",
-    "offset": 200,
-    "limit": 100,
-    "total": 1000,
-    <collection>: [],
-    <collection>"Count": 100,
-    "first": "https://www.seattlebandmap.com/api/<collection>?limit=100",
-    "prev": "https://www.seattlebandmap.com/api/<collection>?limit=100&offset=100",
-    "next": "https://www.seattlebandmap.com/api/<collection>?limit=100&offset=300",
-    "last": "https://www.seattlebandmap.com/api/<collection>?limit=100&offset=900"
   }
-  Params:
-    fields
-    no-fields
-    sort
-    filter
-  Generalize Adding *Count fields to Bands Response.
-  Generalize getBands() and related functions a bit more.
-  Websites.
-  CollectionItem Response
-  CollectionItems by name/secondary id
-  Connections
-  URL Subcollections:
-    Bands
-    Connections
-  Add case insensitive/trimmed name constraints:
-    https://www.postgresql.org/message-id/c57a8ecec259afdc4f4caafc5d0e92eb@mitre.org
-    https://stackoverflow.com/questions/7005302/postgresql-how-to-make-case-insensitive-query
-  Document pretty, help, doc, schema, annotations params.
-  Containerize
-  Legacy Site Reimplement
+}
 
-  Eventual Request Processing Steps:
-    Validate input using JSON schema.
-    Sanitize input?
-    Route to sub-handler: Collection, CollectionItem, Special (like API root), Stub.
-    Build and execute minimal queries in parallel (consider paging, sorting, filters, etc):
-      - Build and execute minimal queries for edit history facts and revisions.
-      - Build and execute minimal queries for output data.
-    Do any post-query filtering necessary (should be minimal).
-    Process query results, augment with annotations, counts, links, maybe other.
-    Return processed json.
-
-
-Firefox JSON Viewer Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1252016
-  JSON.parse: expected double-quoted property name at line 29681
-
-
-Possible Query Strategies:
-  - One Big Select - linearly scan rows, ignoring totally redundant rows.
-  - 6 Selects: Bands, People, Cities, Connected Bands, Info Sources, Active Dates
-
-6 Selects:
-Timing:
-    0 Got request.
-   53 Got bands results.
-   60 Got band cities results.
-   66 Got band people results.
-  113 Got band connected bands results.
-  113 Got db results.
-  116 Converted db results to array.
-  184 Converted maps to objects.
-  187 Wrote response.  Done.
-*/
+module.exports = ApiHandler;
 
 })();

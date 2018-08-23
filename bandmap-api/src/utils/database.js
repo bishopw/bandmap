@@ -20,7 +20,7 @@ let sequelize = new Sequelize('bandmap', 'postgres', 'a', {
       min: 0,
       idle: 1000
     },
-    logging: message => debug(message) //false
+    logging: message => debug(message) // false
   });
 
 // Object field index constants:
@@ -35,20 +35,25 @@ const
       table: 'bands',
       fields: {
         // Lower case API field name to tuple of form:
-        // [<column name>, <data type>, <has lower case index>].
+        // [<column name>, <data type>, [<aliasPart-of-actual-table>]].
         id: ['id', 'integer'],
         name: ['name', 'string'],
         clickCount: ['click_count', 'integer']
       },
+      // Join clauses for connecting to containing objects.
       joins: {
-        'connections':
+        'connections': // (but this one is not needed - connections contain band1/band2, not bands)
           `{{joinType}} JOIN {{prevAlias}}
           ON {{prevAlias}}.connection__band_1_id = {{alias}}.band_id
           OR {{prevAlias}}.connection__band_2_id = {{alias}}.band_id`
       },
+      // Select and join clauses for counting this object at various container
+      // object levels in an object hierarchy (starting with root).
       counts: {
         'root': {
+          // Select clause for doing the initial count.
           select: `SELECT count(*) AS count FROM {{alias}}`,
+          // Join clause for refering to it in subsequent 'with' blocks.
           join: `LEFT JOIN b_count ON TRUE`
         }
       }
@@ -134,10 +139,24 @@ const
       aliasPart: 'cx',
       table: 'connections',
       fields: {
+        id: ['id', 'string'],
         band_1_id: ['band_1_id', 'integer'],
         band_2_id: ['band_2_id', 'integer'],
         description: ['description', 'string']
       },
+      internalFields: ['band_1_id', 'band_2_id'],
+      withClause:
+       `SELECT
+        {{fields}}
+        FROM (
+          SELECT
+          band_1_id || '-' || band_2_id AS id,
+          band_1_id,
+          band_2_id,
+          description AS description
+          FROM connections
+        ) AS {{alias}}
+        {{wheres}}`,
       counts: {
         'root': {
           select: `SELECT count(*) AS count FROM {{alias}}`,
@@ -315,10 +334,31 @@ const
 
   };
 
+// Augment objects with "aliased" objects like band1 and band2 for connections
+// that mostly work like "bands" but with a few table linking differences.
+Object.assign(objects, {
+
+  band1: Object.assign({}, objects.bands, {
+    joins: {
+      'connections':
+        `{{joinType}} JOIN {{prevAlias}}
+        ON {{prevAlias}}.connections__band_1_id = cx_b.id`
+    }
+  }),
+
+  band2: Object.assign({}, objects.bands, {
+    joins: {
+      'connections':
+        `{{joinType}} JOIN {{prevAlias}}
+        ON {{prevAlias}}.connections__band_2_id = cx_b.id`
+    }
+  })
+
+});
+
 const specialCaseFieldNames = {
     'bands.cities': 'bands.cityStateCountries',
-    'bands.webLinks': 'bands.infoSources',
-    'connections.id': 'connections:(band_1_id,band_2_id)'
+    'bands.webLinks': 'bands.infoSources'
   };
 
 let getSpecialCaseFieldName = dbFieldName => {
@@ -685,6 +725,7 @@ let getSpecialCaseFieldName = dbFieldName => {
       nextBindNumber = 1,
       bind = {},
       allFinalFields = [],
+      allInternalFields = [],
       finalSortFields = [],
       limitedObjectPath,
 
@@ -694,7 +735,6 @@ let getSpecialCaseFieldName = dbFieldName => {
       objName,
       obj,
       alias,
-      tlo,
       primaryId,
       filters,
       lookupFields,
@@ -722,11 +762,10 @@ let getSpecialCaseFieldName = dbFieldName => {
         objectPathParts = objectPath.split('.');
         objName = objectPathParts[objectPathParts.length-1];
         alias = buildAlias(objectPathParts);
-        tlo = tloNames[objName];
-        primaryId = tlo.primaryId;
         filters = objectConfig.filters || [];
         lookupFields = objectConfig.fields || [];
         obj = objects[objName];
+        primaryId = obj.primaryId;
       }
 
       // Look up parent info if there is a parent.
@@ -749,6 +788,13 @@ let getSpecialCaseFieldName = dbFieldName => {
 
       if (objectConfig.hasOwnProperty('groupBy')) {
         break;
+      }
+
+      // Include any special case fields used internally for special joins.
+      let internalFields = obj.internalFields || [];
+      for (let k = 0, len = internalFields.length; k < len; k++) {
+        utils.removeAll(lookupFields, internalFields[k]);
+        lookupFields.unshift(internalFields[k]);
       }
 
       // Always include the primary ID since it might be used in joins.
@@ -794,7 +840,9 @@ let getSpecialCaseFieldName = dbFieldName => {
       let finalFieldPrefix =
         objectPath.replace(/\./g, '_').toLowerCase() + '__',
         finalFields = addPrefixes(
-          finalFieldPrefix, utils.elementsToLowerCase(lookupFields));
+          finalFieldPrefix, utils.elementsToLowerCase(lookupFields)),
+        internalFinalFields = addPrefixes(
+          finalFieldPrefix, utils.elementsToLowerCase(internalFields));
       fieldClauses = makeFieldClauses(lookupColumns, finalFields);
 
       // Pass on all fields of interest from parent to child output table.
@@ -805,7 +853,11 @@ let getSpecialCaseFieldName = dbFieldName => {
               allFinalFields);
         fieldClauses = pFieldClauses.concat(fieldClauses);
       }
-      allFinalFields = allFinalFields.concat(finalFields);
+      for (let i = 0, len = finalFields.length; i < len; i++) {
+        let ff = finalFields[i];
+        if (internalFinalFields.includes(ff)) { allInternalFields.push(ff); }
+        allFinalFields.push(ff);
+      }
 
       // If we looked up the previous object count, insert that field into our
       // accumulating allFinalFields list and as the first thing in our current
@@ -884,10 +936,6 @@ let getSpecialCaseFieldName = dbFieldName => {
                 insertBefore(pCountFieldClause, pObjAliasPlusFFP, fieldClauses);
               }
             } else {
-debug('objectConfig:',utils.toYaml(objectConfig));
-debug('alias:',utils.toYaml(alias));
-debug('sField:',utils.toYaml(sField));
-debug('obj:',utils.toYaml(obj));
               let sortColumn = `${alias}.${obj.fields[sField][COLUMN_NAME]}`;
               finalSortField = `${finalFieldPrefix}${sField.toLowerCase()}`;
               let sortFieldClause =
@@ -899,12 +947,22 @@ debug('obj:',utils.toYaml(obj));
             }
             formattedSField =
               `${alias}.${obj.fields[nameFromPath(sField)][COLUMN_NAME]}`;
+console.log('db.get(): lookup immediate field:',formattedSField);
 
           // Fully qualified field.  Translate it to output field format
           // and prepend previous object alias (.
           } else {
+            // Try: Use last leaf node as the alias because that's where
+            // the ids will be.
+            // sort by all sort fields that we have, throw out any that we
+            // don't have.
+            let sortPathParts = sField.split('.');
+            sortPathParts = sortPathParts.slice(0, sortPathParts.length-1);
             finalSortField = getOutputFieldName(sField);
-            formattedSField = `${pAlias ? pAlias + '.' : ''}${finalSortField}`;
+            formattedSField = finalSortField; //`${finalAlias}.${finalSortField}`;
+console.log('db.get(): finalFields:', finalFields);
+console.log('db.get(): internalFinalFields:', internalFinalFields);
+console.log('db.get(): lookup fully qualified field:',formattedSField);
           }
 
           let order =
@@ -916,8 +974,11 @@ debug('obj:',utils.toYaml(obj));
           // Accumulate these sort fields for the sort on the final SELECT.
           // finalSortFields
           let finalSortFieldEntry = `${finalSortField} ${order} NULLS LAST`;
-          if (!finalSortFields.includes(finalSortFieldEntry)) {
-            finalSortFields.push(finalSortFieldEntry);
+          if (finalFields.includes(finalSortField) ||
+              internalFields.includes(finalSortField)) {
+            if (!finalSortFields.includes(finalSortFieldEntry)) {
+              finalSortFields.push(finalSortFieldEntry);
+            }
           }
         }
       }
@@ -1087,22 +1148,24 @@ debug('obj:',utils.toYaml(obj));
         finalOrderBy = '';
 
       // Pass on all fields of interest from parent to child output table.
+      // Unless they are special case internal-only fields for joining tables.
       let pObjConfig = objectChain[objectChain.length - 1],
         pObjPath = pObjConfig.objectPath,
         pObjPathParts = pObjPath.split('.'),
         pObjName = pObjPathParts[pObjPathParts.length - 1],
-        pObj = objects[pObjName],
-        fieldClauses =
-          makeFieldClauses(
-            addPrefixes(`${finalAlias}.`, allFinalFields),
-            allFinalFields);
+        pObj = objects[pObjName];
+      allFinalFields =
+        allFinalFields.filter(f => !allInternalFields.includes(f));
+      fieldClauses =
+        makeFieldClauses(
+          addPrefixes(`${finalAlias}.`, allFinalFields), allFinalFields);
 
       // If we looked up the previous object count, insert that field into our
       // accumulating allFinalFields list and as the first thing in our current
       // table request.
       if (pObjConfig.count) {
         let pObjFinalFieldPrefix =
-          pObjPath.replace(/\./g, '_').toLowerCase() + '__',
+            pObjPath.replace(/\./g, '_').toLowerCase() + '__',
           pObjAliasPlusFFP = `${finalAlias}.${pObjFinalFieldPrefix}`,
           pCountField = `${pObjFinalFieldPrefix}count`,
           pCountFieldClause = `${finalAlias}_count.count AS ${pCountField}`;
@@ -1122,35 +1185,8 @@ debug('obj:',utils.toYaml(obj));
             `\n       ${finalCountJoin}` :
             '';
       }
+
       finalFieldClauses = fieldClauses.join(',\n       ');
-
-/*
-      TODO: START HERE:
-      replace `{{finalWithAlias}}.{{outputName(rootCollectionPath)}}__count AS {{outputName(rootCollectionPath)}}__count`
-      with `{{rootObjectPathAlias}}_count.count AS {{outputName(rootCollectionPath)}}__count`
-      in finalFieldClauses
-
-      add to finalCountJoin:
-      RIGHT JOIN {{rootObjectPathAlias}}_count ON {{finalWithAlias}}.{{parentOfRootOutputPath}}__{{parentOfRootPrimaryId}} = {{rootObjectPathAlias}}_count.{{parentOfRootOutputPath}}__{{parentOfRootPrimaryId}}
-      OR {{finalWithAlias}}.{{parentOfRootOutputPath}}__{{parentOfRootPrimaryId}} = NULL
-
-       b_p_r_ad.bands__id AS bands__id,
-++     b_p_count.count AS bands_people__count,
---     --b_p_r_ad.bands_people__count AS bands_people__count,
-       b_p_r_ad.bands_people__id AS bands_people__id,
-       b_p_r_ad.bands_people__name AS bands_people__name,
-       b_p_r_ad.bands_people_roles__count AS bands_people_roles__count,
-       b_p_r_ad.bands_people_roles__id AS bands_people_roles__id,
-       b_p_r_ad.bands_people_roles__name AS bands_people_roles__name,
-       b_p_r_ad.bands_people_roles_activedates__id AS bands_people_roles_activedates__id,
-       b_p_r_ad.bands_people_roles_activedates__from AS bands_people_roles_activedates__from,
-       b_p_r_ad.bands_people_roles_activedates__until AS bands_people_roles_activedates__until
-         FROM b_p_r_ad
-++     RIGHT JOIN b_p_count ON b_p_r_ad.bands__id = b_p_count.band_id
-++     OR b_p_r_ad.bands__id = NULL
-       ORDER BY
-       bands_people__id ASC NULLS LAST;
-*/
 
       // Add final sort order.
       if (finalSortFields.length > 0) {

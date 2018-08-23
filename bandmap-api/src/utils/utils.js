@@ -9,96 +9,13 @@ const debug = require('debug')('band-map-api'),
 */
 
 /**
-  Error and Warning Handling
+  General Purpose Utilities
 */
 
-let
-
-  /**
-    Queued warnings may be sent attached to completed responses in a "warnings"
-    field, depending on the response type.
-  */
-  queueAPIWarning = (
-    req,
-    statusCode = 500, // API Warning status codes will be returned only if a
-                      // warning gets elevated to an error.
-    code = 'server-warning',
-    msg = 'Unknown server warning.'
-    ) => {
-    let warnings = req.bandMap ? req.bandMap.warnings || [] : [];
-    warnings.push({
-      statusCode: statusCode,
-      code: code,
-      message: msg
-    });
-  },
-
-  /**
-    Errors can be queued before being thrown.  This can be useful in situations
-    like input validation where we might want to collect errors until the end
-    and wait to inform the user of multiple potential problems with the input.
-    at once.
-    The errors will appear in order, first queued at the top, and the HTTP
-    status code returned will be that of the first error. 
-    We also include a 'code' field on errors, separate and more specific than
-    the status code, but easier to parse than the full message.
-  */
-  queueAPIError = (
-    req,
-    statusCode = 500,
-    code = 'server-error',
-    msg = 'Unknown server error.'
-  ) => {
-    let errors = req.bandMap ? req.bandMap.errors || [] : [],
-      err = new Error(msg);
-    err.code = code;
-    err.statusCode = statusCode;
-    errors.push(err);
-  },
-
-  /**
-  Throw queued API errors if there are any, otherwise do nothing.
-  We throw the first one, but the error handler will check the queue and return
-  them all if there are more, along with warnings.
-  */
-  throwQueuedAPIErrors = req => {
-    let errors = req.bandMap ? req.bandMap.errors || [] : [];
-    if (errors.length > 0) {
-      throw errors[0];
-    }
-  },
-
-  throwAPIError = (
-    req,
-    statusCode = 500,
-    code = 'server-error',
-    msg = 'Unknown server error.') => {
-    queueAPIError(req, statusCode, code, msg);
-    throwQueuedAPIErrors(req);
-  },
-
-  initAPIErrorHandling = req => {
-    req.bandMap = req.bandMap || {};
-    req.bandMap.errors = [];
-    req.bandMap.warnings = [];
-    req.queueAPIWarning = (statusCode, code, msg) =>
-      queueAPIWarning(req, statusCode, code, msg);
-    req.queueAPIError = (statusCode, code, msg) =>
-      queueAPIError(req, statusCode, code, msg);
-    req.throwQueuedAPIErrors = () =>
-      throwQueuedAPIErrors(req);
-    req.throwAPIError = (statusCode, code, msg) =>
-      throwAPIError(req, statusCode, code, msg);
-  },
-
-  /**
-    General Purpose Utilities
-  */
-
-  /**
-  Type checking.
-  */
-  isNumeric = val => !isNaN(parseFloat(val)) && isFinite(val),
+/**
+Type checking.
+*/
+let isNumeric = val => !isNaN(parseFloat(val)) && isFinite(val),
 
   isObject = val => toString.call(val) === '[object Object]',
 
@@ -386,8 +303,6 @@ let
   };
 
 module.exports = {
-  initAPIErrorHandling,
-
   isNumeric,
   isObject,
   isMap,

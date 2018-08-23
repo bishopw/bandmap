@@ -32,7 +32,7 @@ The API should be:
 
  - Useful: The interfaces thoroughly cover everything devs actually need to make cool band mappy stuff.  All the Seattle Band Map data are easily available in whatever form is needed.
 
- - Efficient: The service responds fast and is conscientious of bandwidth.  Transactions can easily be tailored to be as lean or as thorough as needed for any given request for any given app.
+ - Efficient: The service responds fast and is conscientious about bandwidth.  Transactions can easily be tailored to be as lean or as thorough as needed for any given request for any given app.
 
  - Secure: Standards-based encryption ensures transactions are private so apps don't expose their communications to the rest of the web.  Standards-based authorization ensures the app and the API can trust each other to be who they say they are.
 
@@ -212,7 +212,7 @@ This section contains some further technical clarification about collections and
 
 On a PATCH or PUT, if you specify an internal subcollection, it will be completely replaced with the array of existing or new items you specify for it.  To instead modify or replace the items in the internal subcollection themselves, use PATCH or PUT at the relevant URL subcollection.
 
-Similarly, on a PATCH or PUT, to remove items from an internal subcollection you must re-specify the entire array minus those items.  If you would prefer, you can instead remove individual items by using DELETE at the relevant URL subcollection.
+Similarly, on a PATCH or PUT, to remove items from an internal subcollection you must re-specify the entire array minus those items.  If you would prefer, you can instead remove individual items or sets of items by using DELETE at the relevant URL subcollection.
 
 
 FILTERING, SORTING, PAGING, AND OTHER API FEATURES
@@ -292,7 +292,11 @@ The API provides two main access points to documentation:
 
 2) Browse the full API-synched online reference documentation provided at:
 
-  https://www.seattlebandmap.com/api-docs
+  https://www.seattlebandmap.com/docs
+
+  or for a specific API version:
+
+  https://www.seattlebandmap.com/docs-<version>
 
 
 CACHING

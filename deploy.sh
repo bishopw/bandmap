@@ -71,8 +71,11 @@ docker-compose up -d --build
 # sleep 3s
 # docker container rm -f bandmap_api_1
 # cd $BANDMAP_API_ROOT
-# export BANDMAP_ROOT=/media/bishop/Data00/data/bandmap-repos; export BANDMAP_CODEGEN_ROOT=$BANDMAP_ROOT/bandmap-swagger-codegen; export SWAGGER_CONFIG=$BANDMAP_ROOT/bandmap/scripts/swagger-generator/swagger.yaml; export SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap-swagger-ui/dist/bandmap-api.yaml; export BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api;
 # export DEBUG=band-map-api,swagger-tools:middleware:metadata,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:router,swagger-tools:middleware:ui,sql:pg
 # export DEBUG=band-map-api,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:ui,sql:pg
 # npm start
 
+# Full exports command:
+# export BANDMAP_ROOT=/media/bishop/Data00/data/bandmap-repos; export BANDMAP_CODEGEN_ROOT=$BANDMAP_ROOT/bandmap-swagger-codegen; export SWAGGER_CONFIG=$BANDMAP_ROOT/bandmap/scripts/swagger-generator/swagger.yaml; export SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap-swagger-ui/dist/bandmap-api.yaml; export BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api; export DEBUG=band-map-api,swagger-tools:middleware:metadata,swagger-tools:middleware:security,swagger-tools:middleware:validator,swagger-tools:middleware:router,swagger-tools:middleware:ui,sql:pg
+# Latest exports command:
+# export BANDMAP_ROOT=/media/bishop/Data00/data/bandmap-repos; export BANDMAP_CODEGEN_ROOT=$BANDMAP_ROOT/bandmap-swagger-codegen; export SWAGGER_CONFIG=$BANDMAP_ROOT/bandmap/scripts/swagger-generator/swagger.yaml; export SWAGGER_CONFIG_OUT=$BANDMAP_ROOT/bandmap-swagger-ui/dist/bandmap-api.yaml; export BANDMAP_API_ROOT=$BANDMAP_ROOT/bandmap/bandmap-api; export DEBUG=band-map-api,sql:pg

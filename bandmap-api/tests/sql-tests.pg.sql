@@ -1,23 +1,82 @@
 ﻿/*
-7.28 GET tests work with new code org and refactored codepath
+4 Test Smoke
+http://localhost:3000/api/bands/?limit=4&offset=98
+http://localhost:3000/api/bands/?limit=4&offset=98&fields=bands.name,bands.peopleCount,bands.connectedBandsCount,bands.citiesCount,bands.clickCount&sort=bands.clickCount:desc
+http://localhost:3000/api/bands/wimps
+http://localhost:3000/api/bands/wimps/people
+http://localhost:3000/api/connections
 
-  14  api & docs running, debuggable.
-  15  git in order
-  35  think about new code and class layout, read through design doc again
-  14  mess with swagger-ui config /docs vs. /api-docs URI
-      move files to new directory layout
-      implement new codepaths piecemeal, one test at a time for the endpoints under test
-        http://localhost:3000/api/bands/?limit=4&offset=988
+Band Map 2.0: 00/16:
+  07.22 (01/16): Plan Refactoring.
+  07.29 (02/16): Refactoring.  14  api & docs running, debuggable.  15  git in order.  35  think about new code and class layout, read through design doc again.  14  mess with swagger-ui config /docs vs. /api-docs URI.  12  move files to new directory layout.  25  implement new codepaths piecemeal, one test at a time for the endpoints under test.  25    api-handler, error-handler.        request.        http://localhost:3000/api/bands/?limit=4&offset=988.
+  08.04 (03/16): Get Connections.get all connections: http://localhost:3000/api/connections.25  get all connections: http://localhost:3000/api/connections.  25  split off new codepath through collection-handler for /api/connections.  25  what parts of Request should be preserved and what should be made vestigial?  25  it kind of looks ok...database.js is the mess...      maybe splitting off a new codepath is not the right answer.  25  maybe try to get connections to work there and refactor it later?  25  augment db "objects" lookup with aliased objects like band1 band2 (=>bands).  25  tlo lookup fails for e.g. 'band1'... just make it alias the band tlo?      sophisticate the object.fields member just enough to allow composite ids.  50  or use withClause member?
+  08.05        : Get Connections.  25  get all connections.  25  using withClause member for connections object.  12  add database.js internal-use only db fields for band_1_id, band_2_id.  15  fix can't find primary id for nonexistent tloName 'band2'/'band1' - make alias tlos.  25  fix band1 and band2 are empty -  150  assembleResultObject() not adding 'id', 'link', 'name' fields...      default order by (band_1_id,band_2_id).
+  08.06 (04/16): Get Connections.  75  fix assembleResultObject() not adding 'id', 'link', 'name' fields.      fix band1.link and band2.link fucked up.  50  default order by (band_1_id,band_2_id).
+  08.19 (05/16): Get Connections.  25  sort by band1id, band2id.  25  connections_band1__id does not exist.  25  the sort parent path should actually always be the last leaf node.  25  because that is where you'll find the ids?.  25  column b_p.bands_people__id does not exist.  40  hardcoded band_1_id/band_2_id don't error, but aren't applied.
 
-GET tests to work with new code org and refactored codepath
-                 wiki-style CRUD ops on bands/connections w/ history and rollback
-                 new admin page
+      sort by band1id, band2id.
+      fix parseSort is trimming the special case connections fields.
 
-Finish GET functionality for needed endpoints - test/specs first.
-Finish POST/PATCH/PUT/DELETE for needed endpoints.
-Wiki style auditable/revertable edit history - sessions, edits, sources, citations.
-New DB migration script that goes through API.
-New admin UI interface - approve/revert edits individually or by session/user batch.
+what happens on band1/band2 leaves?
+
+finalFieldPrefix: bands_people__
+db.get(): lookup fully qualified field: b_p.bands_people__id
+...b_p_ad.bands_people__id AS bands_people__id...
+SequelizeDatabaseError: column b_p.bands_people__id does not exist
+
+finalFieldPrefix: bands_people__
+                  connections_band1__
+
+fetchData 656-993
+fetchDataLeaf 517-628
+db.get 715-1203
+
+                 Some jasmine node smoke tests - at least for 200 status.
+                 GET tests work with new code org and refactored codepath.
+                 wiki-style CRUD ops on bands/connections w/ history and rollback.
+                 New DB migration script that goes through API.
+                 New admin UI interface - approve/revert edits individually or by session/user batch.
+                 Internet Staging Site
+           8/16: 1.0 parity
+          12/16:
+          16/16
+  Due eod 11.24:
+              Weekend Days till 11.25:      37 (19*2)-1
+                   Minus Known Events: -10: 27 (incl. babysit 07.21)
+  Minus 1C Time Tracker To v.1.0 Days:  -2: 25
+     Minus Typical Event Distribution:  -2: 23
+         Minus 2 Lenity/Games Days/Mo:  -7: 16
+
+sort: { 'connections.id': 'asc' } => { id: 'asc' }
+vs special case sort: { 'connections.band1.id': 'asc', 'connections.band2.id': 'asc' }
+  => { id: 'asc' }
+{
+  "link": "https://localhost:3000/api/connections?limit=1",
+  "offset": 0,
+  "limit": 1,
+  "total": 5384,
+  "connections": [
+    {
+      "id": "1-214",
+      "link": "https://localhost:3000/api/connections/1-214",
+      "band1": {
+        "id": 1,
+        "link": "https://localhost:3000/api/bands/1",
+        "name": "141"
+      },
+      "band2": {
+        "id": 214,
+        "link": "https://localhost:3000/api/bands/214",
+        "name": "D-Sane"
+      },
+      "description": ""
+    }
+  ],
+  "connectionsCount": 1,
+  "first": "https://localhost:3000/api/connections?limit=1",
+  "next": "https://localhost:3000/api/connections?limit=1&offset=1",
+  "last": "https://localhost:3000/api/connections?limit=1&offset=5383"
+}
 
 Instead of the problematic, brittle concept of ranges of active dates, shouldn't we just store band events like shows, album/song releases, and posts?  Isn't band activity more like a heat map of past events than a set of specific ranges?  What about band person role active dates and band city active dates?
 Consider dated events: Show, Album, Song, Post/Article/Interview
@@ -25,6 +84,8 @@ How do we model the joining/leaving of people from bands over time?
 Does each band event have to have an associated band lineup?  Seems too burdensome.
 What about the location of bands and possible changes over time (La Luz moves from Seattle to L.A.)?
 Is/are a band's city(ies) just the city(ies) with the most or the most recent band events?
+
+Future: switch to actually using sequelize orm
 
 Future bandmap-api module organization:
 
@@ -42,14 +103,16 @@ bandmap-api
       response          - band-map-specific response functionality: mostly a helper for collection handlers to map db output back to response fields, validation with swagger
       filter
       sort
-    handlers
-      api               - entry point, request pre-processing, and initial routing to appropriate target handler
-      error
-      directory
       collection        - base class for all collection handlers in collections dir
       collection-item   - base class for all collection item handlers in collections dir
-    collections         - collection and collection-item handlers: contain collection-specific swagger<->db field mappings, SQL queries (could later be stored procs) specific to retrieving each collection.
-      bands
+    handlers
+      api-handler       - entry point, request pre-processing, and initial routing to appropriate target handler
+      error-handler
+      directory-handler
+      collection-handler
+      collection-item-handler
+    collections         - collection and collection-item handlers: contain collection-specific swagger<->db field mappings, SQL queries (could later be stored procs),
+      bands               and any other logic or data specific to each collection.
       people
       roles
       connections
@@ -79,7 +142,7 @@ resolved bugs:
 1.0 Parity Test/Specs (duplicated from main list below):
 Backend:
   ✔ get all bands: http://localhost:3000/api/bands/?no-fields=bands.link,bands.connectedBands
-    get all connections: http://localhost:3000/api/connections
+  ✔ get all connections: http://localhost:3000/api/connections
 In App:
     submit a connection (band1, band2, reason) => 
     submit a band (name, city, state, website, members, connected bands) => 
