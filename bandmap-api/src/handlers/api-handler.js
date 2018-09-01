@@ -194,6 +194,7 @@ class ApiHandler {
       apiPrefix: apiPrefix,
       dbPrefix: dbPrefix,
     });
+    let rootTLO = tloNames.byNameForm.camelCasePlural[rootCollection];
 
     // Do extra parameter parsing and preparation needed for collections and
     // collection items.
@@ -204,6 +205,14 @@ class ApiHandler {
       let {
         fieldList
       } = schemaParser.parseSchema(req);
+      // Special case: attach internal composite id field parts
+      // (band_1_id/band_2_id) for connections so we can sort on them.
+      if (rootTLO.singular === 'connection') {
+        Object.assign(fieldList, {
+          'connections.band_1_id': 'integer',
+          'connections.band_2_id': 'integer'
+        });
+      }
 
       // Parse parameters and requested fields and validate against JSON schema.
       let fieldListKeys = Array.from(Object.keys(fieldList)),
@@ -237,16 +246,11 @@ class ApiHandler {
       // Specify a default sort for collections and collectionItems if none
       // was given.
       let sort = [],
-        rootTLO = tloNames.byNameForm.camelCasePlural[rootCollection],
         defaultSort = [`${apiPrefix}${rootTLO.primaryId}`.toLowerCase()],
         alreadyIncluded = false;
       // Special case for connection default sort:
       if (rootTLO.singular === 'connection') {
-        defaultSort = [
-          `${apiPrefix}band_1_id`,
-          `${apiPrefix}band_2_id`,
-          `${apiPrefix}id` // Last resort - use the id that's on every leaf.
-        ];
+        defaultSort = [`${apiPrefix}band_1_id`, `${apiPrefix}band_2_id`];
       }
       params.sort.forEach(p => {
         if (defaultSort.includes(p.split(':')[0].toLowerCase())) {
@@ -267,7 +271,6 @@ class ApiHandler {
           icFieldListKeys,
           params.sort
         );
-console.log('api-handler: early sort:',sort);
 
       // Prepare Filtering.
       // Parse and validate the "filter" query argument if one was given.
@@ -364,7 +367,6 @@ console.log('api-handler: early sort:',sort);
         sortDB[dbFieldName] = sort[apiFieldName];
       });
       sort = sortDB;
-console.log('api-handler: sort:',sort);
 
       // Add completed parse results to req.bandMap for reference.
       Object.assign(req.bandMap, {

@@ -150,9 +150,9 @@ const
         {{fields}}
         FROM (
           SELECT
-          band_1_id || '-' || band_2_id AS id,
           band_1_id,
           band_2_id,
+          band_1_id || '-' || band_2_id AS id,
           description AS description
           FROM connections
         ) AS {{alias}}
@@ -947,7 +947,6 @@ let getSpecialCaseFieldName = dbFieldName => {
             }
             formattedSField =
               `${alias}.${obj.fields[nameFromPath(sField)][COLUMN_NAME]}`;
-console.log('db.get(): lookup immediate field:',formattedSField);
 
           // Fully qualified field.  Translate it to output field format
           // and prepend previous object alias (.
@@ -960,9 +959,6 @@ console.log('db.get(): lookup immediate field:',formattedSField);
             sortPathParts = sortPathParts.slice(0, sortPathParts.length-1);
             finalSortField = getOutputFieldName(sField);
             formattedSField = finalSortField; //`${finalAlias}.${finalSortField}`;
-console.log('db.get(): finalFields:', finalFields);
-console.log('db.get(): internalFinalFields:', internalFinalFields);
-console.log('db.get(): lookup fully qualified field:',formattedSField);
           }
 
           let order =

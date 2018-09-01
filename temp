@@ -1,0 +1,17 @@
+
+> bandmap-api-server@1.0.0 prestart /Users/bishop/Documents/bandmap-repos/bandmap/bandmap-api
+> npm install
+
+removed 7 packages in 1.691s
+
+> bandmap-api-server@1.0.0 start /Users/bishop/Documents/bandmap-repos/bandmap/bandmap-api
+> node index.js
+
+2018-03-31T17:46:45.150Z swagger-tools:middleware:validator Initializing swagger-validator middleware
+2018-03-31T17:46:45.152Z swagger-tools:middleware:validator   Response validation: disabled
+2018-03-31T17:46:45.163Z swagger-tools:middleware:ui Initializing swagger-ui middleware
+2018-03-31T17:46:45.163Z swagger-tools:middleware:ui   Using swagger-ui from: internal
+2018-03-31T17:46:45.163Z swagger-tools:middleware:ui   API Docs path: /api-docs
+2018-03-31T17:46:45.169Z swagger-tools:middleware:ui   swagger-ui path: /docs
+Your server is listening on port 3000 (http://localhost:3000)
+Swagger-ui is available on http://localhost:3000/docs

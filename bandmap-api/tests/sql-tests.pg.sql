@@ -13,23 +13,15 @@ Band Map 2.0: 00/16:
   08.05        : Get Connections.  25  get all connections.  25  using withClause member for connections object.  12  add database.js internal-use only db fields for band_1_id, band_2_id.  15  fix can't find primary id for nonexistent tloName 'band2'/'band1' - make alias tlos.  25  fix band1 and band2 are empty -  150  assembleResultObject() not adding 'id', 'link', 'name' fields...      default order by (band_1_id,band_2_id).
   08.06 (04/16): Get Connections.  75  fix assembleResultObject() not adding 'id', 'link', 'name' fields.      fix band1.link and band2.link fucked up.  50  default order by (band_1_id,band_2_id).
   08.19 (05/16): Get Connections.  25  sort by band1id, band2id.  25  connections_band1__id does not exist.  25  the sort parent path should actually always be the last leaf node.  25  because that is where you'll find the ids?.  25  column b_p.bands_people__id does not exist.  40  hardcoded band_1_id/band_2_id don't error, but aren't applied.
+  08.23        : Get Connections.sort by band1id, band2id.  25  fix parseSort is trimming the special case connections fields.  25  fix db field name filtering is trimming them now - special case hack fieldList.
+               : Fix 1.0 Parity GETs.
 
-      sort by band1id, band2id.
-      fix parseSort is trimming the special case connections fields.
+      fix non-primary key sort field no longer included sometimes for final sort:
+        http://localhost:3000/api/bands/?limit=10&sort=bands.name
+        http://localhost:3000/api/bands/?limit=10&sort=bands.clickcount
+      diff and see what you fucked up in the final query/final sort prep.
 
-what happens on band1/band2 leaves?
-
-finalFieldPrefix: bands_people__
-db.get(): lookup fully qualified field: b_p.bands_people__id
-...b_p_ad.bands_people__id AS bands_people__id...
-SequelizeDatabaseError: column b_p.bands_people__id does not exist
-
-finalFieldPrefix: bands_people__
-                  connections_band1__
-
-fetchData 656-993
-fetchDataLeaf 517-628
-db.get 715-1203
+git diff --full-index 90fa55db7690a308e1f57d3ec0e2bd69305a3f41 c3de7fc81f4e751e6cc09b37d08fb6ad6025fb0c > ~/diff-name.diff
 
                  Some jasmine node smoke tests - at least for 200 status.
                  GET tests work with new code org and refactored codepath.
@@ -46,37 +38,6 @@ db.get 715-1203
   Minus 1C Time Tracker To v.1.0 Days:  -2: 25
      Minus Typical Event Distribution:  -2: 23
          Minus 2 Lenity/Games Days/Mo:  -7: 16
-
-sort: { 'connections.id': 'asc' } => { id: 'asc' }
-vs special case sort: { 'connections.band1.id': 'asc', 'connections.band2.id': 'asc' }
-  => { id: 'asc' }
-{
-  "link": "https://localhost:3000/api/connections?limit=1",
-  "offset": 0,
-  "limit": 1,
-  "total": 5384,
-  "connections": [
-    {
-      "id": "1-214",
-      "link": "https://localhost:3000/api/connections/1-214",
-      "band1": {
-        "id": 1,
-        "link": "https://localhost:3000/api/bands/1",
-        "name": "141"
-      },
-      "band2": {
-        "id": 214,
-        "link": "https://localhost:3000/api/bands/214",
-        "name": "D-Sane"
-      },
-      "description": ""
-    }
-  ],
-  "connectionsCount": 1,
-  "first": "https://localhost:3000/api/connections?limit=1",
-  "next": "https://localhost:3000/api/connections?limit=1&offset=1",
-  "last": "https://localhost:3000/api/connections?limit=1&offset=5383"
-}
 
 Instead of the problematic, brittle concept of ranges of active dates, shouldn't we just store band events like shows, album/song releases, and posts?  Isn't band activity more like a heat map of past events than a set of specific ranges?  What about band person role active dates and band city active dates?
 Consider dated events: Show, Album, Song, Post/Article/Interview
